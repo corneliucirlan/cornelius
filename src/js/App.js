@@ -85,20 +85,18 @@ const App = () => {
 	})
 
 	return (
-		<div className="App">
-
+		<div className='app-container'>
+``
 			<Metadata />
 
-			<div className='wrapper'>
-				<div className='container-fluid' ref={ref}>
-					<Header width={svgWidth} height={svgHeight} />
-					<Main />
-					<Footer footerHeight={footerHeight} />
-				</div>
-
-				<BackdropSVG width={svgWidth} height={svgHeight} className='footer-svg' topPosition={footerSVGTop} />
-
+			<div className='container-fluid' ref={ref}>
+				<Header width={svgWidth} height={svgHeight} />
+				<Main />
+				<Footer footerHeight={footerHeight} />
 			</div>
+
+			<BackdropSVG width={svgWidth} height={svgHeight} className='footer-svg' topPosition={footerSVGTop} />
+
 		</div>
 	)
 }
