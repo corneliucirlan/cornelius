@@ -86,7 +86,7 @@ const App = () => {
 
 	return (
 		<div className='app-container'>
-``
+
 			<Metadata />
 
 			<div className='container-fluid' ref={ref}>
