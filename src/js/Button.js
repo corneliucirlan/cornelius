@@ -1,22 +1,10 @@
 import React from 'react'
 
-// import { Event } from './Tracking'
-
 const Button = props => {
 
-    function ClickHandler(event) {
-        event.preventDefault()
-
-        // Track event in Google Analytics
-        // Event('Homepage', 'Click', 'Footer contact')
-
-        window.open(props.href, 'emailWindow')
-    }
-
-    return (
-        // <button onClick={ClickHandler} className='btn btn-primary' title={props.title}>{props.value}</button>
-        <a href={props.href} className='btn btn-primary' title={props.title}>{props.value}</a>
-    )
+	return (
+		<a href={props.href} className='btn btn-primary cta-contact' title={props.title}>{props.value}</a>
+	)
 }
 
 export default Button
