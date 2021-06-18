@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Event } from './Tracking'
+// import { Event } from './Tracking'
 
 const Button = props => {
 
@@ -8,7 +8,7 @@ const Button = props => {
         event.preventDefault()
 
         // Track event in Google Analytics
-        Event('Homepage', 'Click', 'Footer contact')
+        // Event('Homepage', 'Click', 'Footer contact')
 
         window.open(props.href, 'emailWindow')
     }

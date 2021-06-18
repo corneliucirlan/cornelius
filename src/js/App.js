@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { isMobile, isMobileOnly } from 'react-device-detect'
 import useDimensions from 'react-use-dimensions'
 
-import { initGA, PageView } from './Tracking'
+import TagManager from 'react-gtm-module'
 import Metadata from './Metadata'
 
 import Header from './Header'
@@ -13,15 +13,18 @@ import BackdropSVG from './backdropSVG'
 import './../css/App.sass'
 
 const App = () => {
-
+	
 	// Fire ReactGA only once
 	useEffect(() => {
-		
-		// Initialize ReacgGA
-		initGA('UA-63714956-1')
-	
-		// Track pageview
-		PageView()
+
+		// Configure GTM
+		const tagManagerArgs = {
+			gtmId: 'GTM-THXDKJ3'
+		}
+
+		// Initialize GTM
+		TagManager.initialize(tagManagerArgs)
+
 	}, [])
 
 	// dividerTop
