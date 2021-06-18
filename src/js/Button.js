@@ -14,7 +14,8 @@ const Button = props => {
     }
 
     return (
-        <button onClick={ClickHandler} className='btn btn-primary' title={props.title}>{props.value}</button>
+        // <button onClick={ClickHandler} className='btn btn-primary' title={props.title}>{props.value}</button>
+        <a href={props.href} className='btn btn-primary' title={props.title}>{props.value}</a>
     )
 }
 
