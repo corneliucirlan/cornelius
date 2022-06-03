@@ -1,0 +1,20 @@
+.btn
+	box-shadow: $box-shadow
+	text-transform: uppercase
+	z-index: 2
+	position: absolute
+	right: 0
+
+	&.btn-primary
+		@include button-variant($blue, $blue, $hover-color, $hover-color, $hover-color, $hover-color)
+		color: $white
+		width: 100%
+
+		@include media-breakpoint-up(sm)
+			width: fit-content
+
+		@include media-breakpoint-up(lg)
+			@include button-variant($bg-color, $bg-color, $hover-color, $hover-color, $hover-color, $hover-color)
+			color: $blue
+			bottom: 0
+			left: 0

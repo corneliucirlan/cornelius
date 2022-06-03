@@ -1,0 +1,8 @@
+@mixin current-color($current-color)
+    use
+        &.logo
+            color: $current-color
+
+    svg
+        path
+            all: inherit

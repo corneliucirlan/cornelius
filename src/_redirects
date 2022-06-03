@@ -1,0 +1,2 @@
+# Redirect default Netlify subdomain to primary domain
+https://corneliucirlan.netlify.app/* https://www.corneliucirlan.com/:splat 301!

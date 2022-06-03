@@ -1,0 +1,63 @@
+// Social icons
+.social-icons
+	display: block
+	width: 100%
+	list-style: none
+	z-index: 2
+	padding: 0
+	overflow: hidden
+
+	.social-icon
+		display: inline-block
+		margin: 2rem 2rem 2rem 0
+
+	@include media-breakpoint-up(xl)
+		justify-content: space-between
+		display: flex
+		flex-wrap: no-wrap
+		width: auto
+		padding: 0
+
+	// Icons
+.icon
+	@include transition
+	fill: $text-color
+	height: 2 * $font-size-base
+	width: 3 * $font-size-base
+
+	.service-title &
+		fill: $black
+		height: 3.2rem
+
+	@include media-breakpoint-up(xl)
+		display: initial
+		fill: $bg-color
+
+	&:not(.icon-logo):hover
+		fill: $hover-color
+
+	&.icon-service:hover
+		fill: inherit
+
+	// Logo icon
+	&.icon-logo
+		fill: $text-color
+		margin-bottom: 2 * $spacer
+		height: 6.4 * $font-size-base
+		max-width: 6.4 * $font-size-base
+		width: 100%
+		@include current-color($current-color)
+
+		@include media-breakpoint-up(md)
+			margin-bottom: 4rem
+			height: 8 * $font-size-base
+			max-width: 8 * $font-size-base
+			width: 100%
+
+		@include media-breakpoint-up(lg)
+			display: initial
+
+		// Logo footer
+		&.icon-logo-footer
+			fill: $bg-color
+			@include current-color($bg-color)
