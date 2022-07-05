@@ -1,31 +1,9 @@
-// Helvetica Now Display Black
-@font-face
-    font:
-        family: 'Helvetica Now Display'
-        weight: normal
-        style: normal
-    src: url('../../assets/fonts/HelveticaNowDisplay/HelveticaNowDisplay-Black.ttf') format('truetype')
+$fonts: (('Helvetica Now Display', normal, normal, '../../assets/fonts/HelveticaNowDisplay/HelveticaNowDisplay-Black.ttf'), ('Roboto', 300, normal, '../../assets/fonts/Roboto/Roboto-Light.ttf'), ('Roboto', normal, normal, '../../assets/fonts/Roboto/Roboto-Regular.ttf'), ('Roboto', 900, normal, '../../assets/fonts/Roboto/Roboto-Black.ttf'))
 
-// Roboto Light
-@font-face
-    font
-        family: 'Roboto'
-        weight: 300
-        style: normal
-    src: url('../../assets/fonts/Roboto/Roboto-Light.ttf') format('truetype')
-
-// Roboto Regular
-@font-face
-    font
-        family: 'Roboto'
-        weight: normal
-        style: normal
-    src: url('../../assets/fonts/Roboto/Roboto-Regular.ttf') format('truetype')
-
-// Roboto Black
-@font-face
-    font
-        family: 'Roboto'
-        weight: 900
-        style: normal
-    src: url('../../assets/fonts/Roboto/Roboto-Black.ttf') format('truetype')
+@each $props in $fonts
+	@font-face
+		font
+			name: nth($props, 1)
+			weight: nth($props, 2)
+			style: nth($props, 3)
+		src: url(nth($props, 4)) format('truetype')
