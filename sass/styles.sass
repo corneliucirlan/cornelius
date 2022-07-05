@@ -1,29 +1,30 @@
-// Variables
-// @import 'variables'
-
-// Bootstrap functions, mixins, vars, utils
-@import 'bootstrap-utils'
+// Config
+@import 'bootstrap-config'
 
 // Root
 @import '~bootstrap/scss/root'
+@import 'components/root'
 
 // Reboot
-// @import '~bootstrap/scss/reboot'
+@import '~bootstrap/scss/reboot'
 
-// Bootstrap containers
-// @import '~bootstrap/scss/containers'
+// Type
+@import '~bootstrap/scss/type'
 
-// Bootstrap nav
-// @import '~bootstrap/scss/nav'
+// Containers
+@import '~bootstrap/scss/containers'
 
-// Bootstrap navbar
-// @import '~bootstrap/scss/navbar'
+// Grid
+@import '~bootstrap/scss/grid'
 
-// Buttons
-@import '~bootstrap/scss/buttons'
+// Nav
+@import '~bootstrap/scss/nav'
 
-body
-	color: $primary
-	background: $black
-	text-align: center
-	font-size: 3em
+// Navbar
+@import '~bootstrap/scss/navbar'
+
+// Fonts
+@import 'utils/fonts'
+
+// Navbar
+@import 'components/navbar'
