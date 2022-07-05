@@ -1,0 +1,30 @@
+$utilities: (
+	// Justify content
+	"justify-content": (
+		responsive: true,
+		property: justify-content,
+		values: (
+			end: flex-end,
+			// start: flex-start,
+			// center: center,
+			// between: space-between,
+			// around: space-around,
+			// evenly: space-evenly,
+		)
+	),
+
+	// Text transform
+	"text-transform": (
+		property: text-transform,
+		class: text,
+		values: uppercase capitalize
+	),
+
+	// Font sizes
+	// "font-size": (
+	// 	rfs: true,
+	// 	property: font-size,
+	// 	class: fs,
+	// 	values: $font-sizes
+	// ),
+)
