@@ -1,0 +1,36 @@
+.navbar
+	.container-fluid
+		padding-left: 0
+		padding-right: 0
+
+	.navbar-brand
+		font-weight: 900
+		transition: $navbar-brand-transition
+
+		&:hover
+			color: $navbar-light-hover-color
+
+			.cc-logo-bg
+				fill: $white
+				stroke: $navbar-light-hover-color
+
+			.cc-logo-lower,
+			.cc-logo-upper
+				fill: $navbar-light-hover-color
+
+
+		.navbar-brand-text
+			padding-left: $spacer * 2
+
+// CC SVG Logo
+.cc-logo
+
+	.cc-logo-bg
+		fill: $navbar-light-color
+		stroke: $navbar-light-color
+		transition: $navbar-brand-transition
+
+	.cc-logo-lower,
+	.cc-logo-upper
+		fill: $white
+		transition: $navbar-brand-transition
