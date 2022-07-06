@@ -2,7 +2,6 @@ import headerMenu from './data/headerMenu'
 import Logo from './Logo'
 
 export default () => {
-	console.log(headerMenu)
 	return (
 		<nav className='navbar navbar-expand-md bg-light text-uppercase'>
 			<div className='container-fluid'>
