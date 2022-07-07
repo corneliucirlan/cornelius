@@ -8,7 +8,7 @@ export default () => {
 
 				<a className='navbar-brand' href='/'>
 					<Logo />
-					<span className='navbar-brand-text text-capitalizem'>Corneliu Cîrlan</span>
+					<span className='navbar-brand-text text-capitalize'>Corneliu Cîrlan</span>
 				</a>
 				
 				<button className='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
