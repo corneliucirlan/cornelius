@@ -1,12 +1,12 @@
 $utilities: (
 	// Justify content
-	"justify-content": (
+	'justify-content': (
 		responsive: true,
 		property: justify-content,
 		values: (
 			end: flex-end,
 			// start: flex-start,
-			// center: center,
+			center: center,
 			// between: space-between,
 			// around: space-around,
 			// evenly: space-evenly,
@@ -14,14 +14,43 @@ $utilities: (
 	),
 
 	// Text transform
-	"text-transform": (
+	'text-transform': (
 		property: text-transform,
 		class: text,
 		values: uppercase capitalize
 	),
 
+	// Display
+	'display': (
+		responsive: false,
+		print: true,
+		property: display,
+		class: d,
+		values: flex
+	),
+
+	// Flex direction
+	'flex-direction': (
+		responsive: true,
+		property: flex-direction,
+		class: flex,
+		values: column 
+	),
+
+	// Text alignment
+	"text-align": (
+		responsive: true,
+		property: text-align,
+		class: text,
+		values: (
+			// start: left,
+			// end: right,
+			center: center,
+		)
+	),
+
 	// Font sizes
-	// "font-size": (
+	// 'font-size': (
 	// 	rfs: true,
 	// 	property: font-size,
 	// 	class: fs,
