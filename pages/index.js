@@ -2,6 +2,8 @@ import Head from 'next/head'
 
 import Header from '../components/Header'
 
+import styles from '../sass/modules/Index.module.sass'
+
 export default (dribbbleShots) => {
 
 	console.log(dribbbleShots)
@@ -14,13 +16,63 @@ export default (dribbbleShots) => {
 
 			<Header />
 
+			<div className={styles.scrolldown}>
+				<div className={styles.mousey}>
+					<div className={styles.scroller}></div>
+				</div>
+			</div>
+
 			<main>
-				<h4 className='text-uppercase'>Corneliu Cîrlan</h4>
-				<h1>Website and user experience designer</h1>
-				
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam metus ipsum, malesuada sed volutpat id, dignissim vitae quam. Maecenas nibh leo, laoreet eget nisi ac, sagittis imperdiet libero. Integer a mollis augue. Curabitur tristique felis in massa ultrices interdum. Integer tristique ac metus nec molestie. Donec sed bibendum elit, vitae condimentum metus. Suspendisse consequat magna nec ullamcorper iaculis. Fusce magna velit, tempus ultricies finibus a, facilisis vel nisi. Fusce quis ultricies nibh. Nam et mauris ac massa ultricies malesuada. Aliquam congue in mauris eu lobortis.
-				</p>
+				<span className={`text-center ${styles.background}`}>designer</span>
+
+				{/* Hero Section */}
+				<section className={`row ${styles.hero}`}>
+					<div className='col-12 col-md-6 d-flex flex-column justify-content-center'>
+						<h4 className='text-uppercase'>Corneliu Cîrlan</h4>
+						<h1>Website and user experience designer</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam metus ipsum, malesuada sed volutpat id, dignissim vitae quam. Maecenas nibh leo, laoreet eget nisi ac, sagittis imperdiet libero. Integer a mollis augue. Curabitur tristique felis in massa ultrices interdum. Integer tristique ac metus nec molestie. Donec sed bibendum elit, vitae condimentum metus. Suspendisse consequat magna nec ullamcorper iaculis. Fusce magna velit, tempus ultricies finibus a, facilisis vel nisi. Fusce quis ultricies nibh. Nam et mauris ac massa ultricies malesuada. Aliquam congue in mauris eu lobortis.</p>
+					</div>
+				</section>
+
+				{/* Curated Projects Section */}
+				<section className={`row ${styles.index}`}>
+					<h4 className='text-uppercase'>Curated Projects</h4>
+					<h1>Case studies</h1>
+					{dribbbleShots.posts.map((shot, index) =>
+						<div className='col-12 col-md-4' key={index}>
+							<img src={shot.images.normal} />
+						</div>
+					)}
+				</section>
+
+				{/* Personal Projects Section */}
+				<section className={`row ${styles.index}`}>
+					<h4 className='text-uppercase'>Side Hussles</h4>
+					<h1>Personal Projects</h1>
+					{dribbbleShots.posts.map((shot, index) =>
+						<div className='col-12 col-md-4' key={index}>
+							<img src={shot.images.normal} />
+						</div>
+					)}
+				</section>
+
+				{/* Latest on Dribbble Section */}
+				<section className={`row ${styles.index}`}>
+					<h4 className='text-uppercase'>Whst's new</h4>
+					<h1>Latest on Dribbble</h1>
+					{dribbbleShots.posts.map((shot, index) =>
+						<div className='col-12 col-md-4' key={index}>
+							<img src={shot.images.normal} />
+						</div>
+					)}
+				</section>
+
+				{/* Let's work together */}
+				<section className={`row text-center ${styles.index}`}>
+					<h4 className='text-uppercase'>Have a project in mind?</h4>
+					<h1><a href='#'>Let's work together</a></h1>
+				</section>
+
 			</main>
 		</div>
 	)
