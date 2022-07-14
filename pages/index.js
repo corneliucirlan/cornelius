@@ -4,9 +4,9 @@ import Header from '../components/Header'
 
 import styles from '../sass/modules/Index.module.sass'
 
-export default (dribbbleShots) => {
+export default (posts) => {
 
-	console.log(dribbbleShots)
+	console.log(posts)
 
 	return (
 		<div className='container'>
@@ -38,7 +38,7 @@ export default (dribbbleShots) => {
 				<section className={`row ${styles.index}`}>
 					<h4 className='text-uppercase'>Curated Projects</h4>
 					<h1>Case studies</h1>
-					{dribbbleShots.posts.map((shot, index) =>
+					{posts.dribbblePosts.map((shot, index) =>
 						<div className='col-12 col-md-4' key={index}>
 							<img src={shot.images.normal} />
 						</div>
@@ -49,7 +49,7 @@ export default (dribbbleShots) => {
 				<section className={`row ${styles.index}`}>
 					<h4 className='text-uppercase'>Side Hussles</h4>
 					<h1>Personal Projects</h1>
-					{dribbbleShots.posts.map((shot, index) =>
+					{posts.dribbblePosts.map((shot, index) =>
 						<div className='col-12 col-md-4' key={index}>
 							<img src={shot.images.normal} />
 						</div>
@@ -60,9 +60,20 @@ export default (dribbbleShots) => {
 				<section className={`row ${styles.index}`}>
 					<h4 className='text-uppercase'>Whst's new</h4>
 					<h1>Latest on Dribbble</h1>
-					{dribbbleShots.posts.map((shot, index) =>
+					{posts.dribbblePosts.map((shot, index) =>
 						<div className='col-12 col-md-4' key={index}>
 							<img src={shot.images.normal} />
+						</div>
+					)}
+				</section>
+
+				{/* Latest on Instagram Section */}
+				<section className={`row ${styles.index}`}>
+					<h4 className='text-uppercase'>Whst's new</h4>
+					<h1>Latest on Instagram</h1>
+					{posts.igPosts.data.map((shot, index) =>
+						<div className='col-12 col-md-4' key={index}>
+							<img src={shot.media_url} />
 						</div>
 					)}
 				</section>
@@ -80,10 +91,16 @@ export default (dribbbleShots) => {
 
 export async function getStaticProps() {
 
+	const POSTS = 3
+
 	// Get latest shots from Dribbble
-	let response = await fetch(`https://api.dribbble.com/v2/user/shots?access_token=${process.env.DRIBBBLE_TOKEN}&per_page=3`)
-	let posts = await response.json()
+	let response = await fetch(`https://api.dribbble.com/v2/user/shots?access_token=${process.env.DRIBBBLE_TOKEN}&per_page=${POSTS}`)
+	let dribbblePosts = await response.json()
+
+	// Get latest IG posts
+	response = await fetch(`https://graph.instagram.com/v14.0/me/media?fields=id,caption,media_url&limit=${POSTS}&access_token=${process.env.INSTAGRAM_TOKEN}`)
+	let igPosts = await response.json()
 
 	// Return latest shots
-	return {props: {posts: posts}}
+	return {props: {dribbblePosts: dribbblePosts, igPosts: igPosts}}
 }
