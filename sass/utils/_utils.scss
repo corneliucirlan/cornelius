@@ -5,12 +5,25 @@ $utilities: (
 		property: justify-content,
 		values: (
 			end: flex-end,
-			// start: flex-start,
+			start: flex-start,
 			center: center,
 			// between: space-between,
 			// around: space-around,
 			// evenly: space-evenly,
 		)
+	),
+
+	// Align items
+	'align-items': (
+		responsive: true,
+		property: align-items,
+			values: (
+				// start: flex-start,
+				// end: flex-end,
+				center: center,
+				// baseline: baseline,
+				// stretch: stretch,
+			)
 	),
 
 	// Text transform
