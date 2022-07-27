@@ -1,53 +1,91 @@
 $card-transition: all .15s ease-in
 
+
 .card
 	position: relative
-	margin-bottom: $spacer * 3
+
+	.card-wrapper
+		overflow: hidden
+
+	.card-image
+		// transition: $card-transition
+		transition: all .15s cubic-bezier(0.68, -0.55, 0.27, 1.55)
 
 	.card-data
 		position: absolute
 		top: 0
-		padding: 3rem
-		width: calc(100% - 3rem)
+		padding: $spacer * 3
+		width: calc(100% - $spacer * 3)
 		height: 100%
 		transition: $card-transition
-		cursor: pointer
 
-		.card-title
-			transition: $card-transition
+	.card-text
+		margin-top: $spacer * 2
+		font-size: $font-size-base * 2
+
+	.card-link
+		font-weight: 900
+		font-color: $black
+		text-decoration: none
+		// text-transform: uppercase
+		color: $black
+		position: absolute
+		bottom: $spacer * 3
+
+
+	&:hover
+		.card-image
+			transform: scale(1.05)
+
+		.card-title,
+		.card-text,
+		.card-link
+			color: $white
+			visibility: visible
+
+		.card-data
+			background: rgba($black, 0.8)
 
 		.card-text,
 		.card-link
-			visibility: hidden
+			animation: riseup .2s ease
 
-		.card-text
-			margin-top: $spacer * 2
-			font-size: $font-size-base * 2
 
-		.card-link
-			font-weight: 900
-			font-color: $black
-			text-decoration: none
-			// text-transform: uppercase
-			color: $black
-			position: absolute
-			bottom: 3rem
+// 		.card-title
+// 			transition: $card-transition
 
-		&:hover
-			background-color: rgba($black, .9)
+// 		.card-text,
+// 		.card-link
+// 			visibility: hidden
 
-			.card-title,
-			.card-text,
-			.card-link
-				color: $white
-				visibility: visible
+// 		.card-text
+// 			margin-top: $spacer * 2
+// 			font-size: $font-size-base * 2
 
-			.card-text,
-			.card-link
-				animation: riseup .2s ease
+// 		.card-link
+// 			font-weight: 900
+// 			font-color: $black
+// 			text-decoration: none
+// 			// text-transform: uppercase
+// 			color: $black
+// 			position: absolute
+// 			bottom: 3rem
 
-	h3
-		text-transform: uppercase
+// 		&:hover
+// 			background-color: rgba($black, .9)
+
+// 			.card-title,
+// 			.card-text,
+// 			.card-link
+// 				color: $white
+// 				visibility: visible
+
+// 			.card-text,
+// 			.card-link
+// 				animation: riseup .2s ease
+
+// 	h3
+// 		text-transform: uppercase
 
 @keyframes riseup
 	0%

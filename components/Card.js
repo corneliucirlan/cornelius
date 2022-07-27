@@ -7,15 +7,23 @@ export default ({data, source}) => {
 	let imgAlt = source == 'dribbble' ? data.title : data.caption
 
 	return (
-		// <div className='card col-12 col-md-4'>
 		<div className='card col-12 col-md-6'>
-			<img src={imgURI} alt={imgAlt} className='img-thumbnail' />
-			<div className='card-data'>
+			<div className='card-wrapper'>
+				<img src={imgURI} alt={imgAlt} className='card-image img-thumbnail' />
+				<div className='card-data'>
+					{data.title && <h2 className='card-title'>{data.title}</h2>}
+					{data.description && <p className='card-text'>{removeTags(data.description)}</p>}
+					{source == 'dribbble' && <a href='#' className='btn-primary card-link'>View details</a>}
+				</div>
+			</div>
+
+
+			{/* <div className='card-data'>
+				<img src={imgURI} alt={imgAlt} className='img-thumbnail' />
 				{data.title && <h2 className='card-title'>{data.title}</h2>}
 				{data.description && <p className='card-text'>{removeTags(data.description)}</p>}
 				{source == 'dribbble' && <a href='#' className='btn-primary card-link'>View details</a>}
-			</div>
-
+			</div> */}
 		</div>
 	)
 }
