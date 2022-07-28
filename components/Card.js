@@ -6,15 +6,19 @@ export default ({data, source}) => {
 	// Set image alt
 	let imgAlt = source == 'dribbble' ? data.title : data.caption
 
+	let anchorURI = source == 'dribbble' ? data.html_url : data.permalink
+
 	return (
 		<div className='card col-12 col-md-6'>
 			<div className='card-wrapper'>
 				<img src={imgURI} alt={imgAlt} className='card-image img-thumbnail' />
-				<div className='card-data'>
-					{data.title && <h2 className='card-title'>{data.title}</h2>}
-					{data.description && <p className='card-text'>{removeTags(data.description)}</p>}
-					{source == 'dribbble' && <a href='#' className='btn-primary card-link'>View details</a>}
-				</div>
+				<a href={anchorURI} target='_blank'>
+					<div className='card-data'>
+						{data.title && <h2 className='card-title'>{data.title}</h2>}
+						{data.description && <p className='card-text'>{removeTags(data.description)}</p>}
+						<span className='btn-primary card-link'>View details</span>
+					</div>
+				</a>
 			</div>
 		</div>
 	)

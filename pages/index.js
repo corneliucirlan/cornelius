@@ -94,7 +94,7 @@ export async function getStaticProps() {
 	let dribbblePosts = await response.json()
 
 	// Get latest IG posts
-	response = await fetch(`https://graph.instagram.com/v14.0/me/media?fields=id,caption,media_url&limit=${POSTS}&access_token=${process.env.INSTAGRAM_TOKEN}`)
+	response = await fetch(`https://graph.instagram.com/v14.0/me/media?fields=id,caption,media_url,permalink&limit=${POSTS}&access_token=${process.env.INSTAGRAM_TOKEN}`)
 	let igPosts = await response.json()
 
 	// Return latest shots
