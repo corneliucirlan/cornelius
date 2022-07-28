@@ -2,6 +2,7 @@
 
 .card
 	position: relative
+	margin-bottom: $spacer * 3
 
 	.card-image
 		transition: $card-transition
@@ -13,15 +14,23 @@
 		width: calc(100% - $spacer * 3)
 		height: 100%
 		transition: $card-transition
+		@include border-radius($thumbnail-border-radius)
 	
-	.card-text,
+	.card-caption,
+	.card-icon-ig,
 	.card-link
-		visibility: hidden
-
-	.card-text
+		opacity: 0
+	
+	.card-caption
 		margin-top: $spacer * 2
 		font-size: $font-size-base * 2
+		
+		&-ig
+			font-size: $font-size-base * 1.5
 
+	.card-icon-ig
+		width: $font-size-base * 10
+	
 	.card-link
 		font-weight: 900
 		font-color: $black
@@ -35,18 +44,19 @@
 		overflow: hidden
 
 		&:hover
+			.card-title,
+			.card-image,
+			.card-data,
+			.card-link
+				color: $white
+
 			.card-image
 				filter: blur($font-size-base / 2)
 
-			.card-title,
-			.card-text,
-			.card-link
-				color: $white
-				visibility: visible
-
 			.card-data
-				background: rgba($black, 0.7)
+				background: rgba($black, 0.9)
 
-			.card-text,
+			.card-caption,
+			.card-icon-ig,
 			.card-link
-				animation: riseup .2s ease
+				animation: riseup .2s ease-out .2s forwards

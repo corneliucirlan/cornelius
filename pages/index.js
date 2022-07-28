@@ -39,22 +39,22 @@ export default ({dribbblePosts, igPosts}) => {
 				</section>
 
 				{/* Curated Projects Section */}
-				<section className={`row ${styles.index}`}>
+				{/* <section className={`row ${styles.index}`}>
 					<h4 className='text-uppercase'>Curated Projects</h4>
 					<h1>Case studies</h1>
 					{dribbblePosts.map((shot, index) =>
 						<Card data={shot} source='dribbble' key={index} />
 					)}
-				</section>
+				</section> */}
 
 				{/* Personal Projects Section */}
-				<section className={`row ${styles.index}`}>
+				{/* <section className={`row ${styles.index}`}>
 					<h4 className='text-uppercase'>Side Hussles</h4>
 					<h1>Personal Projects</h1>
 					{dribbblePosts.map((shot, index) =>
 						<Card data={shot} source='dribbble' key={index} />
 					)}
-				</section>
+				</section> */}
 
 				{/* Latest on Dribbble Section */}
 				<section className={`row ${styles.index}`}>
@@ -87,14 +87,15 @@ export default ({dribbblePosts, igPosts}) => {
 
 export async function getStaticProps() {
 
-	const POSTS = 2
+	const POSTS_DRIBBBLE = 4
+	const POSTS_INSTAGRAM = 6
 
 	// Get latest shots from Dribbble
-	let response = await fetch(`https://api.dribbble.com/v2/user/shots?access_token=${process.env.DRIBBBLE_TOKEN}&per_page=${POSTS}`)
+	let response = await fetch(`https://api.dribbble.com/v2/user/shots?access_token=${process.env.DRIBBBLE_TOKEN}&per_page=${POSTS_DRIBBBLE}`)
 	let dribbblePosts = await response.json()
 
 	// Get latest IG posts
-	response = await fetch(`https://graph.instagram.com/v14.0/me/media?fields=id,caption,media_url,permalink&limit=${POSTS}&access_token=${process.env.INSTAGRAM_TOKEN}`)
+	response = await fetch(`https://graph.instagram.com/v14.0/me/media?fields=id,caption,media_url,permalink&limit=${POSTS_INSTAGRAM}&access_token=${process.env.INSTAGRAM_TOKEN}`)
 	let igPosts = await response.json()
 
 	// Return latest shots
