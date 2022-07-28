@@ -16,14 +16,6 @@ export default ({data, source}) => {
 					{source == 'dribbble' && <a href='#' className='btn-primary card-link'>View details</a>}
 				</div>
 			</div>
-
-
-			{/* <div className='card-data'>
-				<img src={imgURI} alt={imgAlt} className='img-thumbnail' />
-				{data.title && <h2 className='card-title'>{data.title}</h2>}
-				{data.description && <p className='card-text'>{removeTags(data.description)}</p>}
-				{source == 'dribbble' && <a href='#' className='btn-primary card-link'>View details</a>}
-			</div> */}
 		</div>
 	)
 }

@@ -1,15 +1,10 @@
-$card-transition: all .15s ease-in
-
+@import 'keyframes'
 
 .card
 	position: relative
 
-	.card-wrapper
-		overflow: hidden
-
 	.card-image
-		// transition: $card-transition
-		transition: all .15s cubic-bezier(0.68, -0.55, 0.27, 1.55)
+		transition: $card-transition
 
 	.card-data
 		position: absolute
@@ -18,6 +13,10 @@ $card-transition: all .15s ease-in
 		width: calc(100% - $spacer * 3)
 		height: 100%
 		transition: $card-transition
+	
+	.card-text,
+	.card-link
+		visibility: hidden
 
 	.card-text
 		margin-top: $spacer * 2
@@ -32,64 +31,22 @@ $card-transition: all .15s ease-in
 		position: absolute
 		bottom: $spacer * 3
 
+	.card-wrapper
+		overflow: hidden
 
-	&:hover
-		.card-image
-			transform: scale(1.05)
+		&:hover
+			.card-image
+				filter: blur($font-size-base / 2)
 
-		.card-title,
-		.card-text,
-		.card-link
-			color: $white
-			visibility: visible
+			.card-title,
+			.card-text,
+			.card-link
+				color: $white
+				visibility: visible
 
-		.card-data
-			background: rgba($black, 0.8)
+			.card-data
+				background: rgba($black, 0.7)
 
-		.card-text,
-		.card-link
-			animation: riseup .2s ease
-
-
-// 		.card-title
-// 			transition: $card-transition
-
-// 		.card-text,
-// 		.card-link
-// 			visibility: hidden
-
-// 		.card-text
-// 			margin-top: $spacer * 2
-// 			font-size: $font-size-base * 2
-
-// 		.card-link
-// 			font-weight: 900
-// 			font-color: $black
-// 			text-decoration: none
-// 			// text-transform: uppercase
-// 			color: $black
-// 			position: absolute
-// 			bottom: 3rem
-
-// 		&:hover
-// 			background-color: rgba($black, .9)
-
-// 			.card-title,
-// 			.card-text,
-// 			.card-link
-// 				color: $white
-// 				visibility: visible
-
-// 			.card-text,
-// 			.card-link
-// 				animation: riseup .2s ease
-
-// 	h3
-// 		text-transform: uppercase
-
-@keyframes riseup
-	0%
-		transform: translateY(1.5rem)
-		
-	100%
-		transform: translateY(0)
+			.card-text,
+			.card-link
+				animation: riseup .2s ease
