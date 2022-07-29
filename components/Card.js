@@ -1,4 +1,4 @@
-export default ({data, source}) => {
+export default ({data, width, source, classes = ''}) => {
 
 	// Set image URL
 	let imgURI = source == 'dribbble' ? data.images.normal : data.media_url
@@ -6,20 +6,15 @@ export default ({data, source}) => {
 	// Set image alt
 	let imgAlt = source == 'dribbble' ? data.title : data.caption
 
+	// Link URL
 	let anchorURI = source == 'dribbble' ? data.html_url : data.permalink
 
-	let cardDataClasses = 'card-data'
-	cardDataClasses += source === 'instagram' ? ' d-flex justify-content-center align-items-center flex-column' : ''
-
-	let cardClasses = 'card col-12'
-	cardClasses += source === 'instagram' ? ' col-md-4' : ' col-md-6'
-
 	return (
-		<div className={cardClasses}>
+		<div className={`card col-12 col-md-${width}`}>
 			<div className='card-wrapper'>
 				<img src={imgURI} alt={imgAlt} className='card-image img-thumbnail' />
 				<a href={anchorURI} target='_blank'>
-					<div className={cardDataClasses}>
+					<div className={`card-data${classes}`}>
 
 						{data.title && <h2 className='card-title'>{data.title}</h2>}
 						{source === 'instagram' &&
