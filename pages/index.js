@@ -2,6 +2,7 @@ import Head from 'next/head'
 
 import Header from '../components/Header'
 import Card from '../components/Card'
+import Footer from '../components/Footer'
 
 import styles from '../sass/modules/Index.module.sass'
 
@@ -81,6 +82,8 @@ export default ({dribbblePosts, igPosts}) => {
 				</section>
 
 			</main>
+
+			<Footer />
 		</div>
 	)
 }
