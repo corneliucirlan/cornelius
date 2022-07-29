@@ -78,7 +78,7 @@ export default ({dribbblePosts, igPosts}) => {
 				{/* Let's work together */}
 				<section className={`row text-center ${styles.index}`}>
 					<h4 className='text-uppercase'>Have a project in mind?</h4>
-					<h1><a href='#'>Let's work together</a></h1>
+					<a href='/contact' className='btn btn-primary btn-h1' target='_self'>Let's work together</a>
 				</section>
 
 			</main>
