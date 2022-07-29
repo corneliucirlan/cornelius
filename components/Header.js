@@ -1,9 +1,11 @@
-import headerMenu from './data/headerMenu'
 import Logo from './Logo'
+import NavMenu from './NavMenu'
+
+import { headerMenu } from './data/menus'
 
 export default () => {
 	return (
-		<nav className='navbar navbar-expand-md bg-light text-uppercase'>
+		<nav className='navbar navbar-expand-md bg-light'>
 			<div className='container-fluid'>
 
 				<a className='navbar-brand' href='/'>
@@ -16,13 +18,7 @@ export default () => {
 				</button>
 				
 				<div className='collapse navbar-collapse justify-content-md-end' id='navbarSupportedContent'>
-					<ul className='navbar-nav'>
-						{headerMenu.map((menuItem, index) =>
-							<li className='nav-item' key={index}>
-								<a className='nav-link' target={menuItem.target} href={menuItem.url}>{menuItem.title}</a>
-							</li>
-						)}
-					</ul>
+					<NavMenu menu={headerMenu} />
 				</div>
 			</div>
 		</nav>
