@@ -1,6 +1,9 @@
 // Configuration
 @import '../bootstrap-config'
 
+// Keyframes
+@import '../components/keyframes'
+
 .index
 	margin-bottom: $spacer * 10
 
@@ -39,7 +42,7 @@
 	position: absolute
 	// top: 0
 	right: 0
-	bottom: $spacer * 3
+	bottom: $spacer * 4
 	left: 0
 	margin: auto  
 	width: 21px
@@ -60,16 +63,3 @@
 	border-radius: 25%
 	background-color: $black
 	animation: scroll 2.2s cubic-bezier(.15,.41,.69,.94) infinite
-
-@keyframes scroll
-	0%
-		opacity: 0 
-
-	10%
-		transform: translateY(0)
-		opacity: 1 
-
-	100%
-		transform: translateY(15px)
-		opacity: 0
-
