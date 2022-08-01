@@ -10,6 +10,7 @@ export default ({dribbblePosts, igPosts}) => {
 
 	return (
 		<div className='container'>
+		{/* <div className='container-fluid'> */}
 			<Head>
 				<title>Corneliu Cîrlan</title>
 			</Head>
@@ -32,6 +33,7 @@ export default ({dribbblePosts, igPosts}) => {
 			</a>
 
 			<main>
+			{/* <main className='container'> */}
 				<span className={`text-center ${styles.background}`}>designer</span>
 
 				{/* Hero Section */}
