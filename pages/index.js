@@ -70,7 +70,7 @@ export default ({dribbblePosts, igPosts}) => {
 
 				{/* Latest on Dribbble Section */}
 				<section className={`row ${styles.index}`}>
-					<h4 className='text-uppercase'>Whst's new</h4>
+					<h4 className='text-uppercase'>WHAT'S new</h4>
 					<h1>Latest on Dribbble</h1>
 					{dribbblePosts.map((shot, index) =>
 						<Card data={shot} width='6' source='dribbble' key={index} />
@@ -79,7 +79,7 @@ export default ({dribbblePosts, igPosts}) => {
 
 				{/* Latest on Instagram Section */}
 				<section className={`row ${styles.index}`}>
-					<h4 className='text-uppercase'>Whst's new</h4>
+					<h4 className='text-uppercase'>WHAT'S new</h4>
 					<h1>Latest on Instagram</h1>
 					{igPosts.data.map((shot, index) =>
 						<Card data={shot} width='4' source='instagram' classes=' d-flex justify-content-center align-items-center flex-column' key={index} />
