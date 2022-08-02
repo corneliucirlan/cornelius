@@ -42,7 +42,8 @@ export default ({dribbblePosts, igPosts}) => {
 						<h4 className='text-uppercase'>Corneliu Cîrlan</h4>
 						<h1>Website and user experience designer</h1>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam metus ipsum, malesuada sed volutpat id, dignissim vitae quam. Maecenas nibh leo, laoreet eget nisi ac, sagittis imperdiet libero. Integer a mollis augue. Curabitur tristique felis in massa ultrices interdum. Integer tristique ac metus nec molestie. Donec sed bibendum elit, vitae condimentum metus. Suspendisse consequat magna nec ullamcorper iaculis. Fusce magna velit, tempus ultricies finibus a, facilisis vel nisi. Fusce quis ultricies nibh.</p>
-						<div className='d-flex justify-content-start align-items-center'>
+						
+						<div className={`${styles.cta} d-flex justify-content-start align-items-center`}>
 							<a className='btn btn-primary' target='_self' href='#'>Let's work together</a>
 							<span className='btn-divider'>or</span>
 							<a className='btn btn-primary' target='_self' href='#'>Read about me</a>
@@ -70,7 +71,7 @@ export default ({dribbblePosts, igPosts}) => {
 
 				{/* Latest on Dribbble Section */}
 				<section className={`row ${styles.index}`}>
-					<h4 className='text-uppercase'>WHAT'S new</h4>
+					<h4 className='text-uppercase'>What's New</h4>
 					<h1>Latest on Dribbble</h1>
 					{dribbblePosts.map((shot, index) =>
 						<Card data={shot} width='6' source='dribbble' key={index} />
@@ -79,7 +80,7 @@ export default ({dribbblePosts, igPosts}) => {
 
 				{/* Latest on Instagram Section */}
 				<section className={`row ${styles.index}`}>
-					<h4 className='text-uppercase'>WHAT'S new</h4>
+					<h4 className='text-uppercase'>On Socials</h4>
 					<h1>Latest on Instagram</h1>
 					{igPosts.data.map((shot, index) =>
 						<Card data={shot} width='4' source='instagram' classes=' d-flex justify-content-center align-items-center flex-column' key={index} />
@@ -101,8 +102,8 @@ export default ({dribbblePosts, igPosts}) => {
 
 export async function getStaticProps() {
 
-	const POSTS_DRIBBBLE = 4
-	const POSTS_INSTAGRAM = 6
+	const POSTS_DRIBBBLE = 2
+	const POSTS_INSTAGRAM = 3
 
 	// Get latest shots from Dribbble
 	let response = await fetch(`https://api.dribbble.com/v2/user/shots?access_token=${process.env.DRIBBBLE_TOKEN}&per_page=${POSTS_DRIBBBLE}`)

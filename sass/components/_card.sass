@@ -2,10 +2,8 @@
 
 .card
 	position: relative
-	margin-bottom: $spacer * 3
-
-	.card-image
-		transition: $card-transition
+	margin-top: $spacer * 2
+	margin-bottom: $spacer
 
 	.card-data
 		position: absolute
@@ -13,8 +11,14 @@
 		padding: $spacer * 3
 		width: calc(100% - $spacer * 3)
 		height: 100%
-		transition: $card-transition
+		transition: background-color $transition-duration $transition-timing-function
 		@include border-radius($thumbnail-border-radius)
+
+	.card-image
+		transition: filter $transition-duration $transition-timing-function
+
+	.card-title
+		transition: color $transition-duration $transition-timing-function
 	
 	.card-caption,
 	.card-icon-ig,
@@ -22,11 +26,13 @@
 		opacity: 0
 	
 	.card-caption
-		margin-top: $spacer * 2
+		margin-top: $spacer * 3
 		font-size: $font-size-base * 2
 		
 		&-ig
 			font-size: $font-size-base * 1.5
+			margin-left: $spacer * 3
+			margin-right: $spacer * 3
 
 	.card-icon-ig
 		width: $font-size-base * 10
@@ -54,7 +60,7 @@
 				filter: blur($font-size-base / 2)
 
 			.card-data
-				background: rgba($black, 0.9)
+				background-color: rgba($black, 0.9)
 
 			.card-caption,
 			.card-icon-ig,
