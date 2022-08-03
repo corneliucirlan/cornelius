@@ -44,9 +44,9 @@ export default ({dribbblePosts, igPosts}) => {
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam metus ipsum, malesuada sed volutpat id, dignissim vitae quam. Maecenas nibh leo, laoreet eget nisi ac, sagittis imperdiet libero. Integer a mollis augue. Curabitur tristique felis in massa ultrices interdum. Integer tristique ac metus nec molestie. Donec sed bibendum elit, vitae condimentum metus. Suspendisse consequat magna nec ullamcorper iaculis. Fusce magna velit, tempus ultricies finibus a, facilisis vel nisi. Fusce quis ultricies nibh.</p>
 						
 						<div className={`${styles.cta} d-flex justify-content-start align-items-center`}>
-							<a className='btn btn-primary' target='_self' href='#'>Let's work together</a>
+							<a className='btn btn-primary' target='_self' href='/contact'>Let's work together</a>
 							<span className='btn-divider'>or</span>
-							<a className='btn btn-primary' target='_self' href='#'>Read about me</a>
+							<a className='btn btn-primary' target='_self' href='/about'>Read about me</a>
 						</div>
 					</div>
 				</section>
@@ -74,7 +74,7 @@ export default ({dribbblePosts, igPosts}) => {
 					<h4 className='text-uppercase'>What's New</h4>
 					<h1>Latest on Dribbble</h1>
 					{dribbblePosts.map((shot, index) =>
-						<Card data={shot} width='6' source='dribbble' key={index} />
+						<Card data={shot} grid='6' source='dribbble' width='1600' height='1200' key={index} />
 					)}
 				</section>
 
@@ -83,7 +83,7 @@ export default ({dribbblePosts, igPosts}) => {
 					<h4 className='text-uppercase'>On Socials</h4>
 					<h1>Latest on Instagram</h1>
 					{igPosts.data.map((shot, index) =>
-						<Card data={shot} width='4' source='instagram' classes=' d-flex justify-content-center align-items-center flex-column' key={index} />
+						<Card data={shot} grid='4' source='instagram' width='1080' height='1080' classes=' d-flex justify-content-center align-items-center flex-column' key={index} />
 					)}
 				</section>
 

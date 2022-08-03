@@ -10,12 +10,9 @@
 		top: 0
 		padding: $spacer * 3
 		width: calc(100% - $spacer * 3)
-		height: 100%
+		height: calc(100% - $spacer)
 		transition: background-color $transition-duration $transition-timing-function
 		@include border-radius($thumbnail-border-radius)
-
-	.card-image
-		transition: filter $transition-duration $transition-timing-function
 
 	.card-title
 		transition: color $transition-duration $transition-timing-function
@@ -51,13 +48,9 @@
 
 		&:hover
 			.card-title,
-			.card-image,
 			.card-data,
 			.card-link
 				color: $white
-
-			.card-image
-				filter: blur($font-size-base / 2)
 
 			.card-data
 				background-color: rgba($black, 0.9)

@@ -1,18 +1,21 @@
-export default ({data, width, source, classes = ''}) => {
+import Image from "next/image"
+
+export default ({data, grid, source, width, height, classes = ''}) => {
 
 	// Set image URL
 	let imgURI = source == 'dribbble' ? data.images.normal : data.media_url
 
 	// Set image alt
 	let imgAlt = source == 'dribbble' ? data.title : data.caption
+	// let imgAlt = source == 'dribbble' ? data.title : 'Latest Instagram image from Corneliu Cîrlan'
 
 	// Link URL
 	let anchorURI = source == 'dribbble' ? data.html_url : data.permalink
 
 	return (
-		<div className={`card col-12 col-md-${width}`}>
+		<div className={`card col-12 col-md-${grid}`}>
 			<div className='card-wrapper'>
-				<img src={imgURI} alt={imgAlt} className='card-image img-thumbnail' />
+				<Image src={imgURI} width={width} height={height} alt={imgAlt} />
 				<a href={anchorURI} target='_blank'>
 					<div className={`card-data${classes}`}>
 
