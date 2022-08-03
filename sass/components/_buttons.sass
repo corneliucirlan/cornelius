@@ -7,5 +7,21 @@
 		margin-left: $spacer * 2
 		margin-right: $spacer * 2
 
+	&-email-me
+		text-align: left
+		width: auto
+
+		.envelope
+			margin-right: $spacer * 2
+			
+			.path
+				fill: $black
+				@include transition($btn-transition)
+
+		&:hover
+			.envelope
+				.path
+					fill: $blue
+
 	&-footer
 		margin-top: $spacer * 2

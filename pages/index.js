@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Header from '../components/Header'
 import Card from '../components/Card'
 import Footer from '../components/Footer'
+import Button from '../components/Button'
 
 import styles from '../sass/modules/Index.module.sass'
 
@@ -44,9 +45,11 @@ export default ({dribbblePosts, igPosts}) => {
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam metus ipsum, malesuada sed volutpat id, dignissim vitae quam. Maecenas nibh leo, laoreet eget nisi ac, sagittis imperdiet libero. Integer a mollis augue. Curabitur tristique felis in massa ultrices interdum. Integer tristique ac metus nec molestie. Donec sed bibendum elit, vitae condimentum metus. Suspendisse consequat magna nec ullamcorper iaculis. Fusce magna velit, tempus ultricies finibus a, facilisis vel nisi. Fusce quis ultricies nibh.</p>
 						
 						<div className={`${styles.cta} d-flex justify-content-start align-items-center`}>
-							<a className='btn btn-primary' target='_self' href='/contact'>Let's work together</a>
+							<Button href='/contact' text="Let's work together" />
+							{/* <Button classes='btn-footer btn-email-me' href='mailto:corneliu@corneliucirlan.com' text='corneliu@corneliucirlan.com' icon={true} /> */}
+							{/* <a className='btn' target='_self' href='/contact'>Let's work together</a> */}
 							<span className='btn-divider'>or</span>
-							<a className='btn btn-primary' target='_self' href='/about'>Read about me</a>
+							<a className='btn' target='_self' href='/about'>Read about me</a>
 						</div>
 					</div>
 				</section>
