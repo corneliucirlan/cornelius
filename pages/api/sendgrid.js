@@ -1,0 +1,47 @@
+import sendgrid from '@sendgrid/mail'
+
+// Set SendGrid API Key
+sendgrid.setApiKey(process.env.SENDGRID_API_KEY)
+
+// Send mail
+async function sendEmail(req, res) {
+
+	try {
+		await sendgrid.send({
+			to: 'corneliu@corneliucirlan.com', // Your email where you'll receive emails
+			from: 'New Lead <new-lead@corneliucirlan.com>', // your website email address here
+			replyTo: req.body.email,
+			subject: `${req.body.name}: ${req.body.service}`,
+			text: `You've got mail`,
+			html: `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+				<html lang="en">
+				<head>
+					<meta charset="utf-8">
+
+					<title>New Potential Lead</title>
+					<meta name="description" content="New lead from corneliucirlan.com">
+					<meta name="author" content="Corneliu Cîrlan">
+					<meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
+				</head>
+      
+				<body>
+					<div class="container" style="margin-left: 20px; margin-right: 20px">
+						<h3>New email from ${req.body.name}</h3>
+						<div style="font-size: 16px">
+							<p>E-mail address: ${req.body.email}</p>
+							<p>Service: ${req.body.service}</p>
+							<p>Budget: ${req.body.budget}</p>
+							<p>Message: ${req.body.message}</p>
+						</div>
+				</body>
+			</html>`,
+		})
+	} catch (error) {
+		console.log(error.toString())
+		return res.status(error.statusCode || 500).json({ error: error.message })
+	}
+
+	return res.status(200).json({ success: 'E-mail was delivered.' })
+}
+
+export default sendEmail

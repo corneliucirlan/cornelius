@@ -61,6 +61,19 @@ $utilities: (
 			center: center,
 		)
 	),
+	
+	// Align self
+	"align-self": (
+		responsive: true,
+		property: align-self,
+		values: (auto: auto,
+			// start: flex-start,
+			// end: flex-end,
+			// center: center,
+			// baseline: baseline,
+			stretch: stretch,
+		)
+	),
 
 	// Font sizes
 	// 'font-size': (

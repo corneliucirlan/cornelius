@@ -6,7 +6,7 @@ import { headerMenu } from './data/menus'
 export default () => {
 	return (
 		<nav className='navbar navbar-expand-md bg-light'>
-			<div className='container-fluid'>
+			<div className='container'>
 
 				<a className='navbar-brand' href='/'>
 					<Logo />

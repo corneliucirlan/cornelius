@@ -8,6 +8,9 @@ $grays: ()
 
 $spacer: 1rem
 
+// Disable validation icons
+$enable-validation-icons: false
+
 // Theme colors
 // $theme-colors: map-remove($theme-colors, 'primary', 'secondary', 'success', "info", 'warning', 'danger', "light", "dark")
 $theme-colors: (  )
@@ -82,8 +85,25 @@ $btn-border-width: 0
 $btn-font-family: $font-family-sans-serif
 $btn-font-weight: 900
 $btn-font-size: $font-size-base * 2
+$btn-line-height: 1
 $btn-transition: color $transition-duration $transition-timing-function, fill $transition-duration $transition-timing-function
 
 // Images
 $thumbnail-padding: 0
 $thumbnail-border-width: 0
+
+// Inputs
+$input-padding-y: $spacer / 2
+$input-padding-x: 0
+$input-font-size: $font-size-base * 1.6
+$input-border-width: 0
+$input-line-height: 1
+$input-border-radius: 0
+$input-focus-box-shadow: none
+$input-transition: border-color $transition-duration $transition-timing-function
+$form-select-focus-box-shadow: none
+
+// Input label
+$form-label-font-size: $font-size-base * 1.5
+$form-label-color: rgba($black, .5)
+$form-label-margin-bottom: $spacer
