@@ -1,15 +1,21 @@
 import sendgrid from '@sendgrid/mail'
 
+const {
+	SENDGRID_API_KEY,
+	SENDGRID_TO_EMAIL,
+	SENDGRID_FROM_EMAIL
+} = process.env
+
 // Set SendGrid API Key
-sendgrid.setApiKey(process.env.SENDGRID_API_KEY)
+sendgrid.setApiKey(SENDGRID_API_KEY)
 
 // Send mail
 async function sendEmail(req, res) {
 
 	try {
 		await sendgrid.send({
-			to: 'corneliu@corneliucirlan.com', // Your email where you'll receive emails
-			from: 'New Lead <new-lead@corneliucirlan.com>', // your website email address here
+			to: SENDGRID_TO_EMAIL, // Your email where you'll receive emails
+			from: SENDGRID_FROM_EMAIL, // your website email address here
 			replyTo: req.body.email,
 			subject: `${req.body.name}: ${req.body.service}`,
 			text: `You've got mail`,
