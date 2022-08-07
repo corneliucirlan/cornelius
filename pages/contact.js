@@ -66,27 +66,32 @@ export default () => {
 				break
 		}
 
-		const res = await fetch("/api/sendgrid", {
-			body: JSON.stringify({
-				email: email,
-				name: name,
-				service: serviceType,
-				budget: budgetAllocation,
-				message: message,
-			}),
-			headers: {
-				"Content-Type": "application/json",
-			},
-			method: "POST",
-		})
-
-		const { error } = await res.json()
-		if (error) {
-			console.log(error)
-			return
+		// Send email if all fields are validated
+		if (handleValidation()) {
+			
+			const res = await fetch("/api/sendgrid", {
+				body: JSON.stringify({
+					email: email,
+					name: name,
+					service: serviceType,
+					budget: budgetAllocation,
+					message: message,
+				}),
+				headers: {
+					"Content-Type": "application/json",
+				},
+				method: "POST",
+			})
+	
+			const { error } = await res.json()
+			if (error) {
+				console.log(error)
+				return
+			}
 		}
 	}
 
+	// Validate input fields
 	const handleValidation = () => {
 		let tempErrors = {}
 		let isValid = true
@@ -147,14 +152,15 @@ export default () => {
 				backgroundColor: hovercolor
 			}
 		}),
-
+		
 		indicatorSeparator: styles => ({
 			...styles,
 			display: 'none'
 		}),
-
+		
 		menu: styles => ({
 			...styles,
+			borderRadius: 0,
 			cursor: 'pointer',
 			marginTop: 0,
 			border: 0
@@ -165,9 +171,10 @@ export default () => {
 			cursor: 'pointer',
 			border: 0
 		}),
-
+		
 		option: (styles, state) => ({
 			...styles,
+			borderColor: 'red',
 			cursor: 'pointer',
 			fontSize: '1.6rem',
 			transition: backgroundTransition,
@@ -231,6 +238,7 @@ export default () => {
 								name='service'
 								placeholder='How can I help?'
 								className={`form-control form-control-select ${errors['service'] && 'is-invalid'}`}
+								classNamePrefix='select'
 								styles={selectStyles}
 								id="select-service"
 								instanceId="select-service"
@@ -250,6 +258,7 @@ export default () => {
 							<Select
 								placeholder="What's your budget"
 								className={`form-control form-control-select ${errors['budget'] && 'is-invalid'}`}
+								classNamePrefix='select'
 								id="select-budget"
 								instanceId="select-budget"
 								styles={selectStyles}
