@@ -14,67 +14,27 @@ export default () => {
 	const [service, setService] = useState('')
 	const [budget, setBudget] = useState('')
 	const [message, setMessage] = useState('')
+
 	const [errors, setErrors] = useState({})
 
-	// useEffect(() => {
-	// 	console.log(errors)
-	// 	console.log(service)
-	// })
+	useEffect(() => {
+		console.log('Errors: ', errors)
+	})
 
 	const handleSubmit = async (event) => {
 
 		// Prevent page reload
 		event.preventDefault()
 
-		// Validate inputs
-		let isValidForm = handleValidation()
-
-		let serviceType = ''
-		switch (service) {
-			case 'oneoff':
-				serviceType = 'One-off project'
-				break
-			case 'longterm':
-				serviceType = 'Long-term partnership'
-				break
-			case 'fulltime':
-				serviceType = 'Hire me full-time'
-				break
-			case 'sayhi':
-				serviceType = 'Just wanted to say Hi!'
-				break
-			default: 
-				serviceType = 'No services required'
-				break
-		}
-		let budgetAllocation = ''
-		switch (budget) {
-			case '1000':
-				budgetAllocation = '$1000 - $2500'
-				break
-			case '2500':
-				budgetAllocation = '$2500 - 5000'
-				break
-			case '5000':
-				budgetAllocation = '$5000 - $10000'
-				break
-			case '10000':
-				budgetAllocation = '$10000 or more'
-				break
-			default:
-				budgetAllocation = 'I have no budget'
-				break
-		}
-
 		// Send email if all fields are validated
-		if (handleValidation()) {
-			
+		if (!handleValidation()) {
+
 			const res = await fetch("/api/sendgrid", {
 				body: JSON.stringify({
 					email: email,
 					name: name,
-					service: serviceType,
-					budget: budgetAllocation,
+					service: service.label,
+					budget: budget.label,
 					message: message,
 				}),
 				headers: {
@@ -83,9 +43,17 @@ export default () => {
 				method: "POST",
 			})
 	
-			const { error } = await res.json()
-			if (error) {
-				console.log(error)
+			let {code, responseMessage} = await res.json()
+
+			// Email sent, reset inputs
+			if (code == 200) {
+				setName('')
+				setEmail('')
+				setService('')
+				setBudget('')
+				setMessage('')
+
+				console.log(code, responseMessage)
 				return
 			}
 		}
@@ -94,48 +62,16 @@ export default () => {
 	// Validate input fields
 	const handleValidation = () => {
 		let tempErrors = {}
-		let isValid = true
 
-		// let fields = {
-		// 	'name': name, 
-		// 	'email': email, 
-		// 	'service': service, 
-		// 	'budget': budget, 
-		// 	'message': message
-		// }
-
-		// Validate all fields
-		// for (let key in fields) {
-		// 	console.log(key + ": " + fields.key)
-		// 	if (!fields.key) {
-		// 		tempErrors[key] = true
-		// 		isValid = false
-		// 	}
-		// }
-
-		if (!name) {
-			tempErrors['name'] = true
-			isValid = false
-		}
-		if (!email) {
-			tempErrors['email'] = true
-			isValid = false
-		}
-		if (!service) {
-			tempErrors['service'] = true
-			isValid = false
-		}
-		if (!budget) {
-			tempErrors['budget'] = true
-			isValid = false
-		}
-		if (!message) {
-			tempErrors['message'] = true
-			isValid = false
-		}
+		tempErrors['name'] = name === ''
+		tempErrors['email'] = email === ''
+		tempErrors['service'] = service === ''
+		tempErrors['budget'] = budget === ''
+		tempErrors['message'] = message === ''
 
 		setErrors({...tempErrors})
-		return isValid
+
+		return tempErrors['name'] || tempErrors['email'] || tempErrors['service'] || tempErrors['budget'] || tempErrors['message']
 	}
 
 	const hovercolor = 'rgba(21, 21, 21, .1)'
@@ -188,8 +124,8 @@ export default () => {
 			}
 		})
 	}
-		
-		// Input Focus
+
+	// Input Focus
 	const handleOnFocus = event => event.target.classList.contains('.form-control') ? event.target.classList.remove('is-invalid') : event.target.closest('.form-control').classList.remove('is-invalid')
 
 	// Input Blur
@@ -212,6 +148,8 @@ export default () => {
 
 				<div className='col-12 col-md-5 offset-md-1'>
 					<form action='' method='post' className='row' onSubmit={handleSubmit}>
+
+						{/* Name */}
 						<div className='col-12 col-md-6'>
 							<label htmlFor='name' className='form-label'>Your name</label>
 							<input
@@ -225,6 +163,8 @@ export default () => {
 								onBlur={handleOnBlur}
 								/>
 						</div>
+						
+						{/* Email address */}
 						<div className='col-12 col-md-6'>
 							<label htmlFor='email' className='form-label'>Your email</label>
 							<input
@@ -238,6 +178,8 @@ export default () => {
 								onBlur={handleOnBlur}
 								/>
 						</div>
+						
+						{/* Service */}
 						<div className='col-12 col-md-6'>
 							<label htmlFor='service' className='form-label'>Service</label>
 							<Select
@@ -246,6 +188,7 @@ export default () => {
 								className={`form-control form-control-select ${errors['service'] && 'is-invalid'}`}
 								classNamePrefix='select'
 								styles={selectStyles}
+								value={service}
 								id="select-service"
 								instanceId="select-service"
 								options={[
@@ -254,11 +197,13 @@ export default () => {
 									{ value: 'fulltime', label: 'Hire me full-time' },
 									{ value: 'sayhi', label: 'Just wanted to say Hi!' }
 								]}
-								onChange={option => setService(option.value)}
+								onChange={setService}
 								onFocus={handleOnFocus}
 								onBlur={event => !service ? event.target.closest('.form-control').classList.add('is-invalid') : event.target.closest('.form-control').classList.remove('is-invalid')}
 								/>
 						</div>
+
+						{/* Budget */}
 						<div className='col-12 col-md-6'>
 							<label htmlFor='budget' className='form-label'>Budget</label>
 							<Select
@@ -268,22 +213,26 @@ export default () => {
 								id="select-budget"
 								instanceId="select-budget"
 								styles={selectStyles}
+								value={budget}
 								options={[
 									{ value: '1000', label: '$1000 - $2500' },
 									{ value: '2500', label: '$2500 - 5000' },
 									{ value: '5000', label: '$5000 - $10000' },
 									{ value: '10000', label: '$10000 or more' }
 								]}
-								onChange={option => setBudget(option.value)}
+								onChange={setBudget}
 								onFocus={handleOnFocus}
 								onBlur={event => !budget ? event.target.closest('.form-control').classList.add('is-invalid') : event.target.closest('.form-control').classList.remove('is-invalid')}
 							/>
 						</div>
+
+						{/* Message */}
 						<div className='col-12'>
 							<label htmlFor='message' className='form-label'>Your message</label>
 							<textarea
 								rows='1'
 								name='message'
+								value={message}
 								placeholder="What's your message?"
 								className={`form-control ${errors['message'] && 'is-invalid'}`}
 								onChange={e => {setMessage(e.target.value)}}
@@ -292,7 +241,14 @@ export default () => {
 								></textarea>
 						</div>
 
-						<Button classes=' btn-footer btn-email-me' href='#' text='Send message' icon={true} submit={true} />
+						<Button classes=' btn-footer btn-email-me btn-form-submit' href='#' text='Send message' icon={true} submit={true} />
+
+						{/* <div className='loader-container'>
+							<div className='circle'></div>
+							<div className='ring'></div>
+							<div className='ring'></div>
+						</div> */}
+						
 					</form>
 				</div>
 			</main>

@@ -43,11 +43,13 @@ async function sendEmail(req, res) {
 			</html>`,
 		})
 	} catch (error) {
-		console.log(error.toString())
-		return res.status(error.statusCode || 500).json({ error: error.message })
+		// console.log('Error code: ', error.code)
+		// console.log('Error message: ', error.message)
+		return res.status(error.code).json({code: error.code, responseMessage: error.message})
 	}
 
-	return res.status(200).json({ success: 'E-mail was delivered.' })
+	// Message was sent
+	res.status(200).json({ code: 200, responseMessage: 'Message sent.' })
 }
 
 export default sendEmail
