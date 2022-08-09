@@ -1,4 +1,27 @@
+@mixin btn-state($color)
+	color: $color
+
+	.svg-icon
+		.path
+			fill: $color
+
+	&:hover,
+	&:disabled
+		color: $color
+
 .btn
+	text-align: left
+	width: auto
+	display: flex
+	align-content: center
+
+	.svg-icon
+		margin-right: $spacer * 2
+
+		.path
+			fill: $black
+			@include transition($btn-transition)
+
 	&-h1
 		font-size: $h1-font-size
 
@@ -7,21 +30,19 @@
 		margin-left: $spacer * 2
 		margin-right: $spacer * 2
 
-	&-email-me
-		text-align: left
-		width: auto
-
-		.envelope
-			margin-right: $spacer * 2
-			
-			.path
-				fill: $black
-				@include transition($btn-transition)
-
-		&:hover
-			.envelope
-				.path
-					fill: $blue
-
 	&-footer
 		margin-top: $spacer * 2
+
+	&:hover
+		.svg-icon
+			.path
+				fill: $blue
+
+	&-animate
+		animation: riseup $transition-duration $transition-timing-function
+
+	&-success
+		@include btn-state($green)
+
+	&-error
+		@include btn-state($red)
