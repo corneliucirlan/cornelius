@@ -49,7 +49,7 @@ async function sendEmail(req, res) {
 	}
 
 	// Message was sent
-	res.status(200).json({ code: 200, responseMessage: 'Message sent.' })
+	return res.status(200).json({ code: 200, responseMessage: 'Message sent.' })
 }
 
 export default sendEmail
