@@ -11,10 +11,12 @@
 	},
 	"dependencies": {
 		"@sendgrid/mail": "^7.7.0",
+		"html-react-parser": "^3.0.1",
 		"next": "^12.2.0",
 		"react": "^18.1.0",
 		"react-dom": "^18.1.0",
-		"react-select": "^5.4.0"
+		"react-select": "^5.4.0",
+		"yup": "^0.32.11"
 	},
 	"devDependencies": {
 		"bootstrap": "^5.2.0",

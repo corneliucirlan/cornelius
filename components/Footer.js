@@ -1,5 +1,5 @@
-import NavMenu from './NavMenu'
-import Button from './Button'
+import NavMenu from './nav-menu'
+import Button from './button'
 import { footerMenu, socialSites } from './data/menus'
 
 export default () => {

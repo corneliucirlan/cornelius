@@ -1,5 +1,5 @@
-import Logo from './Logo'
-import NavMenu from './NavMenu'
+import Logo from './logo'
+import NavMenu from './nav-menu'
 
 import { headerMenu } from './data/menus'
 
