@@ -31,7 +31,7 @@ async function sendEmail(req, res) {
 					to: SENDGRID_TO_EMAIL, // Your email where you'll receive emails
 					from: SENDGRID_FROM_EMAIL, // your website email address here
 					replyTo: req.body.email,
-					subject: `${req.body.name}: ${req.body.service}`,
+					subject: `${req.body.name}: ${req.body.service.label}`,
 					text: `You've got mail`,
 					html: `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 						<html lang="en">
