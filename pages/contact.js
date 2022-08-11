@@ -24,17 +24,11 @@ import button from '../components/button'
 export default () => {
 
 	// Form inputs states
-	// const [name, setName] = useState('')
-	// const [email, setEmail] = useState('')
-	// const [service, setService] = useState('')
-	// const [budget, setBudget] = useState('')
-	// const [message, setMessage] = useState('')
-
-	const [name, setName] = useState('Dekon Wolf')
-	const [email, setEmail] = useState('dekonwolf@gmail.com')
-	const [service, setService] = useState(ServiceOptions[0])
-	const [budget, setBudget] = useState(BudgetOptions[0])
-	const [message, setMessage] = useState('Message test')
+	const [name, setName] = useState('')
+	const [email, setEmail] = useState('')
+	const [service, setService] = useState('')
+	const [budget, setBudget] = useState('')
+	const [message, setMessage] = useState('')
 
 	// Form inputs validity
 	const [isValid, setIsValid] = useState({})
@@ -142,7 +136,7 @@ export default () => {
 					<h1>Get in touch - <br/>let's work together</h1>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam metus ipsum, malesuada sed volutpat id, dignissim vitae quam. Maecenas nibh leo</p>
 
-					{/* <Button classes=' btn-footer btn-email-me' href='mailto:corneliu@corneliucirlan.com' text='corneliu@corneliucirlan.com' icon={true} /> */}
+					<Button classes=' btn-footer btn-email-me' href='mailto:corneliu@corneliucirlan.com' text='corneliu@corneliucirlan.com' icon={true} />
 				</div>
 
 				<div className='col-12 col-md-6 offset-md-1'>
@@ -223,7 +217,7 @@ export default () => {
 				</div>
 			</main>
 
-			{/* <Footer /> */}
+			<Footer />
 		</div>
 	)
 }
