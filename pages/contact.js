@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import parse from 'html-react-parser'
 
 import Header from '../components/header'
@@ -17,9 +17,11 @@ import { buttonIsSending, buttonSuccess, buttonError, buttonDefault } from '../u
 // Validation
 import { validateInputs } from '../utils/input-validate'
 
-import styles from '../sass/modules/Contact.module.sass'
+// Select options
 import { BudgetOptions, ServiceOptions } from '../utils/select-options'
-import button from '../components/button'
+
+// Contact page SASS module
+import styles from '../sass/modules/Contact.module.sass'
 
 export default () => {
 
