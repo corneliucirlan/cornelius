@@ -2,19 +2,23 @@ import Logo from './logo'
 import NavMenu from './nav-menu'
 
 import { headerMenu } from './data/menus'
+import { useState } from 'react'
 
 export default () => {
-	return (
-		<nav className='navbar navbar-expand-md bg-light'>
-			<div className='container'>
 
-				<a className='navbar-brand' href='/'>
+	const [mobileMenu, setMobileMenu] = useState(false)
+
+	return (
+		<nav className={`navbar navbar-expand-md${mobileMenu ? ' menu-active' : ''}`}>
+				<div className={`container`}>
+
+				<a className='navbar-brand d-flex align-items-center' href='/'>
 					<Logo />
 					<span className='navbar-brand-text text-capitalize'>Corneliu Cîrlan</span>
 				</a>
 				
-				<button className='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
-					<span className='navbar-toggler-icon'></span>
+				<button className='navbar-toggler' type='button' onClick={() => mobileMenu ? setMobileMenu(false) : setMobileMenu(true)}>
+					<span className='hamburger'></span>
 				</button>
 				
 				<div className='collapse navbar-collapse justify-content-md-end' id='navbarSupportedContent'>
@@ -24,5 +28,3 @@ export default () => {
 		</nav>
 	)
 }
-
-

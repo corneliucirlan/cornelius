@@ -1,13 +1,13 @@
 import Head from 'next/head'
 
-import Header from '../components/Header'
-import Card from '../components/Card'
-import Footer from '../components/Footer'
-import Button from '../components/Button'
+import Header from '../components/header'
+import Card from '../components/card'
+import Footer from '../components/footer'
+import Button from '../components/button'
 
 import styles from '../sass/modules/Index.module.sass'
 
-export default ({dribbblePosts, igPosts}) => {
+export default ({ dribbblePosts, igPosts }) => {
 
 	return (
 		<div className='container'>
@@ -46,10 +46,8 @@ export default ({dribbblePosts, igPosts}) => {
 						
 						<div className={`${styles.cta} d-flex justify-content-start align-items-center`}>
 							<Button href='/contact' text="Let's work together" />
-							{/* <Button classes='btn-footer btn-email-me' href='mailto:corneliu@corneliucirlan.com' text='corneliu@corneliucirlan.com' icon={true} /> */}
-							{/* <a className='btn' target='_self' href='/contact'>Let's work together</a> */}
 							<span className='btn-divider'>or</span>
-							<a className='btn' target='_self' href='/about'>Read about me</a>
+							<Button href='/about' text='Read about me' />
 						</div>
 					</div>
 				</section>

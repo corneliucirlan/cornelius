@@ -18,3 +18,12 @@
 	// Button disabled state
 	--#{$prefix}btn-disabled-bg: none
 	--#{$prefix}btn-disabled-border-color: none
+
+	--#{$prefix}brand-text-padding: #{$spacer}
+
+	--#{$prefix}nav-link-padding-y: #{$spacer * 3}
+
+	@include media-breakpoint-up(md)
+		--#{$prefix}brand-text-padding: calc(#{$spacer} * 2)
+
+		--#{$prefix}nav-link-padding-y: #{$spacer * 5}

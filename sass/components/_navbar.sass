@@ -1,17 +1,42 @@
 .navbar
 	position: absolute
-	// background-color: orangered
 	width: 100%
 	top: 0
 	left: 0
+	padding-top: var(--#{$prefix}nav-link-padding-y)
+	padding-bottom: var(--#{$prefix}nav-link-padding-y)
 
 	.container-fluid
 		padding-left: 0
 		padding-right: 0
 
+	// Navbar brand
 	.navbar-brand
 		font-weight: 900
 		transition: $navbar-brand-transition
+
+		.navbar-brand-text
+			padding-left: var(--#{$prefix}brand-text-padding)
+			line-height: 1
+
+		// CC SVG Logo
+		.cc-logo
+			width: 25px
+			height: 25px
+
+			.cc-logo-bg
+				fill: $navbar-light-color
+				stroke: $navbar-light-color
+				transition: $navbar-brand-transition
+
+			.cc-logo-lower,
+			.cc-logo-upper
+				fill: $white
+				transition: $navbar-brand-transition
+
+			@include media-breakpoint-up(md)
+				height: 50px
+				width: 50px
 
 		&:hover
 			color: $navbar-light-hover-color
@@ -20,18 +45,96 @@
 				fill: $navbar-light-hover-color
 				stroke: $navbar-light-hover-color
 
-		.navbar-brand-text
-			padding-left: $spacer * 2
+	.navbar-toggler
+		position: relative
+		border: none
+		outline: none
+		width: 26px
+		height: 25px
+		overflow: hidden
+		z-index: 1000
 
-// CC SVG Logo
-.cc-logo
+		& .hamburger,
+		& .hamburger:before,
+		& .hamburger:after
+			background-color: $black
+			display: block
+			position: absolute
+			width: 20px
+			height: 2px
 
-	.cc-logo-bg
-		fill: $navbar-light-color
-		stroke: $navbar-light-color
-		transition: $navbar-brand-transition
+		& .hamburger
+			top: 50%
+			left: 3px
+			transform: translateY(-50%)
 
-	.cc-logo-lower,
-	.cc-logo-upper
-		fill: $white
-		transition: $navbar-brand-transition
+			&:before,
+			&:after
+				content: ''
+
+			&:before
+				margin-top: -5px
+
+			&:after
+				margin-top: 5px
+
+	.navbar-collapse
+		position: absolute
+		background-color: transparent
+		width: 100vw
+		height: 100vh
+		top: 0
+		left: 0
+		justify-content: center
+		transition: background-color $transition-duration $transition-timing-function
+		z-index: -1000
+
+		.navbar-nav
+			opacity: 0
+			display: none
+			animation: riseup $transition-duration $transition-timing-function $transition-delay forwards
+
+		@include media-breakpoint-up(md)
+			display: block
+			position: relative
+			background-color: transparent
+			display: inline
+
+	.nav-link
+		color: $white
+		text-align: center
+		font-size: 4rem
+
+	&.menu-active
+		.navbar-toggler
+			z-index: 100
+
+			& .hamburger,
+			& .hamburger:before,
+			& .hamburger:after
+				background-color: $white
+
+			& .hamburger,
+			& .hamburger:after
+				transition: transform $transition-duration $transition-timing-function
+
+			& .hamburger
+				transform: rotate(45deg)
+
+			& .hamburger:before,
+			& .hamburger:after
+				margin-top: 0
+
+			& .hamburger:before
+				opacity: 0
+
+			& .hamburger:after
+				transform: rotate(-90deg)
+
+		.navbar-collapse
+			background-color: $black
+			display: flex
+			z-index: 50
+
+			.navbar-nav
+				display: flex
