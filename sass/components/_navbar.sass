@@ -45,6 +45,7 @@
 				fill: $navbar-light-hover-color
 				stroke: $navbar-light-hover-color
 
+	// Menu toggler
 	.navbar-toggler
 		position: relative
 		border: none
@@ -52,7 +53,7 @@
 		width: 26px
 		height: 25px
 		overflow: hidden
-		z-index: 1000
+		z-index: 100
 
 		& .hamburger,
 		& .hamburger:before,
@@ -78,6 +79,7 @@
 			&:after
 				margin-top: 5px
 
+	// Menu wrapper
 	.navbar-collapse
 		position: absolute
 		background-color: transparent
@@ -87,12 +89,14 @@
 		left: 0
 		justify-content: center
 		transition: background-color $transition-duration $transition-timing-function
-		z-index: -1000
+		z-index: -100
 
+		// Menu container
 		.navbar-nav
 			opacity: 0
 			display: none
 			animation: riseup $transition-duration $transition-timing-function $transition-delay forwards
+			// z-index: 150
 
 		@include media-breakpoint-up(md)
 			display: block
@@ -100,24 +104,30 @@
 			height: auto
 			background-color: transparent
 			display: inline
+			z-index: 0
 
 			.navbar-nav
 				opacity: 1
 				display: flex
 				animation: none
 
+	// Menu item
 	.nav-link
 		color: $white
 		text-align: center
-		font-size: 4rem
+		font-size: $font-size-base * 4
 
 		@include media-breakpoint-up(md)
 			color: $black
-			font-size: 2rem
+			font-size: $font-size-base * 2
+			z-index: 2000
 
+	// Mobile menu active
 	&.menu-active
+
+		// Toggler
 		.navbar-toggler
-			z-index: 100
+			// z-index: 100
 
 			& .hamburger,
 			& .hamburger:before,
@@ -141,10 +151,12 @@
 			& .hamburger:after
 				transform: rotate(-90deg)
 
+		// Menu wrapper
 		.navbar-collapse
 			background-color: $black
 			display: flex
 			z-index: 50
 
+			// Menu container
 			.navbar-nav
 				display: flex
