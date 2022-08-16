@@ -97,13 +97,23 @@
 		@include media-breakpoint-up(md)
 			display: block
 			position: relative
+			height: auto
 			background-color: transparent
 			display: inline
+
+			.navbar-nav
+				opacity: 1
+				display: flex
+				animation: none
 
 	.nav-link
 		color: $white
 		text-align: center
 		font-size: 4rem
+
+		@include media-breakpoint-up(md)
+			color: $black
+			font-size: 2rem
 
 	&.menu-active
 		.navbar-toggler
