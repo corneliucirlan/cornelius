@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import Logo from './logo'
 import NavMenu from './nav-menu'
 
@@ -12,15 +14,17 @@ export default () => {
 		<nav className={`navbar navbar-expand-md${mobileMenu ? ' menu-active' : ''}`}>
 				<div className={`container`}>
 
-				<a className='navbar-brand d-flex align-items-center' href='/'>
-					<Logo />
-					<span className='navbar-brand-text text-capitalize'>Corneliu Cîrlan</span>
-				</a>
-				
+				<Link href='/'>
+					<a className='navbar-brand d-flex align-items-center'>
+						<Logo />
+						<span className='navbar-brand-text text-capitalize'>Corneliu Cîrlan</span>
+					</a>
+				</Link>
+
 				<button className='navbar-toggler' type='button' onClick={() => mobileMenu ? setMobileMenu(false) : setMobileMenu(true)}>
 					<span className='hamburger'></span>
 				</button>
-				
+
 				<div className='collapse navbar-collapse justify-content-md-end' id='navbarSupportedContent'>
 					<NavMenu menu={headerMenu} />
 				</div>
