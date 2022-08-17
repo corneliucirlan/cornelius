@@ -138,7 +138,12 @@ export default () => {
 					<h1>Get in touch - <br/>let's work together</h1>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam metus ipsum, malesuada sed volutpat id, dignissim vitae quam. Maecenas nibh leo</p>
 
-					<Button classes=' btn-footer btn-email-me' href='mailto:corneliu@corneliucirlan.com' text='corneliu@corneliucirlan.com' icon={true} />
+					<Button
+						href='mailto:corneliu@corneliucirlan.com'
+						className={['btn', 'btn-footer', 'btn-email-me']}
+						hasIcon={true}
+						text='corneliu@corneliucirlan.com'
+					/>
 				</div>
 
 				<div className='col-12 col-md-6 offset-md-1'>

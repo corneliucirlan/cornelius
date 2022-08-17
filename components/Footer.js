@@ -14,7 +14,12 @@ export default () => {
 			<section className='col-12 col-md-4 offset-md-1'>
 				<h2>Contact information</h2>
 				<p>Feel free to contact me for any project you have in mind, or just to say hello.</p>
-				<Button classes=' btn-footer btn-email-me' href='mailto:corneliu@corneliucirlan.com' text='corneliu@corneliucirlan.com' icon={true} />
+				<Button
+					href='mailto:corneliu@corneliucirlan.com'
+					className={['btn', 'btn-footer', 'btn-email-me']}
+					hasIcon={true}
+					text='corneliu@corneliucirlan.com'
+				/>
 			</section>
 
 			<section className='col-12 col-md-3 offset-md-1'>

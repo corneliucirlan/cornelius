@@ -22,6 +22,10 @@ a
 		transition: all $transition-duration $transition-timing-function $transition-delay
 		transform: translate3d(0,0,0)
 
+		.svg-icon
+			.path
+				fill: $white
+
 		& svg
 			display: block
 			width: 20px
@@ -45,7 +49,6 @@ a
 
 		&:hover
 			background: $black
-			// width: 127px
 			width: 120px
 			transition: all .2s cubic-bezier(.3,0,.5,1)
 

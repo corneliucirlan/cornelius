@@ -12,7 +12,6 @@ export default ({ dribbblePosts, igPosts }) => {
 
 	return (
 		<div className='container'>
-		{/* <div className='container-fluid'> */}
 			<Head>
 				<title>Corneliu Cîrlan</title>
 			</Head>
@@ -27,17 +26,14 @@ export default ({ dribbblePosts, igPosts }) => {
 			</div>
 
 			{/* Side contact me button */}
-			<Link href='/contact'>
-				<a className='side-contact'>
-					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="15" viewBox="0 0 20 15">
-						<path id="Path_16" data-name="Path 16" d="M18.125,64H1.875A1.875,1.875,0,0,0,0,65.875v11.25A1.875,1.875,0,0,0,1.875,79h16.25A1.875,1.875,0,0,0,20,77.125V65.875A1.875,1.875,0,0,0,18.125,64Zm0,1.875v1.594c-.876.713-2.272,1.822-5.257,4.16-.658.517-1.961,1.761-2.868,1.746-.907.015-2.21-1.229-2.868-1.746-2.985-2.337-4.381-3.446-5.257-4.16V65.875ZM1.875,77.125v-7.25c.9.713,2.164,1.713,4.1,3.228.854.672,2.349,2.156,4.026,2.147,1.669.009,3.145-1.453,4.026-2.146,1.935-1.515,3.2-2.516,4.1-3.229v7.25Z" transform="translate(0 -64)" fill="#fff"/>
-					</svg>
-					<span>Contact me</span>
-				</a>
-			</Link>
-
+			<Button
+				href='/contact'
+				className={['side-contact']}
+				hasIcon={true}
+				text='Contact me'
+			/>
+	
 			<main>
-			{/* <main className='container'> */}
 				<span className={`text-center ${styles.background}`}>designer</span>
 
 				{/* Hero Section */}
@@ -48,9 +44,9 @@ export default ({ dribbblePosts, igPosts }) => {
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam metus ipsum, malesuada sed volutpat id, dignissim vitae quam. Maecenas nibh leo, laoreet eget nisi ac, sagittis imperdiet libero. Integer a mollis augue. Curabitur tristique felis in massa ultrices interdum. Integer tristique ac metus nec molestie. Donec sed bibendum elit, vitae condimentum metus. Suspendisse consequat magna nec ullamcorper iaculis. Fusce magna velit, tempus ultricies finibus a, facilisis vel nisi. Fusce quis ultricies nibh.</p>
 						
 						<div className={`${styles.cta} d-flex justify-content-start align-items-center`}>
-							<Button href='/contact' text="Let's work together" />
+							<Button className={['btn']} href='/contact' text="Let's work together" />
 							<span className='btn-divider'>or</span>
-							<Button href='/about' text='Read about me' />
+							<Button className={['btn']} href='/about' text='Read about me' />
 						</div>
 					</div>
 				</section>
@@ -94,9 +90,11 @@ export default ({ dribbblePosts, igPosts }) => {
 				{/* Let's work together */}
 				<section className={`row text-center ${styles.index}`}>
 					<h4 className='text-uppercase'>Have a project in mind?</h4>
-					<Link href='/contact'>
-						<a className='btn btn-primary btn-h1' target='_self'>Let's work together</a>
-					</Link>
+					<Button
+						href='/contact'
+						className={['btn', 'btn-h1']}
+						text="Let's work together"
+					/>
 				</section>
 
 			</main>
