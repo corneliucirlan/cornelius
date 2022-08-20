@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Link from 'next/link'
 
 import Header from '../components/header'
 import Card from '../components/card'
@@ -19,7 +18,7 @@ export default ({ dribbblePosts, igPosts }) => {
 			<Header />
 
 			{/* Hero section mouse scroller */}
-			<div className={styles.scrolldown}>
+			<div className={`d-none d-md-block ${styles.scrolldown}`}>
 				<div className={styles.mousey}>
 					<div className={styles.scroller}></div>
 				</div>
@@ -28,7 +27,7 @@ export default ({ dribbblePosts, igPosts }) => {
 			{/* Side contact me button */}
 			<Button
 				href='/contact'
-				className={['side-contact']}
+				className={['side-contact', 'd-none', 'd-md-block']}
 				hasIcon={true}
 				text='Contact me'
 			/>
@@ -92,7 +91,7 @@ export default ({ dribbblePosts, igPosts }) => {
 					<h4 className='text-uppercase'>Have a project in mind?</h4>
 					<Button
 						href='/contact'
-						className={['btn', 'btn-h1']}
+						className={['btn', 'btn-h1', 'text-center']}
 						text="Let's work together"
 					/>
 				</section>

@@ -35,11 +35,11 @@ $utilities: (
 
 	// Display
 	'display': (
-		responsive: false,
+		responsive: true,
 		print: true,
 		property: display,
 		class: d,
-		values: flex
+		values: flex none block
 	),
 
 	// Flex direction
@@ -56,7 +56,7 @@ $utilities: (
 		property: text-align,
 		class: text,
 		values: (
-			// start: left,
+			start: left,
 			// end: right,
 			center: center,
 		)

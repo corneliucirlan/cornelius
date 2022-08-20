@@ -4,7 +4,7 @@ import { footerMenu, socialSites } from './data/menus'
 
 export default () => {
 	return (
-		<footer className='row'>
+		<footer className='row text-center text-md-start'>
 
 			<section className='col-12 col-md-3'>
 				<h2>Site links</h2>
@@ -16,7 +16,7 @@ export default () => {
 				<p>Feel free to contact me for any project you have in mind, or just to say hello.</p>
 				<Button
 					href='mailto:corneliu@corneliucirlan.com'
-					className={['btn', 'btn-footer', 'btn-email-me']}
+					className={['btn', 'btn-footer', 'btn-email-me', 'justify-content-center', 'justify-content-md-start']}
 					hasIcon={true}
 					text='corneliu@corneliucirlan.com'
 				/>
