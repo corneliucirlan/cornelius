@@ -1,2 +1,42 @@
 // Configuration
 @import '../bootstrap-config'
+
+.about
+	margin-top: 15rem
+
+.photo
+	height: 715px
+	background-color: $gray-300
+
+.list
+	// background: red
+
+	.item
+		display: inline-block
+		padding-right: 1rem
+		font-weight: 900
+
+		&:after
+			padding-left: 1rem
+			content: '/'
+			font-weight: 400
+			color: $gray-500
+
+		&:last-child
+			&:after
+				content: ''
+
+.experience
+	margin-top: $spacer * 6
+
+	.item
+		margin-bottom: $spacer * 4
+
+		span
+			margin-bottom: $spacer * 2
+
+		@include media-breakpoint-up(md)
+			margin-bottom: $spacer * 2
+
+			span
+				margin-bottom: 0

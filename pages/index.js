@@ -4,6 +4,8 @@ import Header from '../components/header'
 import Card from '../components/card'
 import Footer from '../components/footer'
 import Button from '../components/button'
+import Title from '../components/title'
+import LetsWorkTogether from '../components/work-together'
 
 import styles from '../sass/modules/Index.module.sass'
 
@@ -38,8 +40,10 @@ export default ({ dribbblePosts, igPosts }) => {
 				{/* Hero Section */}
 				<section className={`row ${styles.hero}`}>
 					<div className='col-12 col-md-6 d-flex flex-column justify-content-center'>
-						<h4 className='text-uppercase'>Corneliu Cîrlan</h4>
-						<h1>Website and user experience designer</h1>
+						<Title
+							kicker='Corneliu Cîrlan'
+							heading='Website and user experience designer'
+						/>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam metus ipsum, malesuada sed volutpat id, dignissim vitae quam. Maecenas nibh leo, laoreet eget nisi ac, sagittis imperdiet libero. Integer a mollis augue. Curabitur tristique felis in massa ultrices interdum. Integer tristique ac metus nec molestie. Donec sed bibendum elit, vitae condimentum metus. Suspendisse consequat magna nec ullamcorper iaculis. Fusce magna velit, tempus ultricies finibus a, facilisis vel nisi. Fusce quis ultricies nibh.</p>
 						
 						<div className={`${styles.cta} d-flex justify-content-start align-items-center`}>
@@ -51,50 +55,51 @@ export default ({ dribbblePosts, igPosts }) => {
 				</section>
 
 				{/* Curated Projects Section */}
-				{/* <section className={`row ${styles.index}`}>
-					<h4 className='text-uppercase'>Curated Projects</h4>
-					<h1>Case studies</h1>
+				{/* <section className='row'>
+					<Title
+						kicker='Curated Projects'
+						heading='Case studies'
+					/>
 					{dribbblePosts.map((shot, index) =>
 						<Card data={shot} source='dribbble' key={index} />
-					)}
-				</section> */}
+						)}
+					</section> */}
 
 				{/* Personal Projects Section */}
-				{/* <section className={`row ${styles.index}`}>
-					<h4 className='text-uppercase'>Side Hussles</h4>
-					<h1>Personal Projects</h1>
+				{/* <section className='row'>
+					<Title
+						kicker='Side Hussles'
+						heading='Personal Projects'
+					/>
 					{dribbblePosts.map((shot, index) =>
 						<Card data={shot} source='dribbble' key={index} />
-					)}
-				</section> */}
+						)}
+					</section> */}
 
 				{/* Latest on Dribbble Section */}
-				<section className={`row ${styles.index}`}>
-					<h4 className='text-uppercase'>What's New</h4>
-					<h1>Latest on Dribbble</h1>
+				<section className='row'>
+					<Title
+						kicker="What's New"
+						heading='Latest on Dribbble'
+					/>
 					{dribbblePosts.map((shot, index) =>
 						<Card data={shot} grid='6' source='dribbble' width='1600' height='1200' key={index} />
-					)}
+						)}
 				</section>
 
 				{/* Latest on Instagram Section */}
-				<section className={`row ${styles.index}`}>
-					<h4 className='text-uppercase'>On Socials</h4>
-					<h1>Latest on Instagram</h1>
+				<section className='row'>
+					<Title
+						kicker='On Socials'
+						heading='Latest on Instagram'
+					/>
 					{igPosts.data.map((shot, index) =>
 						<Card data={shot} grid='4' source='instagram' width='1080' height='1080' classes=' d-flex justify-content-center align-items-center flex-column' key={index} />
 					)}
 				</section>
 
 				{/* Let's work together */}
-				<section className={`row text-center ${styles.index}`}>
-					<h4 className='text-uppercase'>Have a project in mind?</h4>
-					<Button
-						href='/contact'
-						className={['btn', 'btn-h1', 'text-center']}
-						text="Let's work together"
-					/>
-				</section>
+				<LetsWorkTogether />
 
 			</main>
 

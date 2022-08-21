@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
+import { animated } from 'react-spring'
 import parse from 'html-react-parser'
 
 import Header from '../components/header'
@@ -22,6 +23,7 @@ import { BudgetOptions, ServiceOptions } from '../utils/select-options'
 
 // Contact page SASS module
 import styles from '../sass/modules/Contact.module.sass'
+import { setTransition } from '../utils/transitions'
 
 export default () => {
 
@@ -31,6 +33,8 @@ export default () => {
 	const [service, setService] = useState('')
 	const [budget, setBudget] = useState('')
 	const [message, setMessage] = useState('')
+
+	const contactRef = useRef()
 
 	// Form inputs validity
 	const [isValid, setIsValid] = useState({})
@@ -131,7 +135,7 @@ export default () => {
 
 			<Header />
 
-			<main className={`row align-items-center ${styles.contact}`}>
+			<animated.main className={`row align-items-center ${styles.contact}`} style={setTransition(contactRef)} ref={contactRef}>
 
 				<div className='col-12 col-md-5'>
 					<h4 className='text-uppercase'>Contact</h4>
@@ -222,7 +226,7 @@ export default () => {
 						</div>
 					</form>
 				</div>
-			</main>
+			</animated.main>
 
 			<Footer />
 		</div>

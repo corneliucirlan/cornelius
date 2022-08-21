@@ -1,6 +1,6 @@
 // Global stylesheet
 import '../sass/styles.sass'
 
-export default function MyApp({Component, pageProps}) {
+export default ({ Component, pageProps }) => {
 	return <Component {...pageProps} />
 }
