@@ -97,7 +97,7 @@ export default () => {
 				<section className='row'>
 
 					{/* Services */}
-					<animated.div className={`col-12 offset-md-1 col-md-4 ${styles.services}`} style={setTransition(servicesRef, -20, 0)} ref={servicesRef}>
+					<animated.div className={`col-12 offset-md-1 col-md-4 ${styles.services}`} style={setTransition(servicesRef, { x: -20, y: 0 })} ref={servicesRef}>
 						<Title kicker='Services' />
 						<ul className={styles.list}>
 							{services.map((service, index) => <li key={index} className={styles.item}>{service}</li>)}
@@ -105,7 +105,7 @@ export default () => {
 					</animated.div>
 					
 					{/* Tools */}
-					<animated.div className='col-12 offset-md-2 col-md-4' style={setTransition(toolsRef, 20, 0)} ref={toolsRef}>
+					<animated.div className='col-12 offset-md-2 col-md-4' style={setTransition(toolsRef, { x: 20, y: 0 })} ref={toolsRef}>
 						<Title kicker='Tools I use' />
 						<ul className={styles.list}>
 							{tools.map((tool, index) => <li key={index} className={styles.item}>{tool}</li>)}

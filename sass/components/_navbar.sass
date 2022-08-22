@@ -14,6 +14,7 @@
 	.navbar-brand
 		font-weight: 900
 		transition: $navbar-brand-transition
+		z-index: 100
 
 		.navbar-brand-text
 			padding-left: var(--#{$prefix}brand-text-padding)
@@ -96,7 +97,6 @@
 			opacity: 0
 			display: none
 			animation: riseup $transition-duration $transition-timing-function $transition-delay forwards
-			// z-index: 150
 
 		@include media-breakpoint-up(md)
 			display: block
@@ -113,14 +113,14 @@
 
 	// Menu item
 	.nav-link
-		color: $white
+		color: rgba($white, .5)
 		text-align: center
 		font-size: $font-size-base * 4
 
 		@include media-breakpoint-up(md)
 			color: $black
 			font-size: $font-size-base * 2
-			z-index: 2000
+			z-index: 200
 
 			&:hover,
 			&:focus
@@ -129,6 +129,20 @@
 	// Mobile menu active
 	&.menu-active
 
+		// Navbar brand
+		.navbar-brand
+			color: rgba($white, .5)
+
+			// CC SVG Logo
+			.cc-logo
+
+				.cc-logo-bg
+					stroke: rgba($white, .5)
+
+				.cc-logo-lower,
+				.cc-logo-upper
+					fill: rgba($white, .5)
+
 		// Toggler
 		.navbar-toggler
 			// z-index: 100
@@ -136,7 +150,7 @@
 			& .hamburger,
 			& .hamburger:before,
 			& .hamburger:after
-				background-color: $white
+				background-color: rgba($white, .5)
 
 			& .hamburger,
 			& .hamburger:after

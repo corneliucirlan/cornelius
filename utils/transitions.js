@@ -31,22 +31,29 @@ const useIntersectionObserver = elementRef => {
 }
 
 // export const setTransition = (ref, position = 'bottom') => {
-export const setTransition = (ref, x = 0, y = 20, duration = 1000) => {
+export const setTransition = (ref, config) => {
 	const dataRef = useIntersectionObserver(ref)
+
+	let defaultConfig = {
+		x: 0,
+		y: 20,
+		duration: 1000
+	}
+	let springConfig = {...defaultConfig, ...config}
 
 	return useSpring({
 		config: {
-			duration: duration,
+			duration: springConfig.duration,
 			easing: easings.easeInOutBack
 		},
 		from: {
-			x: x,
-			y: y,
+			x: springConfig.x,
+			y: springConfig.y,
 			opacity: 0
 		},
 		to: {
-			x: dataRef?.isIntersecting ? 0 : x,
-			y: dataRef?.isIntersecting ? 0 : y,
+			x: dataRef?.isIntersecting ? 0 : springConfig.x,
+			y: dataRef?.isIntersecting ? 0 : springConfig.y,
 			opacity: dataRef?.isIntersecting ? 1 : 0
 		}
 	})

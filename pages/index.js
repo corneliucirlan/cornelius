@@ -43,7 +43,7 @@ export default ({ dribbblePosts, igPosts }) => {
 				<span className={`text-center ${styles.background}`}>designer</span>
 
 				{/* Hero Section */}
-				<animated.section className={`row ${styles.hero}`} style={setTransition(heroRef, -200, 0, 2000)} ref={heroRef}>
+				<animated.section className={`row ${styles.hero}`} style={setTransition(heroRef, { x: -200, y: 0, duration: 2000 })} ref={heroRef}>
 					<div className='col-12 col-md-6 d-flex flex-column justify-content-center'>
 						<Title
 							kicker='Corneliu Cîrlan'
