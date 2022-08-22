@@ -8,8 +8,13 @@ import Title from '../components/title'
 import LetsWorkTogether from '../components/work-together'
 
 import styles from '../sass/modules/Index.module.sass'
+import { setTransition } from '../utils/transitions'
+import { useRef, useEffect } from 'react'
+import { animated } from 'react-spring'
 
 export default ({ dribbblePosts, igPosts }) => {
+
+	const heroRef = useRef()
 
 	return (
 		<div className='container'>
@@ -38,7 +43,7 @@ export default ({ dribbblePosts, igPosts }) => {
 				<span className={`text-center ${styles.background}`}>designer</span>
 
 				{/* Hero Section */}
-				<section className={`row ${styles.hero}`}>
+				<animated.section className={`row ${styles.hero}`} style={setTransition(heroRef, -200, 0, 2000)} ref={heroRef}>
 					<div className='col-12 col-md-6 d-flex flex-column justify-content-center'>
 						<Title
 							kicker='Corneliu Cîrlan'
@@ -52,7 +57,7 @@ export default ({ dribbblePosts, igPosts }) => {
 							<Button className={['btn']} href='/about' text='Read about me' />
 						</div>
 					</div>
-				</section>
+				</animated.section>
 
 				{/* Curated Projects Section */}
 				{/* <section className='row'>
@@ -83,7 +88,7 @@ export default ({ dribbblePosts, igPosts }) => {
 						heading='Latest on Dribbble'
 					/>
 					{dribbblePosts.map((shot, index) =>
-						<Card data={shot} grid='6' source='dribbble' width='1600' height='1200' key={index} />
+						<Card position={index === 1 ? 'left' : 'right'} data={shot} grid='6' source='dribbble' width='1600' height='1200' key={index} />
 						)}
 				</section>
 

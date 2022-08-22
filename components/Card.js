@@ -1,20 +1,24 @@
-import Image from "next/image"
-import Link from "next/link"
+import Image from 'next/image'
+import Link from 'next/link'
+import { animated } from 'react-spring'
+import { useRef } from 'react'
+import { setTransition } from '../utils/transitions'
 
-export default ({data, grid, source, width, height, classes = ''}) => {
+export default ({ data, grid, source, width, height, classes = '' }) => {
+
+	const cardRef = useRef()
 
 	// Set image URL
 	let imgURI = source == 'dribbble' ? data.images.normal : data.media_url
 
 	// Set image alt
 	let imgAlt = source == 'dribbble' ? data.title : data.caption
-	// let imgAlt = source == 'dribbble' ? data.title : 'Latest Instagram image from Corneliu Cîrlan'
 
 	// Link URL
 	let anchorURI = source == 'dribbble' ? data.html_url : data.permalink
 
 	return (
-		<div className={`card col-12 col-md-${grid}`}>
+		<animated.div className={`card col-12 col-md-${grid}`} ref={cardRef} style={setTransition(cardRef)}>
 			<div className='card-wrapper'>
 				<Image src={imgURI} width={width} height={height} alt={imgAlt} />
 				<Link href={anchorURI}>
@@ -33,7 +37,7 @@ export default ({data, grid, source, width, height, classes = ''}) => {
 					</a>
 				</Link>
 			</div>
-		</div>
+		</animated.div>
 	)
 }
 

@@ -17,7 +17,9 @@ export default () => {
 	const aboutRef = useRef()
 	const photoRef = useRef()
 	const servicesRef = useRef()
+	const toolsRef = useRef()
 	const experienceRef = useRef()
+	const experienceListRef = useRef()
 
 	const services = [
 		'Art direction',
@@ -92,36 +94,36 @@ export default () => {
 				</animated.section>
 
 				{/* Services & tools */}
-				<animated.section className='row' style={setTransition(servicesRef)} ref={servicesRef}>
+				<section className='row'>
 
 					{/* Services */}
-					<div className='col-12 offset-md-1 col-md-4'>
+					<animated.div className={`col-12 offset-md-1 col-md-4 ${styles.services}`} style={setTransition(servicesRef, -20, 0)} ref={servicesRef}>
 						<Title kicker='Services' />
 						<ul className={styles.list}>
 							{services.map((service, index) => <li key={index} className={styles.item}>{service}</li>)}
 						</ul>
-					</div>
+					</animated.div>
 					
 					{/* Tools */}
-					<div className='col-12 offset-md-2 col-md-4'>
+					<animated.div className='col-12 offset-md-2 col-md-4' style={setTransition(toolsRef, 20, 0)} ref={toolsRef}>
 						<Title kicker='Tools I use' />
 						<ul className={styles.list}>
 							{tools.map((tool, index) => <li key={index} className={styles.item}>{tool}</li>)}
 						</ul>
-					</div>
-				</animated.section>
+					</animated.div>
+				</section>
 
 				{/* Experience */}
-				<animated.section className='row' style={setTransition(experienceRef)} ref={experienceRef}>
-					<div className='col-12 offset-md-3 col-md-6'>
+				<section className='row'>
+					<animated.div className='col-12 offset-md-2 col-md-8' style={setTransition(experienceRef)} ref={experienceRef}>
 						<Title
 							kicker='Experience'
 							heading='Over 10 years of experience'
-						/>
-						<p>Over the past 9 years I have been working with big companies and rising startups around the world as a designer and art director, working solo and leading small design teams. In my spare time I enjoy photography and motorcycle adventures.</p>
-					</div>
+							/>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam metus ipsum, malesuada sed volutpat id, dignissim vitae quam. Maecenas nibh leo, laoreet eget nisi ac, sagittis imperdiet libero. Integer a mollis augue. Curabitur tristique felis in massa ultrices interdum. Integer tristique ac metus nec molestie. Donec sed bibendum elit, vitae condimentum metus. Suspendisse consequat magna nec ullamcorper iaculis. Fusce magna velit, tempus ultricies finibus a, facilisis vel nisi. Fusce quis ultricies nibh.</p>
+					</animated.div>
 
-					<div className={`col-12 offset-md-1 col-md-10 ${styles.experience}`}>
+					<animated.div className={`col-12 offset-md-1 col-md-10 ${styles.experience}`} style={setTransition(experienceListRef)} ref={experienceListRef}>
 						{experience.map((item, index) =>
 							<div key={index} className={`d-flex justify-content-between flex-column flex-md-row ${styles.item}`}>
 								<span>{item.name}</span>
@@ -129,8 +131,8 @@ export default () => {
 								<span>{item.period}</span>
 							</div>
 						)}
-					</div>
-				</animated.section>
+					</animated.div>
+				</section>
 
 				{/* Let's work together */}
 				<LetsWorkTogether />

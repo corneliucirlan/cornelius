@@ -5,7 +5,7 @@ const useIntersectionObserver = elementRef => {
 	const threshold = 0
 	const root = null
 	const rootMargin = '0%'
-	const freezeOnceVisible = false
+	const freezeOnceVisible = true
 
 	const [entry, setEntry] = useState()
 
@@ -30,20 +30,23 @@ const useIntersectionObserver = elementRef => {
 	return entry
 }
 
-export const setTransition = ref => {
+// export const setTransition = (ref, position = 'bottom') => {
+export const setTransition = (ref, x = 0, y = 20, duration = 1000) => {
 	const dataRef = useIntersectionObserver(ref)
 
 	return useSpring({
 		config: {
-			duration: 1000,
+			duration: duration,
 			easing: easings.easeInOutBack
 		},
 		from: {
-			y: 100,
+			x: x,
+			y: y,
 			opacity: 0
 		},
 		to: {
-			y: dataRef?.isIntersecting ? 0 : 100,
+			x: dataRef?.isIntersecting ? 0 : x,
+			y: dataRef?.isIntersecting ? 0 : y,
 			opacity: dataRef?.isIntersecting ? 1 : 0
 		}
 	})
