@@ -13,16 +13,10 @@ export default () => {
 	useEffect(() => {
 
 		// Disable scrolling when mobile menu is active
-		if (mobileMenu) {
-			document.body.style.overflow = 'hidden'
-			document.body.style.height = '100%'
-		}
+		mobileMenu && document.body.classList.add('active-menu')
 
 		// Enable scrolling
-		return () => {
-			document.body.style.overflow = 'inherit'
-			document.body.style.height = 'auto'
-		}
+		return () => document.body.classList.remove('active-menu')
 	})
 
 	return (

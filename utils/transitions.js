@@ -44,7 +44,8 @@ export const setTransition = (ref, config) => {
 	return useSpring({
 		config: {
 			duration: springConfig.duration,
-			easing: easings.easeInOutBack
+			// easing: easings.easeInOutBack
+			easing: easings.easeInOutCirc
 		},
 		from: {
 			x: springConfig.x,

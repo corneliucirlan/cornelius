@@ -81,7 +81,7 @@ export default () => {
 					<div className='col-12 offset-md-2 col-md-8'>
 						<Title
 							kicker='A little about me'
-							heading="Hi, I'm Corneliu Cîrlan & I'm the designer you're looking for"
+							heading="Hi, I'm Corneliu Cîrlan, the designer you're looking for"
 						/>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam metus ipsum, malesuada sed volutpat id, dignissim vitae quam. Maecenas nibh leo, laoreet eget nisi ac, sagittis imperdiet libero. Integer a mollis augue. Curabitur tristique felis in massa ultrices interdum. Integer tristique ac metus nec molestie. Donec sed bibendum elit, vitae condimentum metus. Suspendisse consequat magna nec ullamcorper iaculis. Fusce magna velit, tempus ultricies finibus a, facilisis vel nisi. Fusce quis ultricies nibh.</p>
 					</div>
