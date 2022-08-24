@@ -1,9 +1,13 @@
 export default `
-body {
+.active-loader {
 	display: block;
 	margin: 0;
 	padding: 0;
+	height: 100vh;
 	overflow: hidden;
+}
+.d-none {
+	display: none;
 }
 .loader-container {
 	background-color: white;

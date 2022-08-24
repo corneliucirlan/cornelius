@@ -9,7 +9,7 @@ export default () => {
 			<head>
 				<style>{loader}</style>
 			</head>
-			<body>
+			<body className='active-loader'>
 				<div id='globalLoader' className='loader-container'>
 					<div className='loader-circle' />
 				</div>

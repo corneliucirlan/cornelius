@@ -20,7 +20,16 @@ export default ({ data, grid, source, width, height, classes = '' }) => {
 	return (
 		<animated.div className={`card col-12 col-md-${grid}`} ref={cardRef} style={setTransition(cardRef)}>
 			<div className='card-wrapper'>
-				<Image src={imgURI} width={width} height={height} alt={imgAlt} />
+				<Image
+					src={imgURI}
+					width={width}
+					height={height}
+					placeholder='blur'
+					// blurDataURL={`/_next/image?url=${imgURI}&w=16&q=1`}
+					blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mPkrwcAAKMAkIVY58wAAAAASUVORK5CYII='
+
+					alt={imgAlt}
+				/>
 				<Link href={anchorURI}>
 					<a target='_blank'>
 						<div className={`card-data${classes}`}>
