@@ -10,17 +10,19 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@plaiceholder/next": "^2.5.0",
 		"@sendgrid/mail": "^7.7.0",
-		"html-react-parser": "^3.0.1",
+		"html-react-parser": "^3.0.4",
 		"next": "^12.2.5",
-		"react": "^18.1.0",
-		"react-dom": "^18.1.0",
+		"plaiceholder": "^2.5.0",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
 		"react-select": "^5.4.0",
-		"react-spring": "^9.5.2",
+		"sharp": "^0.30.7",
 		"yup": "^0.32.11"
 	},
 	"devDependencies": {
 		"bootstrap": "^5.2.0",
-		"sass": "^1.52.1"
+		"sass": "^1.54.5"
 	}
 }
