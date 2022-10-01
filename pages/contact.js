@@ -1,10 +1,11 @@
 import { useState, useRef } from 'react'
-import { animated } from 'react-spring'
 import parse from 'html-react-parser'
+import { useIsInViewport } from '../utils/transitions'
 
 import Header from '../components/header'
 import Footer from '../components/footer'
 import Button from '../components/button'
+import Caption from '../components/caption'
 
 // Form inputs
 import { FormInput, FormSelect, FormTextare } from '../utils/form-inputs'
@@ -23,7 +24,6 @@ import { BudgetOptions, ServiceOptions } from '../utils/select-options'
 
 // Contact page SASS module
 import styles from '../sass/modules/Contact.module.sass'
-import { setTransition } from '../utils/transitions'
 
 export default () => {
 
@@ -48,9 +48,7 @@ export default () => {
 
 	// Update button state
 	const updateSubmitButton = button => {
-		console.log(button.classes)
 		button.classes.push('btn-animate')
-		console.log(button.classes)
 		setSubmitButton({
 			text: button.text,
 			classes: button.classes.join(' '),
@@ -135,16 +133,18 @@ export default () => {
 
 			<Header />
 
-			<animated.main className={`row align-items-center ${styles.contact}`} style={setTransition(contactRef)} ref={contactRef}>
+			<main className={`row align-items-center ${styles.contact}`}>
 
 				<div className='col-12 col-md-5'>
-					<h4 className='text-uppercase'>Contact</h4>
-					<h1>Get in touch - <br/>let's work together</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam metus ipsum, malesuada sed volutpat id, dignissim vitae quam. Maecenas nibh leo</p>
+					<Caption
+						kicker='Contact'
+						heading="Let's work together"
+						caption='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam metus ipsum, malesuada sed volutpat id, dignissim vitae quam. Maecenas nibh leo, laoreet eget nisi ac, sagittis imperdiet libero.'
+					/>
 
 					<Button
 						href='mailto:corneliu@corneliucirlan.com'
-						className={['btn', 'btn-footer', 'btn-email-me']}
+						className={[ 'btn', 'btn-footer', 'btn-email-me', 'animate-in', 'animate-in-delay-3' ]}
 						hasIcon={true}
 						text='corneliu@corneliucirlan.com'
 					/>
@@ -226,7 +226,7 @@ export default () => {
 						</div>
 					</form>
 				</div>
-			</animated.main>
+			</main>
 
 			<Footer />
 		</div>
