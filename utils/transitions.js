@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-export 	const useIsInViewport = ref => {
+export const useIsInViewport = ref => {
 
 	const [isVisible, setIsVisible] = useState(false)
 

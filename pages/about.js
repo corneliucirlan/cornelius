@@ -8,6 +8,7 @@ import Title from '../components/title'
 import LetsWorkTogether from '../components/work-together'
 import Caption from '../components/caption'
 import { getPhotoData } from '../utils/images'
+import { useIsInViewport } from '../utils/transitions'
 
 import styles from '../sass/modules/About.module.sass'
 
