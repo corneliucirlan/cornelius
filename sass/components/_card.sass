@@ -10,7 +10,7 @@
 		top: 0
 		padding: $spacer * 3
 		width: calc(100% - $spacer * 3)
-		height: calc(100% - $spacer)
+		height: 100%
 		transition: background-color $transition-duration $transition-timing-function
 		@include border-radius($border-radius-lg)
 
@@ -59,3 +59,12 @@
 			.card-icon-ig,
 			.card-link
 				animation: riseup $transition-duration $transition-timing-function $transition-delay forwards
+
+	&-instagram
+		.card-data
+			display: flex
+			justify-content: center
+			align-items: center
+			flex-direction: column
+			text-align: center
+			padding: $spacer * 5

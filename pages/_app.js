@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import { animated, useSpring } from 'react-spring'
-import { loaderConfig, circleConfig } from '../utils/transitions'
+// import { loaderConfig, circleConfig } from '../utils/transitions'
 
 // Global SASS
 import '../sass/styles.sass'
@@ -10,11 +9,10 @@ const Loading = () => {
 	const router = useRouter()
 
 	const [isLoading, setIsLoading] = useState(false)
-
-	const loaderSpring = useSpring(loaderConfig)	
-	const circleSpring = useSpring(circleConfig)
+	const [loaderClass, setLoaderClass] = useState('')
 
 	useEffect(() => {
+
 		const handleStart = url => (url !== router.asPath) && setIsLoading(true)
 		const handleComplete = url => (url === router.asPath) && setIsLoading(false)
 
@@ -26,7 +24,7 @@ const Loading = () => {
 		router.events.on('routeChangeStart', handleStart)
 		router.events.on('routeChangeComplete',	 handleComplete)
 		router.events.on('routeChangeError', handleComplete)
-		
+
 		return () => {
 			router.events.off('routeChangeStart', handleStart)
 			router.events.off('routeChangeComplete', handleComplete)
@@ -35,9 +33,9 @@ const Loading = () => {
 	})
 	
 	return isLoading && (
-		<animated.div style={loaderSpring}>
-			<animated.div style={circleSpring}></animated.div>
-		</animated.div>
+		<div className={`loader-container ${loaderClass}`}>
+			<div className='loader-circle'></div>
+		</div>
 	)
 }
 
@@ -46,12 +44,24 @@ export default ({ Component, pageProps }) => {
 	// First time page load
 	useEffect(() => {
 		if (typeof window !== 'undefined') {
-			const loader = document.getElementById('globalLoader')
+			const loaderContainer = document.getElementById('loaderContainer')
+			const loaderCircle = document.getElementById('loaderCircle')
 
-			if (loader) {
-				loader.classList.add('d-none')
-				document.body.classList.remove('active-loader')
-			}
+			// document.getElementById('__next').style.display = 'none'
+
+			setTimeout(() => {
+				if (loaderContainer) {
+	
+					// Hide loading circle
+					loaderCircle.classList.add('d-none')
+	
+					// Animate out loader
+					loaderContainer.classList.add('animate-out')
+
+					// Make page scrollable
+					document.body.classList.remove('active-loader')
+				}
+			}, 0)
 		}
 	}, [])
 

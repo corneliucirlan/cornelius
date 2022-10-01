@@ -1,22 +1,24 @@
-import Document, {Html, Head, Main, NextScript} from 'next/document'
+import { Html, Head, Main, NextScript } from 'next/document'
 import loader from '../components/loader-styles'
+import SideContact from '../components/side-contact'
 
-export default () => {
+export default () => (
+	<Html>
+		<Head />
+		<head>
+			<style>{loader}</style>
+		</head>
+		<body className='active-loader'>
 
-	return (
-		<Html>
-			<Head />
-			<head>
-				<style>{loader}</style>
-			</head>
-			<body className='active-loader'>
-				<div id='globalLoader' className='loader-container'>
-					<div className='loader-circle' />
-				</div>
+			{/* Side contact me button */}
+			<SideContact />
 
-				<Main />
-				<NextScript />
-			</body>
-		</Html>
-	)
-}
+			<div id='loaderContainer' className='loader-container'>
+				<div id='loaderCircle' className='loader-circle' />
+			</div>
+
+			<Main />
+			<NextScript />
+		</body>
+	</Html>
+)

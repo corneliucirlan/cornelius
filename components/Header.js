@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
-import Logo from './logo'
-import NavMenu from './nav-menu'
+import { Logo } from './svg-icons'
+import NavMenu from './header/nav-menu'
 
 import { headerMenu } from './data/menus'
 import { useEffect, useState } from 'react'
