@@ -1,6 +1,5 @@
 import { useState, useRef } from 'react'
 import parse from 'html-react-parser'
-import { useIsInViewport } from '../utils/transitions'
 
 import Header from '../components/header'
 import Footer from '../components/footer'
