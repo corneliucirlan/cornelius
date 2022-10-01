@@ -4,6 +4,8 @@
 // Keyframes
 @import '../components/keyframes'
 
+@import '../components/card'
+
 .hero
 	// Subtract nav height
 	min-height: calc(100vh - ($spacer * 25))
@@ -17,6 +19,19 @@
 		margin-top: $spacer * 25
 		margin-bottom: 0
 
+.image
+	& > span
+		overflow: visible !important
+
+	& > span > img
+		z-index: -50
+		transform: scale(1.2) translate(2%, 9%) !important
+		// transform: scale(2) translateY(20%) !important
+
+	@include media-breakpoint-up(md)
+		& > span > img
+			transform: scale(1.5) translateY(9%) !important
+
 .background
 	font:
 		family: $headings-font-family
@@ -27,7 +42,6 @@
 	// background: orange
 	text-shadow: 0 0 100px rgba($black, 5%) 
 	color: $white
-	// color: $black
 	position: absolute
 	left: 0
 	top: 0
@@ -55,7 +69,7 @@
 		padding: 5px 7px
 		width: 3px
 		height: 20px
-		border: 2px solid rgba($black, .7)
+		border: 2px solid rgba($white, .7)
 		border-radius: 25px
 		opacity: 0.75
 		box-sizing: content-box
@@ -64,6 +78,6 @@
 			width: 3px
 			height: 7px
 			border-radius: 25%
-			background-color: rgba($black, .7)
+			background-color: rgba($white, .7)
 			animation: scroll 2.2s cubic-bezier(.15,.41,.69,.94) infinite
 
