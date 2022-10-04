@@ -18,9 +18,6 @@ import { buttonIsSending, buttonSuccess, buttonError, buttonDefault } from '../u
 // Validation
 import { validateInputs } from '../utils/input-validate'
 
-// Select options
-import { BudgetOptions, ServiceOptions } from '../utils/select-options'
-
 // Contact page copy
 import { contactCopy } from '../components/data/site-copy'
 
