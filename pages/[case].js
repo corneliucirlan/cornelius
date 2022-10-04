@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { caseStudies } from '../components/data/projects'
+import projects from '../components/data/projects'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import Title, { SubTitle } from '../components/title'
@@ -11,9 +11,9 @@ import styles from '../sass/modules/caseStudy.module.sass'
 
 export const getStaticPaths = async () => {
 
-	return { paths: caseStudies.map((study) => ({
+	return { paths: projects.map(project => ({
 		params: {
-			case: study.case.toString(),
+			case: project.case.toString(),
 		},
 	})), fallback: false }
 }
@@ -21,11 +21,11 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async ({ params }) => {
 
 	// Get current case study
-	const caseStudy = caseStudies.filter(c => c.case === params.case)[0]
+	const caseStudy = projects.filter(project => project.case === params.case)[0]
 
 	// Get all base64 images
 	let images = await Promise.all(caseStudy.images.map(async image =>
-		getPhotoData(`/images/${caseStudy.case}/${image}`)
+		getPhotoData(`/images/projects/${caseStudy.case}/${image}`)
 	))
 
 	// Replace original images
@@ -42,14 +42,10 @@ export default ({ caseStudy }) => {
 
 			<main className='row'>
 				<div className='col-12 col-md-5'>
-					{caseStudy.title && <Title
-						kicker='Case study'
-						heading={caseStudy.title}
-					/>}
-
-					<SubTitle className={styles.subtitle} element={caseStudy.role} title='My role' />
-					<SubTitle className={styles.subtitle} element={caseStudy.client} title='Client' />
-					<SubTitle className={styles.subtitle} element={caseStudy.period} title='Period' />
+					{ caseStudy.title && <Title kicker='Case study' heading={caseStudy.title} /> }
+					{ caseStudy.role && <SubTitle className={styles.subtitle} element={caseStudy.role} title='My role' /> }
+					{ caseStudy.client && <SubTitle className={styles.subtitle} element={caseStudy.client} title='Client' /> }
+					{ caseStudy.period && <SubTitle className={styles.subtitle} element={caseStudy.period} title='Period' /> }
 				</div>
 
 				<div className='col-12 col-md-7'>
@@ -61,7 +57,7 @@ export default ({ caseStudy }) => {
 						href={caseStudy.behanceURL}
 						className={[ 'btn' ]}
 						hasTarget={caseStudy.target}
-						text='View case study on Behance'
+						text={caseStudy.type === 'study' ? 'View case study on Behance' : 'View project'}
 					/>}
 				</div>
 

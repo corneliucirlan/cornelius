@@ -12,7 +12,7 @@ import { FormInput, FormSelect, FormTextare } from '../utils/form-inputs'
 // Select styles
 import { selectStyles } from '../utils/select-styles'
 
-// Btton states
+// Form button states
 import { buttonIsSending, buttonSuccess, buttonError, buttonDefault } from '../utils/button-states'
 
 // Validation
@@ -20,6 +20,9 @@ import { validateInputs } from '../utils/input-validate'
 
 // Select options
 import { BudgetOptions, ServiceOptions } from '../utils/select-options'
+
+// Contact page copy
+import { contactCopy } from '../components/data/site-copy'
 
 // Contact page SASS module
 import styles from '../sass/modules/Contact.module.sass'
@@ -136,16 +139,16 @@ export default () => {
 
 				<div className='col-12 col-md-5'>
 					<Caption
-						kicker='Contact'
-						heading="Let's work together"
-						caption='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam metus ipsum, malesuada sed volutpat id, dignissim vitae quam. Maecenas nibh leo, laoreet eget nisi ac, sagittis imperdiet libero.'
+						kicker={contactCopy.kicker}
+						heading={contactCopy.title}
+						caption={contactCopy.caption}
 					/>
 
 					<Button
-						href='mailto:corneliu@corneliucirlan.com'
+						href={contactCopy.mail.href}
 						className={[ 'btn', 'btn-footer', 'btn-email-me', 'animate-in', 'animate-in-delay-3' ]}
 						hasIcon={true}
-						text='corneliu@corneliucirlan.com'
+						text={contactCopy.mail.text}
 					/>
 				</div>
 
@@ -158,8 +161,8 @@ export default () => {
 							type='text'
 							name='name'
 							value={name}
-							classes={`form-control ${isValid['name'] === false && 'is-invalid'}`}
-							placeholder="What's your name?"
+							classes={`form-control animate-in animate-in-delay-5 ${isValid['name'] === false && 'is-invalid'}`}
+							placeholder={contactCopy.form.name.label}
 							setValue={setName}
 							/>
 
@@ -170,7 +173,7 @@ export default () => {
 							name='email'
 							value={email}
 							classes={`form-control ${isValid['email'] === false && 'is-invalid'}`}
-							placeholder="What's your e-mail address?"
+							placeholder={contactCopy.form.email.label}
 							setValue={setEmail}
 							/>
 						
@@ -178,13 +181,13 @@ export default () => {
 						<FormSelect
 							forLabel='Service'
 							name='service'
-							placeholder='How can I help?'
+							placeholder={contactCopy.form.service.label}
 							classes={`form-control form-control-select ${isValid['service'] === false && 'is-invalid'}`}
 							classNamePrefix='select'
 							styles={selectStyles}
 							value={service}
 							id='select-service'
-							options={ServiceOptions}
+							options={contactCopy.form.service.options}
 							setValue={setService}
 							/>
 
@@ -192,13 +195,13 @@ export default () => {
 						<FormSelect
 							forLabel='Budget'
 							name='budget'
-							placeholder="What's your budget"
+							placeholder={contactCopy.form.budget.label}
 							classes={`form-control form-control-select ${isValid['budget'] === false && 'is-invalid'}`}
 							classNamePrefix='select'
 							styles={selectStyles}
 							value={budget}
 							id='select-budget'
-							options={BudgetOptions}
+							options={contactCopy.form.budget.options}
 							setValue={setBudget}
 						/>
 	
@@ -207,7 +210,7 @@ export default () => {
 							forLabel='Message'
 							name='message'
 							value={message}
-							placeholder="What's your message?"
+							placeholder={contactCopy.form.message.label}
 							classes={`form-control ${isValid['message'] === false && 'is-invalid'}`}
 							setValue={setMessage}
 						/>

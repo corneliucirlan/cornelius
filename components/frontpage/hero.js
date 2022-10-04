@@ -2,6 +2,7 @@ import {useRef } from 'react'
 import Image from 'next/image'
 import Button from '../button'
 import Caption from '../caption'
+import { indexCopy } from '../data/site-copy'
 
 export default ({ hero, cta, image, imageClass }) => {
 
@@ -23,15 +24,15 @@ export default ({ hero, cta, image, imageClass }) => {
 
 			<div className='col-12 col-md-6 d-flex flex-column justify-content-center'>
 				<Caption
-					kicker='Corneliu Cîrlan'
-					heading='Website and user experience designer'
-					caption='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam metus ipsum, malesuada sed volutpat id, dignissim vitae quam. Maecenas nibh leo, laoreet eget nisi ac, sagittis imperdiet libero.'
+					kicker={indexCopy.kicker}
+					heading={indexCopy.title}
+					caption={indexCopy.caption}
 				/>
 				
 				<div className={`${cta} d-flex justify-content-start align-items-center`}>
-					<Button className={['btn']} href='/contact' text="Let's work together" />
+					<Button className={[ 'btn' ]} href='/contact' text={indexCopy.buttons.work.text} />
 					<span className='btn-divider'>or</span>
-					<Button className={['btn']} href='/about' text='Read about me' />
+					<Button className={[ 'btn' ]} href='/about' text={indexCopy.buttons.about.text} />
 				</div>
 			</div>
 		</section>

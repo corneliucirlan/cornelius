@@ -6,60 +6,49 @@ import Footer from '../components/footer'
 import Hero from '../components/frontpage/hero'
 import ListProjects from '../components/frontpage/list-projects'
 import LetsWorkTogether from '../components/work-together'
-import { caseStudies, personalProjects } from '../components/data/projects'
+import projectsData from '../components/data/projects'
+import { getPhotoData } from '../utils/images'
+import { indexCopy } from '../components/data/site-copy'
 
 import styles from '../sass/modules/Index.module.sass'
-import { getPhotoData } from '../utils/images'
-
 
 export const getServerSideProps = async () => {
 
+	const setPosts = async (data, classes, source) => {
+		return {
+			image: await getPhotoData(source === null ? data.imageURL : (source === 'dribbble' ? data.images.hidpi : data.media_url)),
+			title: source !== 'instagram' ? data.title : null,
+			caption: source !== 'dribbble' ? data.caption : data.description,
+			permalink: source !== 'dribbble' ? data.permalink : data.html_url,
+			classes: classes,
+			source: source
+		}
+	}
+
 	// Case Studies posts
-	let studies = await Promise.all(caseStudies.map( async study => {
-		const post = {}
-		post.image = await getPhotoData(study.imageURL)
-
-		post.title = study.title
-		post.caption = study.caption
-		post.permalink = study.permalink
-		post.classes = [ 'col-12', 'col-md-6', 'card', 'card-dribbble' ]
-		post.source = null
-
-		return post
-	}))
+	// console.log(projectsData)
+	let caseStudies = projectsData.filter(project => project.type === 'study')
+	let studies = await Promise.all(caseStudies.map( async study =>
+		setPosts(study, [ 'col-12', 'col-md-6', 'card', 'card-dribbble' ], null)
+	))
+	// let studies = {}
 
 	// Personal Projects posts
-	let projects = await Promise.all(personalProjects.map( async study => {
-		const post = {}
-		post.image = await getPhotoData(study.imageURL)
+	let personalProjects = projectsData.filter(project => project.type === 'personal')
+	let projects = await Promise.all(personalProjects.map( async project =>
+		setPosts(project, [ 'col-12', 'col-md-6', 'card', 'card-dribbble' ], null)	
+	))
+	// let projects = {}
 
-		post.title = study.title
-		post.caption = study.caption
-		post.permalink = study.permalink
-		post.classes = [ 'col-12', 'col-md-6', 'card', 'card-dribbble' ]
-		post.source = null
-
-		return post
-	}))
-	
 	// Get latest Dribbble posts
 	let dribbbleResult = await getPosts('https://api.dribbble.com/v2/user/shots', {
 		access_token: process.env.DRIBBBLE_TOKEN,
 		per_page: 2
 	})
-	
-	const dribbblePosts = await Promise.all(dribbbleResult.map(async dribbbleItem => {
-		const post = {}
-		post.image = await getPhotoData(dribbbleItem.images.hidpi)
 
-		post.title = dribbbleItem.title
-		post.caption = dribbbleItem.description
-		post.permalink = dribbbleItem.html_url
-		post.classes = [ 'col-12', 'col-md-6', 'card', 'card-dribbble' ]
-		post.source = 'dribbble'
-
-		return post
-	}))
+	let dribbblePosts = await Promise.all(dribbbleResult.map( async dribbbleItem =>
+		setPosts(dribbbleItem, [ 'col-12', 'col-md-6', 'card', 'card-dribbble' ], 'dribbble')
+	))
 
 	// Get latest IG posts
 	let instagramResult = await getPosts('https://graph.instagram.com/v14.0/me/media', {
@@ -69,19 +58,9 @@ export const getServerSideProps = async () => {
 	})
 	// console.log(instagramResult)
 
-	// const instagramPosts = await Promise.all(instagramResult.data.map(async instagramResult => {
-
-	// 	const post = {}
-	// 	post.image = await getPhotoData(instagramResult.media_url)
-
-	// 	post.title = null
-	// 	post.caption = instagramResult.caption
-	// 	post.permalink = instagramResult.permalink
-	// 	post.classes = [ 'col-12', 'col-md-4', 'card', 'card-instagram' ]
-	// 	post.source = 'instagram'
-
-	// 	return post
-	// }))
+	// let instagramPosts = await Promise.all(instagramResult.data.map( async igPost =>
+	// 	setPosts(igPost, [ 'col-12', 'col-md-4', 'card', 'card-instagram' ], 'instagram')
+	// ))
 
 	// Return posts
 	return {props: {
@@ -99,16 +78,16 @@ export default ({ studies, projectsPersonal, dribbblePosts, instagramPosts, hero
 	const projects = [
 
 		// Case studies
-		{ kicker: 'Curated projects', heading: 'Case studies', posts: studies },
+		{ kicker: indexCopy.sections.studies.kicker, heading: indexCopy.sections.studies.title, posts: studies },
 
 		// Personal projects
-		{kicker: 'Side hussles', heading: 'Personal projects', posts: projectsPersonal },
+		{ kicker: indexCopy.sections.personal.kicker, heading: indexCopy.sections.personal.title, posts: projectsPersonal },
 
 		// Latest Dribbble shots
-		{ kicker: "What's new", heading: 'Latest on Dribbble', posts: dribbblePosts },
+		{ kicker: indexCopy.sections.dribbble.kicker, heading: indexCopy.sections.dribbble.title, posts: dribbblePosts },
 
 		// Latest Instagram posts
-		// { kicker: 'On socials', heading: 'Latest on Instagram', posts: instagramPosts }
+		// { kicker: indexCopy.sections.instagram.kicker, heading: indexCopy.sections.instagram.title, posts: instagramPosts }
 	]
 
 	return (

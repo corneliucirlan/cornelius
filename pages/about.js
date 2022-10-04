@@ -9,6 +9,7 @@ import LetsWorkTogether from '../components/work-together'
 import Caption from '../components/caption'
 import { getPhotoData } from '../utils/images'
 import { useIsInViewport } from '../utils/transitions'
+import { aboutCopy } from '../components/data/site-copy'
 
 import styles from '../sass/modules/About.module.sass'
 
@@ -31,27 +32,6 @@ export default ({ aboutMePhoto }) => {
 	const experienceRef = useRef()
 	const experienceListRef = useRef()
 
-	const servicesAndTools = [
-		{
-			title: 'Services',
-			items: [ 'Art direction', 'Web & mobile', 'Brand identity', 'UX & UI', 'Iconography', 'Animation', 'Photography' ],
-			classes: `col-12 offset-md-1 col-md-4 ${styles.services}`,
-			ref: servicesRef
-		},
-		{
-			title: 'Tools',
-			items: [ 'Photoshop', 'Illustrator', 'XD', 'Dimension', 'After Effects', 'Lightroom', 'Figma', 'Visual Studio Code' ],
-			classes: 'col-12 offset-md-2 col-md-4',
-			ref: toolsRef
-		}
-	]
-
-	const experience = [
-		{ name: 'Corneliu Cîrlan PFA', title: 'Founder, Creative Director, Freelancer, Designer, Developer', period: 'February 2013 - Present' },
-		{ name: 'Uncover Romania Tours', title: 'Full-stack designer', period: 'February 2015 - April 2016' },
-		{ name: 'Uncover Romania', title: 'Co-founder, Web, UX / UI Designer, Developer', period: 'January 2012 - April 2016' }
-	]
-
 	return (
 		<div className={`container ${styles.about}`}>
 			<Head>
@@ -66,9 +46,9 @@ export default ({ aboutMePhoto }) => {
 				<section className={`row ${useIsInViewport(aboutRef) ? 'animate-in' : null}`} ref={aboutRef}>
 					<div className='col-12 offset-md-2 col-md-8'>
 						<Caption
-							kicker='A little about me'
-							heading="Hi, I'm Corneliu Cîrlan, the designer you're looking for"
-							caption='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam metus ipsum, malesuada sed volutpat id, dignissim vitae quam. Maecenas nibh leo, laoreet eget nisi ac, sagittis imperdiet libero.'
+							kicker={aboutCopy.kicker}
+							heading={aboutCopy.title}
+							caption={aboutCopy.caption}
 						/>
 					</div>
 				</section>
@@ -89,28 +69,33 @@ export default ({ aboutMePhoto }) => {
 
 				{/* Services & tools */}
 				<section className='row'>
-					{servicesAndTools.map((element, key) =>
-						<div key={key} className={element.classes} ref={element.ref}>
-							<Title kicker={element.title} />
-							<ul className={styles.list}>
-								{element.items.map((item, index) => <li key={index} className={styles.item}>{item}</li>)}
-							</ul>	
-						</div>
-					)}
+					<div className={`col-12 offset-md-1 col-md-4 ${styles.services}`} ref={servicesRef}>
+						<Title kicker={aboutCopy.services.title} />
+						<ul className={styles.list}>
+							{aboutCopy.services.list.map(( item, index ) => <li key={index} className={styles.item}>{item}</li> )}
+						</ul>
+					</div>
+
+					<div className='col-12 offset-md-2 col-md-4' ref={toolsRef}>
+						<Title kicker={aboutCopy.tools.title} />
+						<ul className={styles.list}>
+							{aboutCopy.tools.list.map(( item, index ) => <li key={index} className={styles.item}>{item}</li> )}
+						</ul>
+					</div>
 				</section>
 
 				{/* Experience */}
 				<section className='row'>
 					<div className={`col-12 offset-md-2 col-md-8 ${useIsInViewport(experienceRef) ? 'animate-in' : null}`} ref={experienceRef}>
 						<Caption
-							kicker='Experience'
-							heading="Over 10 years of experience"
-							caption='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam metus ipsum, malesuada sed volutpat id, dignissim vitae quam. Maecenas nibh leo, laoreet eget nisi ac, sagittis imperdiet libero.'
+							kicker={aboutCopy.experience.kicker}
+							heading={aboutCopy.experience.title}
+							caption={aboutCopy.experience.caption}
 						/>
 					</div>
 
 					<div className={`col-12 offset-md-1 col-md-10 ${styles.experience} ${useIsInViewport(experienceListRef) ? 'animate-in' : null}`} ref={experienceListRef}>
-						{experience.map((item, index) =>
+						{aboutCopy.experience.list.map((item, index) =>
 							<div key={index} className={`d-flex justify-content-between flex-column flex-md-row ${styles.item}`}>
 								<span>{item.name}</span>
 								<span>{item.title}</span>

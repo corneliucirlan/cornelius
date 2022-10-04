@@ -1,21 +1,21 @@
 import { object, string } from 'yup'
-import { BudgetOptions, ServiceOptions } from './select-options'
+import { contactCopy } from '../components/data/site-copy'
 
 let serviceValues = []
 let serviceLabels = []
-ServiceOptions.map(item => {
+contactCopy.form.service.options.map(item => {
 	serviceValues.push(item.value)
 	serviceLabels.push(item.label)
 })
 
 let budgetValues = []
 let budgetLabels = []
-BudgetOptions.map(item => {
+contactCopy.form.budget.options.map(item => {
 	budgetValues.push(item.value)
 	budgetLabels.push(item.label)
 })
-	
 
+// Validate name
 export const validateName = async name => {
 
 	// Define Name schema
@@ -25,6 +25,7 @@ export const validateName = async name => {
 	return await nameShema.isValid(name)
 }
 
+// Validate email address
 export const validateEmail = async email => {
 
 	// Define Name schema
