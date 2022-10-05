@@ -10,7 +10,7 @@ export default `
 	display: none;
 }
 .loader-container {
-	background-color: rgba(15, 15, 15, 1);
+	background-color: white;
 	width: 100vw;
 	height: 100vh;
 	position: fixed;
@@ -30,7 +30,7 @@ export default `
 
 .loader-circle {
 	position: absolute;
-	background-color: white;
+	background-color: rgba(15, 15, 15, 1);
 	width: 100px;
 	height: 100px;
 	border-radius: 50%;
@@ -45,21 +45,29 @@ export default `
 
 @keyframes slideIn {
 	0& {
-		margin-top: 100vh;
+		z-index: -10000;
+		opacity: 0;
+		margin-top: 2vh;
 	}
-
+	
 	100% {
+		z-index: 10000;
+		opacity: 0;
 		margin-top: 0;
 	}
 }
 
 @keyframes slideOut {
 	0& {
+		z-index: 10000;
+		opacity: 1;
 		margin-top: 0;
 	}
-
+	
 	100% {
-		margin-top: -100vh;
+		z-index: -10000;
+		opacity: 0;
+		margin-top: -2vh;
 	}
 }
 
