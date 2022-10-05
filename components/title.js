@@ -24,7 +24,7 @@ export default ({ kicker, heading, isButton = false, button = null }) => {
 	const headerRef = useRef()
 
 	return (
-		<header ref={headerRef}>
+		<header className={`opacity-0 ${useIsInViewport(headerRef) ? 'fade-in' : null}`} ref={headerRef}>
 			<h4 className='text-uppercase'>{kicker}</h4>
 			{!isButton && heading && <h1>{heading}</h1>}
 			{isButton &&

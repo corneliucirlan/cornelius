@@ -43,7 +43,7 @@ export default ({ aboutMePhoto }) => {
 			<main className={`text-center ${styles.about}`}>
 
 				{/* About me */}
-				<section className={`row ${useIsInViewport(aboutRef) ? 'animate-in' : null}`} ref={aboutRef}>
+				<section className={`row ${useIsInViewport(aboutRef) ? 'fade-in' : null}`} ref={aboutRef}>
 					<div className='col-12 offset-md-2 col-md-8'>
 						<Caption
 							kicker={aboutCopy.kicker}
@@ -54,7 +54,7 @@ export default ({ aboutMePhoto }) => {
 				</section>
 
 				{/* Photo */}
-				<section className={`row ${useIsInViewport(photoRef) ? 'animate-in' : null}`} ref={photoRef}>
+				<section className={`row ${useIsInViewport(photoRef) ? 'fade-in' : null}`} ref={photoRef}>
 					{/* <div className={`col-12 offset-md-1 col-md-10 ${styles.photo}`}></div> */}
 
 					<Image
@@ -71,14 +71,14 @@ export default ({ aboutMePhoto }) => {
 				<section className='row'>
 					<div className={`col-12 offset-md-1 col-md-4 ${styles.services}`} ref={servicesRef}>
 						<Title kicker={aboutCopy.services.title} />
-						<ul className={styles.list}>
+						<ul className={`opacity-0 ${styles.list} ${useIsInViewport(servicesRef) ? 'fade-in' : null}`} ref={servicesRef}>
 							{aboutCopy.services.list.map(( item, index ) => <li key={index} className={styles.item}>{item}</li> )}
 						</ul>
 					</div>
 
-					<div className='col-12 offset-md-2 col-md-4' ref={toolsRef}>
+					<div className='col-12 offset-md-2 col-md-4'>
 						<Title kicker={aboutCopy.tools.title} />
-						<ul className={styles.list}>
+						<ul className={`opacity-0 ${styles.list} ${useIsInViewport(toolsRef) ? 'fade-in' : null}`} ref={toolsRef}>
 							{aboutCopy.tools.list.map(( item, index ) => <li key={index} className={styles.item}>{item}</li> )}
 						</ul>
 					</div>
@@ -86,7 +86,7 @@ export default ({ aboutMePhoto }) => {
 
 				{/* Experience */}
 				<section className='row'>
-					<div className={`col-12 offset-md-2 col-md-8 ${useIsInViewport(experienceRef) ? 'animate-in' : null}`} ref={experienceRef}>
+					<div className={`col-12 offset-md-2 col-md-8 ${useIsInViewport(experienceRef) ? 'fade-in' : null}`} ref={experienceRef}>
 						<Caption
 							kicker={aboutCopy.experience.kicker}
 							heading={aboutCopy.experience.title}
@@ -94,7 +94,7 @@ export default ({ aboutMePhoto }) => {
 						/>
 					</div>
 
-					<div className={`col-12 offset-md-1 col-md-10 ${styles.experience} ${useIsInViewport(experienceListRef) ? 'animate-in' : null}`} ref={experienceListRef}>
+					<div className={`col-12 offset-md-1 col-md-10 ${styles.experience} ${useIsInViewport(experienceListRef) ? 'fade-in' : null}`} ref={experienceListRef}>
 						{aboutCopy.experience.list.map((item, index) =>
 							<div key={index} className={`d-flex justify-content-between flex-column flex-md-row ${styles.item}`}>
 								<span>{item.name}</span>

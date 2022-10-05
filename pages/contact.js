@@ -23,6 +23,7 @@ import { contactCopy } from '../components/data/site-copy'
 
 // Contact page SASS module
 import styles from '../sass/modules/Contact.module.sass'
+import { useIsInViewport } from '../utils/transitions'
 
 export default () => {
 
@@ -134,7 +135,7 @@ export default () => {
 
 			<main className={`row align-items-center ${styles.contact}`}>
 
-				<div className='col-12 col-md-5'>
+				<div className={`col-12 col-md-5 opacity-0 ${useIsInViewport(contactRef) ? 'fade-in fade-in-delay-1' : null}`} ref={contactRef}>
 					<Caption
 						kicker={contactCopy.kicker}
 						heading={contactCopy.title}
@@ -158,7 +159,8 @@ export default () => {
 							type='text'
 							name='name'
 							value={name}
-							classes={`form-control animate-in animate-in-delay-5 ${isValid['name'] === false && 'is-invalid'}`}
+							classes={`form-control ${isValid['name'] === false && 'is-invalid'}`}
+							containerClasses='fade-in fade-in-delay-1'
 							placeholder={contactCopy.form.name.label}
 							setValue={setName}
 							/>
@@ -170,6 +172,7 @@ export default () => {
 							name='email'
 							value={email}
 							classes={`form-control ${isValid['email'] === false && 'is-invalid'}`}
+							containerClasses='fade-in fade-in-delay-2'
 							placeholder={contactCopy.form.email.label}
 							setValue={setEmail}
 							/>
@@ -180,6 +183,7 @@ export default () => {
 							name='service'
 							placeholder={contactCopy.form.service.label}
 							classes={`form-control form-control-select ${isValid['service'] === false && 'is-invalid'}`}
+							containerClasses='fade-in fade-in-delay-3'
 							classNamePrefix='select'
 							styles={selectStyles}
 							value={service}
@@ -194,13 +198,14 @@ export default () => {
 							name='budget'
 							placeholder={contactCopy.form.budget.label}
 							classes={`form-control form-control-select ${isValid['budget'] === false && 'is-invalid'}`}
+							containerClasses='fade-in fade-in-delay-4'
 							classNamePrefix='select'
 							styles={selectStyles}
 							value={budget}
 							id='select-budget'
 							options={contactCopy.form.budget.options}
 							setValue={setBudget}
-						/>
+							/>
 	
 						{/* Message */}
 						<FormTextare
@@ -208,6 +213,7 @@ export default () => {
 							name='message'
 							value={message}
 							placeholder={contactCopy.form.message.label}
+							containerClasses='fade-in fade-in-delay-5'
 							classes={`form-control ${isValid['message'] === false && 'is-invalid'}`}
 							setValue={setMessage}
 						/>
@@ -218,7 +224,8 @@ export default () => {
 						
 							<button
 								type="submit"
-								className={submitButton.classes}
+								style={{opacity: 0}}
+								className={`fade-in fade-in-delay-6 ${submitButton.classes}`}
 								disabled={submitButton.disabled}>
 									{parse(submitButton.text)}
 							</button>

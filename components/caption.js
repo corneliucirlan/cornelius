@@ -6,5 +6,5 @@ export default ({ kicker, heading, caption }) =>
 			kicker={kicker}
 			heading={heading}
 		/>
-		<p>{caption}</p>
+		<p className='fade-in fade-in-delay-1'>{caption}</p>
 	</>

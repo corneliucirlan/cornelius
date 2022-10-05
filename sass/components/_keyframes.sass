@@ -44,15 +44,15 @@
 		opacity: 0
 		transform: scale(1.5)
 
-.animate-in
-	animation: riseup .5s cubic-bezier(.3,0,.5,1) 3s forwards
+.fade-in
+	animation: riseup .5s cubic-bezier(.3,0,.5,1) forwards
 
 	@for $index from 1 through 10
-		&.animate-in-delay-#{$index}
-			animation-delay: calc( .5s * #{$index} )
+		&-delay-#{$index}
+			animation-delay: calc( .2s * #{$index} )
 
-.animate-in
-	animation: slideIn .5s cubic-bezier(.3,0,.5,1) forwards
+// .animate-in
+// 	animation: slideIn .5s cubic-bezier(.3,0,.5,1) forwards
 
 .fade-out
 	animation: slideOut 1s cubic-bezier(.3,0,.5,1) forwards

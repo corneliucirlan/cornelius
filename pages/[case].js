@@ -24,45 +24,61 @@ export const getStaticProps = async ({ params }) => {
 	const caseStudy = projects.filter(project => project.case === params.case)[0]
 
 	// Get all base64 images
-	let images = await Promise.all(caseStudy.images.map(async image =>
+	let photos = await Promise.all(caseStudy.images.map(async image =>
 		getPhotoData(`/images/projects/${caseStudy.case}/${image}`)
 	))
 
-	// Replace original images
-	caseStudy.images = images
+	// Add photos
+	caseStudy.photos = photos
 
-	return { props: { caseStudy: caseStudy } }
+	return { props: { project: caseStudy } }
 }
 
-export default ({ caseStudy }) => {
+export default ({ project }) => {
 
 	return (
-		<div className={`container ${styles.container}`}>
+		<div className='container'>
 			<Header />
 
-			<main className='row'>
-				<div className='col-12 col-md-5'>
-					{ caseStudy.title && <Title kicker='Case study' heading={caseStudy.title} /> }
-					{ caseStudy.role && <SubTitle className={styles.subtitle} element={caseStudy.role} title='My role' /> }
-					{ caseStudy.client && <SubTitle className={styles.subtitle} element={caseStudy.client} title='Client' /> }
-					{ caseStudy.period && <SubTitle className={styles.subtitle} element={caseStudy.period} title='Period' /> }
-				</div>
+			<main className='row' style={{marginTop: '20rem'}}>
+				<section className='col-12 col-md-5'>
 
-				<div className='col-12 col-md-7'>
-					{caseStudy.description && caseStudy.description.map((paragraph, key) =>
-						<p key={key} className={`animate-in animate-in-delay-${key}`} style={{ marginBottom: '3rem' }}>{paragraph}</p>
+					{/* Project title */}
+					<article className='opacity-0 fade-in fade-in-delay-1'>
+						<h4 className='text-uppercase'>{project.type === 'study' ? 'Case study' : 'Project'}</h4>
+						<h1>{project.title}</h1>
+					</article>
+
+					{project.details.map(( detail, key ) =>
+						<article key={key} className={`opacity-0 fade-in fade-in-delay-${key} ${styles.subtitle}`}>
+							<h4 className='text-uppercase'>{detail.title}</h4>
+							{Array.isArray(detail.text) ?
+								<ul style={{ listStyle: 'none', paddingLeft: 0 }}>
+									{detail.text.map((role, key) =>
+										<li key={key} className='h4-project'>{role}</li>
+									)}
+								</ul> :
+								<span className='h4-project'>{detail.text}</span>
+							}
+						</article>
+					)}
+				</section>
+
+				<section className='col-12 col-md-7'>
+					{project.description && project.description.map((paragraph, key) =>
+						<p key={key} className={`opacity-0 fade-in fade-in-delay-${key}`} style={{ marginBottom: '3rem' }}>{paragraph}</p>
 					)}
 
-					{caseStudy.behanceURL && <Button
-						href={caseStudy.behanceURL}
+					{project.behanceURL && <Button
+						href={project.behanceURL}
 						className={[ 'btn' ]}
-						hasTarget={caseStudy.target}
-						text={caseStudy.type === 'study' ? 'View case study on Behance' : 'View project'}
+						hasTarget={project.target}
+						text={project.type === 'study' ? 'View case study on Behance' : 'View project'}
 					/>}
-				</div>
+				</section>
 
-				<div className={`col ${styles.images}`}>
-					{caseStudy.images && caseStudy.images.map((image, key) =>
+				<section className={`col ${styles.images}`}>
+					{project.photos && project.photos.map(( image, key ) =>
 						<div className={styles.image} key={key}>
 							<Image
 								src={image.src}
@@ -73,8 +89,7 @@ export default ({ caseStudy }) => {
 							/>
 						</div>
 					)}
-				</div>
-
+				</section>
 			</main>
 
 			<Footer />	

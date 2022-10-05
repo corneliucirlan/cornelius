@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRef } from 'react'
+import { useIsInViewport } from '../utils/transitions'
 
 // Remove HTML tags and hashtags from strings
 const cleanString = string => {
@@ -23,7 +24,7 @@ export default ({ cardImage, cardTitle, cardCaption, cardHref, cardClasses, card
 	const cardRef = useRef()
 
 	return (
-		<article className={`${cardClasses.join(' ')}`} ref={cardRef}>
+		<article className={`opacity-0 ${cardClasses.join(' ')} ${useIsInViewport(cardRef) ? 'fade-in' : null}`} ref={cardRef}>
 			<div className='card-wrapper'>
 				<Image
 					src={cardImage.src}

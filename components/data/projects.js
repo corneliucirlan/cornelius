@@ -7,12 +7,21 @@ export default [
 		caption: 'caption text',
 		permalink: '/uncover-romania',
 		classes: [ 'col-12', 'col-md-6', 'card' ],
-		source: null,
-		role: [
-			'Creative Direction', 'UX / UI', 'Website Design', 'Web Development'
+		details: [
+			{
+				title: 'My role',
+				text: [ 'Creative Direction', 'UX / UI', 'Website Design', 'Web Development' ]
+			},
+			{
+				title: 'Client',
+				text: 'Client name'
+			},
+			{
+				title: 'Period',
+				text: '2012 - 2016'
+			}
 		],
-		client: 'Client name',
-		period: '2012 - 2016',
+		source: null,
 		caption: 'Lorem ipsum dolor sit amed. #one #two',
 		description: [
 			"Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras pretium maximus nunc. Duis vitae tincidunt purus. Donec scelerisque tortor at lacinia sollicitudin. Etiam interdum nulla scelerisque, eleifend justo quis, hendrerit leo. Vestibulum sed justo lacinia, finibus augue at, feugiat risus. Cras sed mi elit. Maecenas pellentesque nunc nec viverra gravida. Vivamus ut efficitur enim. Nunc et ex leo. Vestibulum vel nibh scelerisque, ultricies tortor gravida, lacinia neque. In vehicula vitae lorem nec posuere.",

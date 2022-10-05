@@ -9,7 +9,7 @@ export default ({ hero, cta, image, imageClass }) => {
 	const heroRef = useRef()
 
 	return (
-		<section className={`row flex-md-row-reverse ${hero}`} ref={heroRef}>
+		<section className={`row opacity-0 fade-in fade-in-delay-1 flex-md-row-reverse ${hero}`} ref={heroRef}>
 			<div className={`col-12 col-md-6 ${imageClass}`}>
 				<Image
 					src={image.src}
@@ -22,13 +22,13 @@ export default ({ hero, cta, image, imageClass }) => {
 				/>
 			</div>
 
-			<div className='col-12 col-md-6 d-flex flex-column justify-content-center'>
+			<div className='col-12 col-md-6 d-flex flex-column justify-content-center animate-in'>
 				<Caption
 					kicker={indexCopy.kicker}
 					heading={indexCopy.title}
 					caption={indexCopy.caption}
 				/>
-				
+
 				<div className={`${cta} d-flex justify-content-start align-items-center`}>
 					<Button className={[ 'btn' ]} href='/contact' text={indexCopy.buttons.work.text} />
 					<span className='btn-divider'>or</span>
@@ -38,4 +38,3 @@ export default ({ hero, cta, image, imageClass }) => {
 		</section>
 	)
 }
-

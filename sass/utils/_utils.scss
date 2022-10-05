@@ -1,3 +1,7 @@
+.opacity-0 {
+	opacity: 0
+}
+
 $utilities: (
 	// Justify content
 	'justify-content': (
@@ -73,13 +77,5 @@ $utilities: (
 			// baseline: baseline,
 			stretch: stretch,
 		)
-	),
-
-	// Font sizes
-	// 'font-size': (
-	// 	rfs: true,
-	// 	property: font-size,
-	// 	class: fs,
-	// 	values: $font-sizes
-	// ),
+	)
 )
