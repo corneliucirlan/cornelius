@@ -22,7 +22,7 @@ export default ({ hero, cta, image, imageClass }) => {
 				/>
 			</div>
 
-			<div className='col-12 col-md-6 d-flex flex-column justify-content-center animate-in'>
+			<div className='col-12 col-md-6 d-flex flex-column justify-content-center fade-in'>
 				<Caption
 					kicker={indexCopy.kicker}
 					heading={indexCopy.title}
