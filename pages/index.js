@@ -69,7 +69,8 @@ export const getServerSideProps = async () => {
 		dribbblePosts: dribbblePosts,
 		// instagramPosts: instagramPosts,
 		// heroImage: await getPhotoData('/images/cc-hero-image-closed.png')
-		heroImage: await getPhotoData('/images/cc-hero-image-open.png')
+		heroImage: await getPhotoData('/images/cc-hero-image-closed-white.png')
+		// heroImage: await getPhotoData('/images/cc-hero-image-open.png')
 	}}
 }
 
