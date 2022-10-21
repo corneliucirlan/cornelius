@@ -46,7 +46,8 @@ export const FormTextare = ({ forLabel, name, value, classes, containerClasses, 
 export const FormSelect = ({ forLabel, name, placeholder, classes, containerClasses, namePrefix, styles, value, id, options,setValue }) => {
 
 	return (
-		<div className={`col-12 col-md-6 opacity-0 ${containerClasses}`}>
+		// <div className={`col-12 col-md-6 opacity-0 ${containerClasses}`}>
+		<div className={`col-12 col-md-6`}>
 			<label htmlFor={name} className='form-label'>{forLabel}</label>
 			<Select
 				name={name}

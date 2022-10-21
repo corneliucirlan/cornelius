@@ -1,19 +1,26 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+	color: var(--#{$prefix}h-color)
+
 h4,
 .h4
 	font:
 		family: $font-family-sans-serif
 		weight: 400
-	color: $gray-500
+	color: var(--#{$prefix}h4-color)
 
 	&-project
 		font:
 			family: $headings-font-family
 			weight: 900
-		color: rgb(15, 15, 15)
 
 a
 	&.side-contact
-		background: rgba($black,.3)
+		background: var(--#{$prefix}side-bg)
 		display: block
 		position: fixed
 		width: 46px
@@ -29,7 +36,7 @@ a
 
 		.svg-icon
 			.path
-				fill: $white
+				fill: var(--#{$prefix}side-fill-color)
 
 		& svg
 			display: block
@@ -47,13 +54,13 @@ a
 			font-size: $font-size-base * 1.2
 			// line-height: 1.25rem
 			font-weight: 500
-			color: $white
+			color: var(--#{$prefix}side-color)
 			opacity: 0
 			margin-top: 1px
 			transition: width 0s linear $transition-delay, opacity $transition-duration $transition-timing-function
 
 		&:hover
-			background: $black
+			background: var(--#{$prefix}side-hover-bg)
 			width: 120px
 			transition: all .2s cubic-bezier(.3,0,.5,1)
 

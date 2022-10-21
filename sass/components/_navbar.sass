@@ -15,6 +15,7 @@
 		font-weight: 900
 		transition: $navbar-brand-transition
 		z-index: 100
+		color: var(--#{$prefix}logo-brand-color)
 
 		.navbar-brand-text
 			padding-left: var(--#{$prefix}brand-text-padding)
@@ -26,13 +27,13 @@
 			height: 25px
 
 			.cc-logo-bg
-				fill: $navbar-light-color
-				stroke: $navbar-light-color
+				fill: var(--#{$prefix}logo-stroke-color)
+				stroke: var(--#{$prefix}logo-stroke-color)
 				transition: $navbar-brand-transition
 
 			.cc-logo-lower,
 			.cc-logo-upper
-				fill: $white
+				fill: var(--#{$prefix}logo-fill-color)
 				transition: $navbar-brand-transition
 
 			@include media-breakpoint-up(md)
@@ -40,11 +41,11 @@
 				width: 50px
 
 		&:hover
-			color: $navbar-light-hover-color
+			color: var(--#{$prefix}logo-hover-color)
 
 			.cc-logo-bg
-				fill: $navbar-light-hover-color
-				stroke: $navbar-light-hover-color
+				fill: var(--#{$prefix}logo-hover-color)
+				stroke: var(--#{$prefix}logo-hover-color)
 
 	// Menu toggler
 	.navbar-toggler
@@ -59,7 +60,7 @@
 		& .hamburger,
 		& .hamburger:before,
 		& .hamburger:after
-			background-color: $black
+			background-color: var(--#{$prefix}navbar-toggler-color)
 			display: block
 			position: absolute
 			width: 20px
@@ -98,6 +99,9 @@
 			display: none
 			animation: riseup $transition-duration $transition-timing-function $transition-delay forwards
 
+			@media (prefers-color-scheme: dark)
+				--#{$prefix}nav-link-color: var(--#{$prefix}dark-mode-white)
+
 		@include media-breakpoint-up(md)
 			display: block
 			position: relative
@@ -113,12 +117,12 @@
 
 	// Menu item
 	.nav-link
-		color: rgba($white, .5)
+		// color: rgba($white, .5)
 		text-align: center
 		font-size: $font-size-base * 4
 
 		@include media-breakpoint-up(md)
-			color: $black
+			color: var(--#{$prefix}menu-link-color)
 			font-size: $font-size-base * 2
 			z-index: 200
 
@@ -131,17 +135,18 @@
 
 		// Navbar brand
 		.navbar-brand
-			color: rgba($white, .5)
+			color: var(--#{$prefix}navbar-toggler-color)
 
 			// CC SVG Logo
 			.cc-logo
 
 				.cc-logo-bg
-					stroke: rgba($white, .5)
+					stroke: var(--#{$prefix}navbar-toggler-color)
+					fill: var(--#{$prefix}body-bg)
 
 				.cc-logo-lower,
 				.cc-logo-upper
-					fill: rgba($white, .5)
+					fill: var(--#{$prefix}navbar-toggler-color)
 
 		// Toggler
 		.navbar-toggler
@@ -150,7 +155,7 @@
 			& .hamburger,
 			& .hamburger:before,
 			& .hamburger:after
-				background-color: rgba($white, .5)
+				background-color: var(--#{$prefix}navbar-toggler-color)
 
 			& .hamburger,
 			& .hamburger:after
@@ -171,7 +176,7 @@
 
 		// Menu wrapper
 		.navbar-collapse
-			background-color: $black
+			background-color: var(--#{$prefix}body-bg)
 			display: flex
 			z-index: 50
 

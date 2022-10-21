@@ -15,17 +15,15 @@
 	display: flex
 	align-content: center
 
+	@media (prefers-color-scheme: dark)
+		--#{$prefix}btn-color: var(--#{$prefix}dark-mode-white)
+
 	.svg-icon
 		margin-right: $spacer * 2
 
 		.path
-			fill: $black
+			fill: var(--#{$prefix}btn-color)
 			@include transition($btn-transition)
-
-	&-side
-		.svg-icon
-			.path
-				fill: $white
 
 	&-h1
 		font-size: $h1-font-size
@@ -42,7 +40,7 @@
 	&:hover
 		.svg-icon
 			.path
-				fill: $blue
+				fill: var(--#{$prefix}btn-hover-color)
 
 	&-animate
 		animation: riseup $transition-duration $transition-timing-function

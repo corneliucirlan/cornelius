@@ -20,6 +20,10 @@ export default `
 	z-index: 5000;
 }
 
+.dark-mode .loader-container {
+	background-color: #090909;
+}
+
 .animate-in {
 	animation: slideIn .5s cubic-bezier(.3,0,.5,1) forwards;
 }
@@ -41,6 +45,10 @@ export default `
 	-o-transform: translate(-50%, -50%) scale(0);
 	transform: translate(-50%, -50%) scale(0);
 	animation: load 1s linear infinite;
+}
+
+.dark-mode .loader-circle {
+	background-color: rgba(255, 255, 255, 1)
 }
 
 @keyframes slideIn {

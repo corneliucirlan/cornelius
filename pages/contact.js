@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import parse from 'html-react-parser'
 
 import Header from '../components/header'
@@ -10,7 +10,7 @@ import Caption from '../components/caption'
 import { FormInput, FormSelect, FormTextare } from '../utils/form-inputs'
 
 // Select styles
-import { selectStyles } from '../utils/select-styles'
+import { selectStylesLight, selectStylesDark } from '../utils/select-styles'
 
 // Form button states
 import { buttonIsSending, buttonSuccess, buttonError, buttonDefault } from '../utils/button-states'
@@ -21,12 +21,22 @@ import { validateInputs } from '../utils/input-validate'
 // Contact page copy
 import { contactCopy } from '../components/data/site-copy'
 
+import { useIsInViewport } from '../utils/transitions'
+import useDarkMode from 'use-dark-mode'
+
 // Contact page SASS module
 import styles from '../sass/modules/Contact.module.sass'
-import { useIsInViewport } from '../utils/transitions'
 
 export default () => {
 
+	// Dark mode
+	const darkMode = useDarkMode()
+
+	const [selectStyles, setSelectStyles] = useState()
+
+	// Set select styles
+	useEffect(() => darkMode.value ? setSelectStyles(selectStylesDark) : setSelectStyles(selectStylesLight), darkMode.value)
+	
 	// Form inputs states
 	const [name, setName] = useState('')
 	const [email, setEmail] = useState('')
@@ -178,7 +188,7 @@ export default () => {
 							/>
 						
 						{/* Service */}
-						<FormSelect
+						{selectStyles && <FormSelect
 							forLabel='Service'
 							name='service'
 							placeholder={contactCopy.form.service.label}
@@ -190,10 +200,10 @@ export default () => {
 							id='select-service'
 							options={contactCopy.form.service.options}
 							setValue={setService}
-							/>
+							/>}
 
 						{/* Budget */}
-						<FormSelect
+						{selectStyles && <FormSelect
 							forLabel='Budget'
 							name='budget'
 							placeholder={contactCopy.form.budget.label}
@@ -205,7 +215,7 @@ export default () => {
 							id='select-budget'
 							options={contactCopy.form.budget.options}
 							setValue={setBudget}
-							/>
+							/>}
 	
 						{/* Message */}
 						<FormTextare
@@ -220,8 +230,6 @@ export default () => {
 
 						{/* Submit button */}
 						<div className='col-12'>
-							{/* <Button classes=' btn-footer btn-form-submit' href='#' text='Send message' icon={true} submit={true} />						 */}
-						
 							<button
 								type="submit"
 								style={{opacity: 0}}

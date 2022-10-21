@@ -1,15 +1,25 @@
 .form-control,
 .form-select
-	border-bottom: 1px solid rgba($black, .1)
+	border-bottom: 1px solid var(--#{$prefix}input-border-color)
 	margin-bottom: $spacer * 3
 	padding-bottom: 5px
 	transition: border-color $transition-duration $transition-timing-function
+	background-color: var(--#{$prefix}input-bg-color)
+	color: var(--#{$prefix}input-color)
+
+	&::placeholder
+		color: var(--#{$prefix}input-placeholder-color)
+
+	&:focus,
+	&:active
+		background-color: var(--#{$prefix}input-focus-bg-color)
+		color: var(--#{$prefix}input-color)	
 
 	&:focus
-		border-bottom: 1px solid $blue
+		border-bottom: 1px solid var(--#{$prefix}input-focus-border-color)
 
 	&-select
-		border: 1px solid rgba($black, .1)
+		border: 1px solid var(--#{$prefix}input-border-color)
 		padding-top: 0
 		padding-bottom: 0
 
@@ -42,3 +52,15 @@ $loaderWidth: 20px
 	.ring
 		border: 2px solid $white
 		animation: animate-ring 2s ease-in infinite
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus
+	-webkit-text-fill-color: var(--#{$prefix}input-color)
+	transition: background-color 5000s ease-in-out 0s
