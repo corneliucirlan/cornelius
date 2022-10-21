@@ -45,6 +45,7 @@ export default () => {
 	const [message, setMessage] = useState('')
 
 	const contactRef = useRef()
+	const contactFormRef = useRef()
 
 	// Form inputs validity
 	const [isValid, setIsValid] = useState({})
@@ -87,7 +88,7 @@ export default () => {
 
 		// Update validity state
 		setIsValid(isValid)
-		
+
 		// Form valid
 		if (isValid['name'] && isValid['email'] && isValid['service'] && isValid['message'] && isValid['message']) {
 
@@ -154,13 +155,13 @@ export default () => {
 
 					<Button
 						href={contactCopy.mail.href}
-						className={[ 'btn', 'btn-footer', 'btn-email-me', 'animate-in', 'animate-in-delay-3' ]}
+						className={[ 'btn', 'btn-footer', 'btn-email-me' ]}
 						hasIcon={true}
 						text={contactCopy.mail.text}
 					/>
 				</div>
 
-				<div className='col-12 col-md-6 offset-md-1'>
+				<div className={`col-12 col-md-6 offset-md-1 opacity-0 ${useIsInViewport(contactFormRef) ? 'fade-in fade-in-delay-1' : null}`} ref={contactFormRef}>
 					<form action='' method='post' className='row' onSubmit={handleSubmit}>
 
 						{/* Name */}

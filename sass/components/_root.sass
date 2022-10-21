@@ -45,6 +45,15 @@
 	--#{$prefix}side-hover-bg: #{$black}
 	--#{$prefix}side-color: #{$white}
 
+	// Inputs
+	--#{$prefix}input-bg-color: #{$white}
+	--#{$prefix}input-focus-bg-color: #{$white}
+	--#{$prefix}input-color: #{$black}
+	--#{$prefix}input-placeholder-color: #{rgba($black, .5)}
+	--#{$prefix}input-border-color: #{rgba($black, .1)}
+	--#{$prefix}input-focus-border-color: #{$blue}
+
+
 	@include media-breakpoint-up(md)
 		--#{$prefix}brand-text-padding: calc(#{$spacer} * 2)
 
@@ -60,7 +69,6 @@
 		--#{$prefix}logo-fill-color: #{$black}
 		--#{$prefix}logo-stroke-color: var(--#{$prefix}dark-mode-white)
 		--#{$prefix}logo-brand-color: var(--#{$prefix}dark-mode-white)
-
 		--#{$prefix}navbar-toggler-color: var(--#{$prefix}dark-mode-white)
 
 		// Index backdrop

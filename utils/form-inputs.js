@@ -6,7 +6,8 @@ const isInvalidClass = 'is-invalid'
 export const FormInput = ({ forLabel, type, name, value, classes, containerClasses, placeholder, setValue }) => {
 
 	return (
-		<div className={`col-12 col-md-6 opacity-0 ${containerClasses}`}>
+		// <div className={`col-12 col-md-6 opacity-0 ${containerClasses}`}>
+		<div className={`col-12 col-md-6`}>
 			<label htmlFor={name} className='form-label'>{forLabel}</label>
 			<input
 				type={type}
@@ -26,7 +27,8 @@ export const FormInput = ({ forLabel, type, name, value, classes, containerClass
 export const FormTextare = ({ forLabel, name, value, classes, containerClasses, placeholder, setValue }) => {
 	
 	return (
-		<div className={`col-12 opacity-0 ${containerClasses}`}>
+		// <div className={`col-12 opacity-0 ${containerClasses}`}>
+		<div className={`col-12`}>
 			<label htmlFor={name} className='form-label'>{forLabel}</label>
 			<textarea
 				rows='1'

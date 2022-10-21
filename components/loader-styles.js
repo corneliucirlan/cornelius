@@ -10,7 +10,7 @@ export default `
 	display: none;
 }
 .loader-container {
-	background-color: white;
+	background-color: rgba(9, 9, 9, 1);
 	width: 100vw;
 	height: 100vh;
 	position: fixed;
@@ -20,8 +20,8 @@ export default `
 	z-index: 5000;
 }
 
-.dark-mode .loader-container {
-	background-color: #090909;
+.light-mode .loader-container {
+	background-color: rgba(255, 255, 255, 1);
 }
 
 .animate-in {
@@ -34,7 +34,7 @@ export default `
 
 .loader-circle {
 	position: absolute;
-	background-color: rgba(15, 15, 15, 1);
+	background-color: rgba(255, 255, 255, 1);
 	width: 100px;
 	height: 100px;
 	border-radius: 50%;
@@ -47,8 +47,8 @@ export default `
 	animation: load 1s linear infinite;
 }
 
-.dark-mode .loader-circle {
-	background-color: rgba(255, 255, 255, 1)
+.light-mode .loader-circle {
+	background-color: rgba(9, 9, 9, 1)
 }
 
 @keyframes slideIn {
