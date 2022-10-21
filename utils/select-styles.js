@@ -1,7 +1,7 @@
 const lightModeBackgroundColor = 'rgba(255, 255, 255, 1)'
-const lightModeBackgroundColorHover = 'rgba(21, 21, 21, .1)'
+const lightModeBackgroundColorHover = 'rgba(9, 29, 9, .1)'
 
-const darkModeBackgroundColor = 'rgba(21, 21, 21, 1)'
+const darkModeBackgroundColor = 'rgba(9, 9, 9, 1)'
 const darkModeBackgroundColorHover = 'rgba(255, 255, 255, .2)'
 const darkModeSelectedColor = '#dee2e6'
 const darkModePlaceholderColor = 'rgba(255, 255, 255, .5)'
