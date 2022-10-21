@@ -35,7 +35,7 @@ export default () => {
 	const [selectStyles, setSelectStyles] = useState()
 
 	// Set select styles
-	useEffect(() => darkMode.value ? setSelectStyles(selectStylesDark) : setSelectStyles(selectStylesLight), darkMode.value)
+	useEffect(() => darkMode.value ? setSelectStyles(selectStylesDark) : setSelectStyles(selectStylesLight), [ darkMode.value ])
 	
 	// Form inputs states
 	const [name, setName] = useState('')
