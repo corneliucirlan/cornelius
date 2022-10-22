@@ -38,7 +38,6 @@ export const getServerSideProps = async () => {
 	let projects = await Promise.all(personalProjects.map( async project =>
 		setPosts(project, [ 'col-12', 'col-md-6', 'card', 'card-dribbble' ], null)	
 	))
-	// let projects = {}
 
 	// Get latest Dribbble posts
 	let dribbbleResult = await getPosts('https://api.dribbble.com/v2/user/shots', {
@@ -73,7 +72,6 @@ export const getServerSideProps = async () => {
 			// dark: await getPhotoData('/images/cc-hero-image-closed.png')
 			dark: await getPhotoData('/images/cc-hero-image-closed-darker.png')
 		}
-		// heroImage: await getPhotoData('/images/cc-hero-image-open.png')
 	}}
 }
 

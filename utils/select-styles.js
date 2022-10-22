@@ -66,7 +66,6 @@ export const selectStylesDark = {
 		borderRadius: 0,
 		backgroundColor: darkModeBackgroundColor,
 		transition: backgroundTransition,
-		zIndex: 5000,
 		'&:hover': {
 			backgroundColor: darkModeBackgroundColorHover
 		}
@@ -86,7 +85,6 @@ export const selectStylesDark = {
 		backgroundColor: darkModeBackgroundColor,
 		width: '100%',
 		boxShadow: `0 4px 11px ${darkModeBackgroundColorHover}`,
-		zIndex: 5000,
 	}),
 	
 	menuList: styles => ({
@@ -95,7 +93,6 @@ export const selectStylesDark = {
 		border: 0,
 		padding: 0,
 		backgroundColor: darkModeBackgroundColor,
-		zIndex: 5000,
 	}),
 
 	singleValue: styles => ({
