@@ -52,7 +52,7 @@ export const aboutCopy = {
 
 export const contactCopy = {
 	kicker: 'Contact',
-	title: `Let's work together`,
+	title: `Get in touch -<br />Let's work together`,
 	caption: `Have a project in mind? Drop me a line.`,
 	mail: {
 		href: 'mailto:corneliu@corneliucirlan.com',

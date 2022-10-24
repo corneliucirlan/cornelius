@@ -149,7 +149,7 @@ export default () => {
 				<div className={`col-12 col-md-5 opacity-0 ${useIsInViewport(contactRef) ? 'fade-in fade-in-delay-1' : null}`} ref={contactRef}>
 					<Caption
 						kicker={contactCopy.kicker}
-						heading={contactCopy.title}
+						heading={parse(contactCopy.title)}
 						caption={contactCopy.caption}
 					/>
 
@@ -233,8 +233,7 @@ export default () => {
 						<div className='col-12'>
 							<button
 								type="submit"
-								style={{opacity: 0}}
-								className={`fade-in fade-in-delay-6 ${submitButton.classes}`}
+								className={submitButton.classes}
 								disabled={submitButton.disabled}>
 									{parse(submitButton.text)}
 							</button>
