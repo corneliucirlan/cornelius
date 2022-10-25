@@ -26,12 +26,10 @@ export const getServerSideProps = async () => {
 	}
 
 	// Case Studies posts
-	// console.log(projectsData)
 	let caseStudies = projectsData.filter(project => project.type === 'study')
 	let studies = await Promise.all(caseStudies.map( async study =>
 		setPosts(study, [ 'col-12', 'col-md-6', 'card', 'card-dribbble' ], null)
 	))
-	// let studies = {}
 
 	// Personal Projects posts
 	let personalProjects = projectsData.filter(project => project.type === 'personal')
@@ -55,7 +53,6 @@ export const getServerSideProps = async () => {
 		fields: 'id,caption,media_url,permalink',
 		limit: 3
 	})
-	// console.log(instagramResult)
 
 	// let instagramPosts = await Promise.all(instagramResult.data.map( async igPost =>
 	// 	setPosts(igPost, [ 'col-12', 'col-md-4', 'card', 'card-instagram' ], 'instagram')
@@ -93,7 +90,7 @@ export default ({ studies, projectsPersonal, dribbblePosts, instagramPosts, hero
 	]
 
 	return (
-		<div className='container'>
+		<div className="container">
 			<Head>
 				<title>Corneliu Cîrlan</title>
 			</Head>
@@ -108,7 +105,11 @@ export default ({ studies, projectsPersonal, dribbblePosts, instagramPosts, hero
 			</div>
 
 			<main>
-				<span className={`text-center d-none d-md-block ${styles.background}`}>designer</span>
+				<span
+					className={`text-center d-none d-md-block ${styles.background}`}
+				>
+					designer
+				</span>
 
 				{/* Hero Section */}
 				<Hero
@@ -118,7 +119,7 @@ export default ({ studies, projectsPersonal, dribbblePosts, instagramPosts, hero
 					imageClass={styles.image}
 				/>
 
-				{projects.map((project, key) =>
+				{projects.map((project, key) => (
 					<ListProjects
 						key={key}
 						kicker={project.kicker}
@@ -126,7 +127,7 @@ export default ({ studies, projectsPersonal, dribbblePosts, instagramPosts, hero
 						projects={project.posts}
 						source={project.source}
 					/>
-				)}
+				))}
 
 				{/* Let's work together */}
 				<LetsWorkTogether />

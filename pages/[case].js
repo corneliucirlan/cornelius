@@ -3,7 +3,6 @@ import Image from 'next/image'
 import projects from '../components/data/projects'
 import Header from '../components/header'
 import Footer from '../components/footer'
-import Title, { SubTitle } from '../components/title'
 import Button from '../components/button'
 import { getPhotoData } from '../utils/images'
 
@@ -40,56 +39,59 @@ export default ({ project }) => {
 		<div className='container'>
 			<Header />
 
-			<main className='row' style={{marginTop: '20rem'}}>
-				<section className='col-12 col-md-5'>
+			<main>
+				<div className='row'>
 
-					{/* Project title */}
-					<article className='opacity-0 fade-in fade-in-delay-1'>
-						<h4 className='text-uppercase'>{project.type === 'study' ? 'Case study' : 'Project'}</h4>
-						<h1>{project.title}</h1>
-					</article>
+					<section className='col-12 col-md-5'>
 
-					{project.details.map(( detail, key ) =>
-						<article key={key} className={`opacity-0 fade-in fade-in-delay-${key} ${styles.subtitle}`}>
-							<h4 className='text-uppercase'>{detail.title}</h4>
-							{Array.isArray(detail.text) ?
-								<ul style={{ listStyle: 'none', paddingLeft: 0 }}>
-									{detail.text.map((role, key) =>
-										<li key={key} className='h4-project'>{role}</li>
-									)}
-								</ul> :
-								<span className='h4-project'>{detail.text}</span>
-							}
+						{/* Project title */}
+						<article className='opacity-0 fade-in fade-in-delay-1'>
+							<h4 className='text-uppercase'>{project.type === 'study' ? 'Case study' : 'Project'}</h4>
+							<h1>{project.title}</h1>
 						</article>
-					)}
-				</section>
 
-				<section className='col-12 col-md-7'>
-					{project.description && project.description.map((paragraph, key) =>
-						<p key={key} className={`opacity-0 fade-in fade-in-delay-${key}`} style={{ marginBottom: '3rem' }}>{paragraph}</p>
-					)}
+						{project.details.map(( detail, key ) =>
+							<article key={key} className={`opacity-0 fade-in fade-in-delay-${key+1} ${styles.subtitle}`}>
+								<h4 className='text-uppercase'>{detail.title}</h4>
+								{Array.isArray(detail.text) ?
+									<ul className={styles.ul}>
+										{detail.text.map((role, key) =>
+											<li key={key} className='h4-project'>{role}</li>
+										)}
+									</ul> :
+									<span className='h4-project'>{detail.text}</span>
+								}
+							</article>
+						)}
+					</section>
 
-					{project.behanceURL && <Button
-						href={project.behanceURL}
-						className={[ 'btn' ]}
-						hasTarget={project.target}
-						text={project.type === 'study' ? 'View case study on Behance' : 'View project'}
-					/>}
-				</section>
+					<section className='col-12 col-md-7'>
+						{project.description && project.description.map((paragraph, key) =>
+							<p key={key} className={`opacity-0 fade-in fade-in-delay-${key+1}`} style={{ marginBottom: '3rem' }}>{paragraph}</p>
+						)}
 
-				<section className={`col ${styles.images}`}>
-					{project.photos && project.photos.map(( image, key ) =>
-						<div className={styles.image} key={key}>
-							<Image
-								src={image.src}
-								width={image.width}
-								height={image.height}
-								placeholder='blur'
-								blurDataURL={image.base64}
-							/>
-						</div>
-					)}
-				</section>
+						{project.behanceURL && <Button
+							href={project.behanceURL}
+							className={[ 'btn' ]}
+							hasTarget={project.target}
+							text={project.type === 'study' ? 'View case study on Behance' : 'View project'}
+						/>}
+					</section>
+
+					<section className={`col ${styles.images}`}>
+						{project.photos && project.photos.map(( image, key ) =>
+							<div className={styles.image} key={key}>
+								<Image
+									src={image.src}
+									width={image.width}
+									height={image.height}
+									placeholder='blur'
+									blurDataURL={image.base64}
+								/>
+							</div>
+						)}
+					</section>
+				</div>
 			</main>
 
 			<Footer />	

@@ -4,9 +4,7 @@ import Image from 'next/image'
 
 import Header from '../components/header'
 import Footer from '../components/footer'
-import Title from '../components/title'
 import LetsWorkTogether from '../components/work-together'
-import Caption from '../components/caption'
 import { getPhotoData } from '../utils/images'
 import { useIsInViewport } from '../utils/transitions'
 import { aboutCopy } from '../components/data/site-copy'
@@ -40,68 +38,116 @@ export default ({ aboutMePhoto }) => {
 
 			<Header />
 
-			<main className={`text-center ${styles.about}`}>
-
+			<main className="text-center">
 				{/* About me */}
-				<section className={`row ${useIsInViewport(aboutRef) ? 'fade-in' : null}`} ref={aboutRef}>
-					<div className='col-12 offset-md-2 col-md-8'>
-						<Caption
-							kicker={aboutCopy.kicker}
-							heading={aboutCopy.title}
-							caption={aboutCopy.caption}
-						/>
+				<section
+					className={`row opacity-0 ${
+						useIsInViewport(aboutRef)
+							? "fade-in fade-in-delay-1"
+							: null
+					}`}
+					ref={aboutRef}
+				>
+					<div className="col-12 offset-md-2 col-md-8">
+						<h4 className="text-uppercase">{aboutCopy.kicker}</h4>
+						<h1>{aboutCopy.title}</h1>
+						<p>{aboutCopy.caption}</p>
 					</div>
 				</section>
 
 				{/* Photo */}
-				<section className={`row ${useIsInViewport(photoRef) ? 'fade-in' : null}`} ref={photoRef}>
-					{/* <div className={`col-12 offset-md-1 col-md-10 ${styles.photo}`}></div> */}
-
+				<section
+					className={`row opacity-0 ${
+						useIsInViewport(photoRef)
+							? "fade-in fade-in-delay-1"
+							: null
+					}`}
+					ref={photoRef}
+				>
 					<Image
 						src={aboutMePhoto.src}
 						width={aboutMePhoto.width}
 						height={aboutMePhoto.height}
-						placeholder='blur'
+						placeholder="blur"
 						blurDataURL={aboutMePhoto.base64}
 						priority={true}
 					/>
 				</section>
 
 				{/* Services & tools */}
-				<section className='row'>
-					<div className={`col-12 offset-md-1 col-md-4 ${styles.services}`} ref={servicesRef}>
-						<Title kicker={aboutCopy.services.title} />
-						<ul className={`opacity-0 ${styles.list} ${useIsInViewport(servicesRef) ? 'fade-in' : null}`} ref={servicesRef}>
-							{aboutCopy.services.list.map(( item, index ) => <li key={index} className={styles.item}>{item}</li> )}
+				<section className="row">
+					<div
+						className={`col-12 offset-md-1 col-md-4 opacity-0 ${
+							styles.services
+						} ${useIsInViewport(servicesRef) ? "fade-in" : ""}`}
+						ref={servicesRef}
+					>
+						<h4 className="text-uppercase">
+							{aboutCopy.services.title}
+						</h4>
+						<ul className={styles.list}>
+							{aboutCopy.services.list.map((item, index) => (
+								<li key={index} className={styles.item}>
+									{item}
+								</li>
+							))}
 						</ul>
 					</div>
 
-					<div className='col-12 offset-md-2 col-md-4'>
-						<Title kicker={aboutCopy.tools.title} />
-						<ul className={`opacity-0 ${styles.list} ${useIsInViewport(toolsRef) ? 'fade-in' : null}`} ref={toolsRef}>
-							{aboutCopy.tools.list.map(( item, index ) => <li key={index} className={styles.item}>{item}</li> )}
+					<div
+						className={`col-12 offset-md-2 col-md-4 opacity-0 ${
+							useIsInViewport(toolsRef) ? "fade-in" : ""
+						}`}
+						ref={toolsRef}
+					>
+						<h4 className="text-uppercase">
+							{aboutCopy.tools.title}
+						</h4>
+						<ul className={styles.list}>
+							{aboutCopy.tools.list.map((item, index) => (
+								<li key={index} className={styles.item}>
+									{item}
+								</li>
+							))}
 						</ul>
 					</div>
 				</section>
 
 				{/* Experience */}
-				<section className='row'>
-					<div className={`col-12 offset-md-2 col-md-8 ${useIsInViewport(experienceRef) ? 'fade-in' : null}`} ref={experienceRef}>
-						<Caption
-							kicker={aboutCopy.experience.kicker}
-							heading={aboutCopy.experience.title}
-							caption={aboutCopy.experience.caption}
-						/>
+				<section className="row">
+					<div
+						className={`col-12 offset-md-2 col-md-8 opacity-0 ${
+							useIsInViewport(experienceRef) ? "fade-in" : null
+						}`}
+						ref={experienceRef}
+					>
+						<h4 className="text-uppercase">
+							{aboutCopy.experience.kicker}
+						</h4>
+						<h1>{aboutCopy.experience.title}</h1>
+						<p>{aboutCopy.experience.caption}</p>
 					</div>
 
-					<div className={`col-12 offset-md-1 col-md-10 ${styles.experience} ${useIsInViewport(experienceListRef) ? 'fade-in' : null}`} ref={experienceListRef}>
-						{aboutCopy.experience.list.map((item, index) =>
-							<div key={index} className={`d-flex justify-content-between flex-column flex-md-row ${styles.item}`}>
+					<div
+						className={`col-12 offset-md-1 col-md-10 opacity-0 ${
+							styles.experience
+						} ${
+							useIsInViewport(experienceListRef)
+								? "fade-in"
+								: null
+						}`}
+						ref={experienceListRef}
+					>
+						{aboutCopy.experience.list.map((item, index) => (
+							<div
+								key={index}
+								className={`d-flex justify-content-between flex-column flex-md-row ${styles.item}`}
+							>
 								<span>{item.name}</span>
 								<span>{item.title}</span>
 								<span>{item.period}</span>
 							</div>
-						)}
+						))}
 					</div>
 				</section>
 
@@ -111,5 +157,5 @@ export default ({ aboutMePhoto }) => {
 
 			<Footer />
 		</div>
-	) 
+	)
 }

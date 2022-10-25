@@ -3,11 +3,10 @@ import Select from 'react-select'
 const isInvalidClass = 'is-invalid'
 
 // Input
-export const FormInput = ({ forLabel, type, name, value, classes, containerClasses, placeholder, setValue }) => {
+export const FormInput = ({ forLabel, type, name, value, classes, placeholder, setValue }) => {
 
 	return (
-		// <div className={`col-12 col-md-6 opacity-0 ${containerClasses}`}>
-		<div className={`col-12 col-md-6`}>
+		<div className='col-12 col-md-6'>
 			<label htmlFor={name} className='form-label'>{forLabel}</label>
 			<input
 				type={type}
@@ -24,11 +23,10 @@ export const FormInput = ({ forLabel, type, name, value, classes, containerClass
 }
 
 // Textarea
-export const FormTextare = ({ forLabel, name, value, classes, containerClasses, placeholder, setValue }) => {
+export const FormTextare = ({ forLabel, name, value, classes, placeholder, setValue }) => {
 	
 	return (
-		// <div className={`col-12 opacity-0 ${containerClasses}`}>
-		<div className={`col-12`}>
+		<div className='col-12'>
 			<label htmlFor={name} className='form-label'>{forLabel}</label>
 			<textarea
 				rows='1'
@@ -45,11 +43,10 @@ export const FormTextare = ({ forLabel, name, value, classes, containerClasses, 
 }
 
 // Select
-export const FormSelect = ({ forLabel, name, placeholder, classes, containerClasses, namePrefix, styles, value, id, options,setValue }) => {
+export const FormSelect = ({ forLabel, name, placeholder, classes, namePrefix, styles, value, id, options,setValue }) => {
 
 	return (
-		// <div className={`col-12 col-md-6 opacity-0 ${containerClasses}`}>
-		<div className={`col-12 col-md-6`}>
+		<div className='col-12 col-md-6'>
 			<label htmlFor={name} className='form-label'>{forLabel}</label>
 			<Select
 				name={name}

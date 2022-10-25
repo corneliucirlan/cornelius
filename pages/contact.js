@@ -1,37 +1,17 @@
 import { useState, useRef, useEffect } from 'react'
 import parse from 'html-react-parser'
-
-// Dark mode
 import useDarkMode from 'use-dark-mode'
 
-// Header
 import Header from '../components/header'
-
-// Footer
 import Footer from '../components/footer'
-
-// Button
 import Button from '../components/button'
-
-// Form inputs
 import { FormInput, FormSelect, FormTextare } from '../utils/form-inputs'
-
-// Select styles
 import { selectStylesLight, selectStylesDark } from '../utils/select-styles'
-
-// Form button states
 import { buttonIsSending, buttonSuccess, buttonError, buttonDefault } from '../utils/button-states'
-
-// Validation
 import { validateInputs } from '../utils/input-validate'
-
-// Contact page copy
 import { contactCopy } from '../components/data/site-copy'
-
-// In viewport detection
 import { useIsInViewport } from '../utils/transitions'
 
-// Contact page SASS module
 import styles from '../sass/modules/Contact.module.sass'
 
 export default () => {
@@ -51,6 +31,7 @@ export default () => {
 	const [budget, setBudget] = useState('')
 	const [message, setMessage] = useState('')
 
+	// Animation refs
 	const contactRef = useRef()
 	const contactFormRef = useRef()
 

@@ -51,40 +51,40 @@ export const aboutCopy = {
 }
 
 export const contactCopy = {
-	kicker: 'Contact',
-	title: `Get in touch -<br />Let's work together`,
+	kicker: "Contact",
+	title: `Get in touch &mdash;<br />Let's work together`,
 	caption: `Have a project in mind? Drop me a line. It doesn't matter how big or small it is. Or maybe just say Hi.`,
 	mail: {
-		href: 'mailto:corneliu@corneliucirlan.com',
-		text: 'corneliu@corneliucirlan.com'
+		href: "mailto:corneliu@corneliucirlan.com",
+		text: "corneliu@corneliucirlan.com",
 	},
 	form: {
 		name: {
-			label: `What's your name?`
+			label: `What's your name?`,
 		},
 		email: {
-			label: `What's your e-mail address?`
+			label: `What's your e-mail address?`,
 		},
 		service: {
 			label: `How can I help?`,
 			options: [
-				{ value: 'oneoff', label: 'One-off project' },
-				{ value: 'longterm', label: 'Long-term partnership' },
-				{ value: 'fulltime', label: 'Hire me full-time' },
-				{ value: 'sayhi', label: 'Just wanted to say Hi' }
-			]
+				{ value: "oneoff", label: "One-off project" },
+				{ value: "longterm", label: "Long-term partnership" },
+				{ value: "fulltime", label: "Hire me full-time" },
+				{ value: "sayhi", label: "Just wanted to say Hi" },
+			],
 		},
 		budget: {
 			label: `What's your budget?`,
 			options: [
-				{ value: '1000', label: '$1000 - $2500' },
-				{ value: '2500', label: '$2500 - $5000' },
-				{ value: '5000', label: '$5000 - $10000' },
-				{ value: '10000', label: '$10000 or more' }
-			]
+				{ value: "1000", label: "$1000 - $2500" },
+				{ value: "2500", label: "$2500 - $5000" },
+				{ value: "5000", label: "$5000 - $10000" },
+				{ value: "10000", label: "$10000 or more" },
+			],
 		},
 		message: {
-			label: `What's your message?`
-		}
-	}
-}
+			label: `What's your message?`,
+		},
+	},
+};

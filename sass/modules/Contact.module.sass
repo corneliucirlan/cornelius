@@ -2,13 +2,15 @@
 @import '../bootstrap-config'
 
 .contact
-	// min-height: 100vh
-	min-height: calc(100vh - $spacer * 10)
-	margin-top: $spacer * 10
+	min-height: calc(100vh - $spacer * 20)
+	margin-top: $spacer * 20
 
 	.caption
 		margin: $spacer * 4 0
 
 	& > div
 		min-height: 400px
-		// background: orangered 
+
+	@include media-breakpoint-up(md)
+		min-height: calc(100vh - $spacer * 10)
+		margin-top: $spacer * 10
