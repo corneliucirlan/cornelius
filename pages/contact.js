@@ -1,10 +1,17 @@
 import { useState, useRef, useEffect } from 'react'
 import parse from 'html-react-parser'
 
+// Dark mode
+import useDarkMode from 'use-dark-mode'
+
+// Header
 import Header from '../components/header'
+
+// Footer
 import Footer from '../components/footer'
+
+// Button
 import Button from '../components/button'
-import Caption from '../components/caption'
 
 // Form inputs
 import { FormInput, FormSelect, FormTextare } from '../utils/form-inputs'
@@ -21,8 +28,8 @@ import { validateInputs } from '../utils/input-validate'
 // Contact page copy
 import { contactCopy } from '../components/data/site-copy'
 
+// In viewport detection
 import { useIsInViewport } from '../utils/transitions'
-import useDarkMode from 'use-dark-mode'
 
 // Contact page SASS module
 import styles from '../sass/modules/Contact.module.sass'
@@ -140,106 +147,130 @@ export default () => {
 	}
 
 	return (
-		<div className='container'>
-
+		<div className="container">
 			<Header />
 
 			<main className={`row align-items-center ${styles.contact}`}>
-
-				<div className={`col-12 col-md-5 opacity-0 ${useIsInViewport(contactRef) ? 'fade-in fade-in-delay-1' : null}`} ref={contactRef}>
-					<Caption
-						kicker={contactCopy.kicker}
-						heading={parse(contactCopy.title)}
-						caption={contactCopy.caption}
-					/>
+				<section
+					className={`col-12 col-md-5 opacity-0 ${
+						useIsInViewport(contactRef)
+							? "fade-in fade-in-delay-1"
+							: null
+					}`}
+					ref={contactRef}
+				>
+					<h4 className="text-uppercase">{contactCopy.kicker}</h4>
+					<h1>{parse(contactCopy.title)}</h1>
+					<p className={styles.caption}>{contactCopy.caption}</p>
 
 					<Button
 						href={contactCopy.mail.href}
-						className={[ 'btn', 'btn-footer', 'btn-email-me' ]}
+						className={["btn", "btn-footer", "btn-email-me"]}
 						hasIcon={true}
 						text={contactCopy.mail.text}
 					/>
-				</div>
+				</section>
 
-				<div className={`col-12 col-md-6 offset-md-1 opacity-0 ${useIsInViewport(contactFormRef) ? 'fade-in fade-in-delay-1' : null}`} ref={contactFormRef}>
-					<form action='' method='post' className='row' onSubmit={handleSubmit}>
-
+				<section
+					className={`col-12 col-md-6 offset-md-1 opacity-0 ${
+						useIsInViewport(contactFormRef)
+							? "fade-in fade-in-delay-1"
+							: null
+					}`}
+					ref={contactFormRef}
+				>
+					<form
+						action=""
+						method="post"
+						className="row"
+						onSubmit={handleSubmit}
+					>
 						{/* Name */}
 						<FormInput
-							forLabel='Name'
-							type='text'
-							name='name'
+							forLabel="Name"
+							type="text"
+							name="name"
 							value={name}
-							classes={`form-control ${isValid['name'] === false && 'is-invalid'}`}
-							containerClasses='fade-in fade-in-delay-1'
+							classes={`form-control ${
+								isValid["name"] === false && "is-invalid"
+							}`}
 							placeholder={contactCopy.form.name.label}
 							setValue={setName}
-							/>
+						/>
 
 						{/* Email address */}
 						<FormInput
-							forLabel='E-mail address'
-							type='email'
-							name='email'
+							forLabel="E-mail address"
+							type="email"
+							name="email"
 							value={email}
-							classes={`form-control ${isValid['email'] === false && 'is-invalid'}`}
-							containerClasses='fade-in fade-in-delay-2'
+							classes={`form-control ${
+								isValid["email"] === false && "is-invalid"
+							}`}
 							placeholder={contactCopy.form.email.label}
 							setValue={setEmail}
-							/>
-						
+						/>
+
 						{/* Service */}
-						{selectStyles && <FormSelect
-							forLabel='Service'
-							name='service'
-							placeholder={contactCopy.form.service.label}
-							classes={`form-control form-control-select ${isValid['service'] === false && 'is-invalid'}`}
-							containerClasses='fade-in fade-in-delay-3'
-							classNamePrefix='select'
-							styles={selectStyles}
-							value={service}
-							id='select-service'
-							options={contactCopy.form.service.options}
-							setValue={setService}
-							/>}
+						{selectStyles && (
+							<FormSelect
+								forLabel="Service"
+								name="service"
+								placeholder={contactCopy.form.service.label}
+								classes={`form-control form-control-select ${
+									isValid["service"] === false && "is-invalid"
+								}`}
+								classNamePrefix="select"
+								styles={selectStyles}
+								value={service}
+								id="select-service"
+								options={contactCopy.form.service.options}
+								setValue={setService}
+							/>
+						)}
 
 						{/* Budget */}
-						{selectStyles && <FormSelect
-							forLabel='Budget'
-							name='budget'
-							placeholder={contactCopy.form.budget.label}
-							classes={`form-control form-control-select ${isValid['budget'] === false && 'is-invalid'}`}
-							containerClasses='fade-in fade-in-delay-4'
-							classNamePrefix='select'
-							styles={selectStyles}
-							value={budget}
-							id='select-budget'
-							options={contactCopy.form.budget.options}
-							setValue={setBudget}
-							/>}
-	
+						{selectStyles && (
+							<FormSelect
+								forLabel="Budget"
+								name="budget"
+								placeholder={contactCopy.form.budget.label}
+								classes={`form-control form-control-select ${
+									isValid["budget"] === false && "is-invalid"
+								}`}
+								classNamePrefix="select"
+								styles={selectStyles}
+								value={budget}
+								id="select-budget"
+								options={contactCopy.form.budget.options}
+								setValue={setBudget}
+							/>
+						)}
+
 						{/* Message */}
 						<FormTextare
-							forLabel='Message'
-							name='message'
+							forLabel="Message"
+							name="message"
 							value={message}
 							placeholder={contactCopy.form.message.label}
-							containerClasses='fade-in fade-in-delay-5'
-							classes={`form-control ${isValid['message'] === false && 'is-invalid'}`}
+							classes={`form-control ${
+								isValid["message"] === false && "is-invalid"
+							}`}
 							setValue={setMessage}
 						/>
 
 						{/* Submit button */}
-						<div className='col-12'>
+						<div className="col-12">
 							<button
 								type="submit"
 								className={submitButton.classes}
-								disabled={submitButton.disabled}>
-									{parse(submitButton.text)}
+								disabled={submitButton.disabled}
+							>
+								{parse(submitButton.text)}
 							</button>
 						</div>
 					</form>
-				</div>
+				</section>
 			</main>
 
 			<Footer />
