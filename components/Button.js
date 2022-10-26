@@ -6,7 +6,7 @@ import { Envelope } from './svg-icons'
 export default ({ href, className = [], text, hasIcon = false, hasTarget = null, isFaded = false, delay }) => {
 
 	const linkRef = useRef()
-
+console.log(isFaded)
 	return (
 		<Link href={href} passHref>
 			<a
@@ -14,7 +14,7 @@ export default ({ href, className = [], text, hasIcon = false, hasTarget = null,
 				className={`
 					${className.join(" ")}
 					${isFaded ? 'opacity-0' : ''}
-					${useIsInViewport(linkRef) ? 'fade-in fade-in-delay-'+delay : ''}
+					${isFaded && useIsInViewport(linkRef) ? 'fade-in fade-in-delay-'+delay : ''}
 				`}
 				target={hasTarget && hasTarget}
 			>
