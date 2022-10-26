@@ -22,5 +22,5 @@ console.log(isFaded)
 				<span>{text}</span>
 			</a>
 		</Link>
-	);
+	)
 }
