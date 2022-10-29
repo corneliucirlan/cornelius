@@ -12,6 +12,7 @@
 	"dependencies": {
 		"@plaiceholder/next": "^2.5.0",
 		"@sendgrid/mail": "^7.7.0",
+		"framer-motion": "^7.6.1",
 		"html-react-parser": "^3.0.4",
 		"next": "^12.2.5",
 		"plaiceholder": "^2.5.0",

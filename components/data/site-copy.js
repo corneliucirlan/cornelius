@@ -60,13 +60,19 @@ export const contactCopy = {
 	},
 	form: {
 		name: {
-			label: `What's your name?`,
+			label: 'Name',
+			name: 'name',
+			placeholder: `What's your name?`,
 		},
 		email: {
-			label: `What's your e-mail address?`,
+			label: 'E-mail address',
+            name: 'email',
+			placeholder: `What's your e-mail address?`,
 		},
 		service: {
-			label: `How can I help?`,
+			label: 'Service',
+            name:'service',
+			placeholder: `How can I help?`,
 			options: [
 				{ value: "oneoff", label: "One-off project" },
 				{ value: "longterm", label: "Long-term partnership" },
@@ -75,7 +81,9 @@ export const contactCopy = {
 			],
 		},
 		budget: {
-			label: `What's your budget?`,
+			label: 'Budget',
+            name: 'budget',
+			placeholder: `What's your budget?`,
 			options: [
 				{ value: "1000", label: "$1000 - $2500" },
 				{ value: "2500", label: "$2500 - $5000" },
@@ -84,7 +92,9 @@ export const contactCopy = {
 			],
 		},
 		message: {
-			label: `What's your message?`,
+			label: 'Message',
+            name:'message',
+			placeholder: `What's your message?`,
 		},
 	},
 };

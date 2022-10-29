@@ -1,17 +1,11 @@
-import { useRef } from "react"
+import { motion } from "framer-motion"
 
-import { useIsInViewport } from "../../utils/transitions"
+import { animation } from "../../utils/animation"
 
-export default ({ paragraph, index, className }) => {
-
-	const descriptionRef = useRef()
-
-	return (
-		<p
-			className={`opacity-0 ${className} fade-in-delay-${index + 1} ${useIsInViewport(descriptionRef) ? 'fade-in' : ''}`}
-			ref={descriptionRef}
-		>
-			{paragraph}
-		</p>
-	);
-};
+export default ({ paragraph, className }) =>
+	<motion.p
+		variants={animation}
+		className={className}
+	>
+		{paragraph}
+	</motion.p>

@@ -1,4 +1,5 @@
-import Image from 'next/image'
+import { useEffect, useRef } from 'react'
+import { motion, useAnimation, useInView } from 'framer-motion'
 
 import projects from '../components/data/projects'
 import Header from '../components/header'
@@ -8,6 +9,7 @@ import { getPhotoData } from '../utils/images'
 import CaseStudyDetail from '../components/case-study/study-detail'
 import CaseStudyDescription from '../components/case-study/study-description'
 import CaseStudyPhoto from '../components/case-study/study-photo'
+import { animation, animationStagger } from '../utils/animation'
 
 import styles from '../sass/modules/caseStudy.module.sass'
 
@@ -36,74 +38,95 @@ export const getStaticProps = async ({ params }) => {
 	return { props: { project: caseStudy } }
 }
 
-export default ({ project }) => 
-	<div className="container">
-		<Header />
+export default ({ project }) => {
 
-		<main>
-			<div className="row">
-				<section className="col-12 col-md-5">
+	const descriptionRef = useRef()
+	const descriptionControl = useAnimation()
+	const inView = useInView(descriptionRef)
 
-					<article className="opacity-0 fade-in fade-in-delay-1">
-						<h4 className="text-uppercase">
-							{project.type === "study"
-								? "Case study"
-								: "Project"}
-						</h4>
-						<h1>{project.title}</h1>
-					</article>
+	useEffect(() => { inView && descriptionControl.start('show') }, [ inView, descriptionControl])
 
-					{project.details.map((detail, key) => (
-						<CaseStudyDetail
-							key={key}
-							index={key}
-							detail={detail}
-							className={styles.subtitle}
-							listClasses={styles.ul}
-						/>
-					))}
-				</section>
+	return (
+		<div className="container">
+			<Header />
 
-				<section className="col-12 col-md-7">
-					{project.description &&
-						project.description.map((paragraph, key) => (
-							<CaseStudyDescription
+			<main>
+				<div className="row">
+					<motion.section
+						variants={animationStagger}
+						initial="hidden"
+						animate="show"
+						className="col-12 col-md-5"
+					>
+
+						<motion.article variants={animation}>
+							<h4 className="text-uppercase">
+								{project.type === "study"
+									? "Case study"
+									: "Project"}
+							</h4>
+							<h1>{project.title}</h1>
+						</motion.article>
+
+						{project.details.map((detail, key) => (
+							<CaseStudyDetail
 								key={key}
-								index={key}
-								paragraph={paragraph}
-								className={styles.description}
+								detail={detail}
+								className={styles.subtitle}
+								listClasses={styles.ul}
 							/>
 						))}
+					</motion.section>
 
-					{project.behanceURL && (
-						<Button
-							href={project.behanceURL}
-							className={[ "btn" ]}
-							hasTarget={project.target}
-							text={
-								project.type === "study"
-									? "View case study on Behance"
-									: "View project"
-							}
-							isFaded={true}
-							delay={project.description.length+1}
-						/>
-					)}
-				</section>
+					<motion.section
+						ref={descriptionRef}
+						animate={descriptionControl}
+                        initial="hidden"
+						variants={animationStagger}
+						className="col-12 col-md-7"
+					>
+						{project.description &&
+							project.description.map((paragraph, key) => (
+								<CaseStudyDescription
+									key={key}
+									paragraph={paragraph}
+									className={styles.description}
+								/>
+							))}
 
-				<section className={`col ${styles.images}`}>
-					{project.photos &&
-						project.photos.map((image, key) => (
-							<CaseStudyPhoto
-								key={key}
-								image={image}
-								delay={key}
-								containerClasses={styles.image}
-							/>
-						))}
-				</section>
-			</div>
-		</main>
+						{project.behanceURL && (
+							<motion.div variants={animation}>
+								<Button
+									href={project.behanceURL}
+									className={[ "btn" ]}
+									hasTarget={project.target}
+									text={
+										project.type === "study"
+											? "View case study on Behance"
+											: "View project"
+									}
+									isFaded={true}
+									delay={project.description.length+1}
+								/>
+							</motion.div>
+						)}
+					</motion.section>
 
-		<Footer />
-	</div>
+					<section className={`col ${styles.images}`}>
+						{project.photos &&
+							project.photos.map((image, key) => (
+								<CaseStudyPhoto
+									key={key}
+									image={image}
+									delay={key}
+									containerClasses={styles.image}
+								/>
+							))}
+					</section>
+				</div>
+			</main>
+
+			<Footer />
+		</div>
+	)
+}

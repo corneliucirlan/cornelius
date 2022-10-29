@@ -1,16 +1,17 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import parse from 'html-react-parser'
 import useDarkMode from 'use-dark-mode'
+import { motion, useAnimation, useInView } from 'framer-motion'
 
 import Header from '../components/header'
 import Footer from '../components/footer'
 import Button from '../components/button'
-import { FormInput, FormSelect, FormTextare } from '../utils/form-inputs'
+import FormField from '../utils/form-inputs'
 import { selectStylesLight, selectStylesDark } from '../utils/select-styles'
 import { buttonIsSending, buttonSuccess, buttonError, buttonDefault } from '../utils/button-states'
 import { validateInputs } from '../utils/input-validate'
 import { contactCopy } from '../components/data/site-copy'
-import { useIsInViewport } from '../utils/transitions'
+import { animation } from '../utils/animation'
 
 import styles from '../sass/modules/Contact.module.sass'
 
@@ -19,7 +20,7 @@ export default () => {
 	// Dark mode
 	const darkMode = useDarkMode()
 
-	const [selectStyles, setSelectStyles] = useState()
+	const [ selectStyles, setSelectStyles ] = useState(false)
 
 	// Set select styles
 	useEffect(() => darkMode.value ? setSelectStyles(selectStylesDark) : setSelectStyles(selectStylesLight), [ darkMode.value ])
@@ -30,10 +31,6 @@ export default () => {
 	const [service, setService] = useState('')
 	const [budget, setBudget] = useState('')
 	const [message, setMessage] = useState('')
-
-	// Animation refs
-	const contactRef = useRef()
-	const contactFormRef = useRef()
 
 	// Form inputs validity
 	const [isValid, setIsValid] = useState({})
@@ -127,18 +124,89 @@ export default () => {
 		}
 	}
 
+	const formInputs = [
+		{
+			type: 'text',
+            forLabel: contactCopy.form.name.label,
+			name: contactCopy.form.name.name,
+			value: name,
+			classes: `form-control ${isValid["name"] === false && "is-invalid"}`,
+			placeholder: contactCopy.form.name.placeholder,
+			setValue: setName
+		},
+		{
+			type: 'email',
+            forLabel: contactCopy.form.email.label,
+			name: contactCopy.form.email.name,
+			value: email,
+			classes: `form-control ${isValid["email"] === false && "is-invalid"}`,
+			placeholder: contactCopy.form.email.placeholder,
+			setValue: setEmail
+		},
+		{
+			type: 'select',
+			forLabel: contactCopy.form.service.label,
+            name: contactCopy.form.service.name,
+			value: service,
+			classes: `form-control form-control-select ${isValid["service"] === false && "is-invalid"}`,
+			placeholder: contactCopy.form.service.placeholder,
+			classNamePrefix: "select",
+			styles: selectStyles,
+			id: "select-service",
+			options: contactCopy.form.service.options,
+			setValue: setService
+		},
+		{
+			type: 'select',
+			forLabel: contactCopy.form.budget.label,
+			name: contactCopy.form.budget.name,
+            value: budget,
+			classes: `form-control form-control-select ${isValid["budget"] === false && "is-invalid"}`,
+			placeholder: contactCopy.form.budget.placeholder,
+			classNamePrefix: 'select',
+			styles: selectStyles,
+			id:'select-budget',
+			options: contactCopy.form.budget.options,
+			setValue: setBudget
+		},
+		{
+			type: 'textarea',
+			forLabel: contactCopy.form.message.label,
+			name: contactCopy.form.message.name,
+			value: message,
+			classes: `form-control form-control-textarea ${isValid["message"] === false && "is-invalid"}`,
+			placeholder: contactCopy.form.message.placeholder,
+            setValue: setMessage
+		}
+	]
+
+	const contactControl = useAnimation()
+	const contactFormControl = useAnimation()
+	const contactRef = useRef()
+	const contactFormRef = useRef()
+	const contactInView = useInView(contactRef)
+	const contactFormInView = useInView(contactFormRef)
+
+	useEffect(() => {
+		contactInView && contactControl.start('show')
+	}, [ contactControl, contactFormControl, contactInView, contactFormControl, selectStyles ])
+	
+	useEffect(() => {
+		if (selectStyles !== false)
+			contactFormInView && contactFormControl.start('show')
+	}, [ selectStyles, contactFormControl, contactFormInView ])
+
 	return (
 		<div className="container">
 			<Header />
 
 			<main className={`row align-items-center ${styles.contact}`}>
-				<section
-					className={`col-12 col-md-5 opacity-0 ${
-						useIsInViewport(contactRef)
-							? "fade-in fade-in-delay-1"
-							: null
-					}`}
+				<motion.section
 					ref={contactRef}
+					animate={contactControl}
+					initial="hidden"
+					variants={animation}
+					className="col-12 col-md-5"
 				>
 					<h4 className="text-uppercase">{contactCopy.kicker}</h4>
 					<h1>{parse(contactCopy.title)}</h1>
@@ -150,15 +218,14 @@ export default () => {
 						hasIcon={true}
 						text={contactCopy.mail.text}
 					/>
-				</section>
+				</motion.section>
 
-				<section
-					className={`col-12 col-md-6 offset-md-1 opacity-0 ${
-						useIsInViewport(contactFormRef)
-							? "fade-in fade-in-delay-1"
-							: null
-					}`}
+				<motion.section
 					ref={contactFormRef}
+					animate={contactFormControl}
+                    initial="hidden"
+					variants={animation}
+					className="col-12 col-md-6 offset-md-1"
 				>
 					<form
 						action=""
@@ -166,82 +233,28 @@ export default () => {
 						className="row"
 						onSubmit={handleSubmit}
 					>
-						{/* Name */}
-						<FormInput
-							forLabel="Name"
-							type="text"
-							name="name"
-							value={name}
-							classes={`form-control ${
-								isValid["name"] === false && "is-invalid"
-							}`}
-							placeholder={contactCopy.form.name.label}
-							setValue={setName}
-						/>
-
-						{/* Email address */}
-						<FormInput
-							forLabel="E-mail address"
-							type="email"
-							name="email"
-							value={email}
-							classes={`form-control ${
-								isValid["email"] === false && "is-invalid"
-							}`}
-							placeholder={contactCopy.form.email.label}
-							setValue={setEmail}
-						/>
-
-						{/* Service */}
-						{selectStyles && (
-							<FormSelect
-								forLabel="Service"
-								name="service"
-								placeholder={contactCopy.form.service.label}
-								classes={`form-control form-control-select ${
-									isValid["service"] === false && "is-invalid"
-								}`}
-								classNamePrefix="select"
-								styles={selectStyles}
-								value={service}
-								id="select-service"
-								options={contactCopy.form.service.options}
-								setValue={setService}
-							/>
-						)}
-
-						{/* Budget */}
-						{selectStyles && (
-							<FormSelect
-								forLabel="Budget"
-								name="budget"
-								placeholder={contactCopy.form.budget.label}
-								classes={`form-control form-control-select ${
-									isValid["budget"] === false && "is-invalid"
-								}`}
-								classNamePrefix="select"
-								styles={selectStyles}
-								value={budget}
-								id="select-budget"
-								options={contactCopy.form.budget.options}
-								setValue={setBudget}
-							/>
-						)}
-
-						{/* Message */}
-						<FormTextare
-							forLabel="Message"
-							name="message"
-							value={message}
-							placeholder={contactCopy.form.message.label}
-							classes={`form-control ${
-								isValid["message"] === false && "is-invalid"
-							}`}
-							setValue={setMessage}
-						/>
+							{formInputs.map((input, key) =>
+								<FormField
+									key={key}
+									delay={key}
+									type={input.type}
+									forLabel={input.forLabel}
+									name={input.name}
+									value={input.value}
+									classes={input.classes}
+									placeholder={input.placeholder}
+									classNamePrefix={input.classNamePrefix}
+									styles={input.styles}
+									id={input.id}
+									options={input.options}
+									setValue={input.setValue}
+								/>
+							)}
 
 						{/* Submit button */}
-						<div className="col-12">
+						<div
+							className="col-12"
+						>
 							<button
 								type="submit"
 								className={submitButton.classes}
@@ -251,7 +264,7 @@ export default () => {
 							</button>
 						</div>
 					</form>
-				</section>
+				</motion.section>
 			</main>
 
 			<Footer />
