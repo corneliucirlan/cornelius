@@ -1,6 +1,8 @@
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-// import { loaderConfig, circleConfig } from '../utils/transitions'
+import Footer from '../components/footer'
+
+import Header from '../components/header'
 
 // Global SASS
 import '../sass/styles.sass'
@@ -66,9 +68,11 @@ export default ({ Component, pageProps }) => {
 	}, [])
 
 	return (
-		<>
+		<div className='container'>
 			<Loading />
+			<Header />
 			<Component {...pageProps} />
-		</>
+			<Footer />
+		</div>
 	)
 }

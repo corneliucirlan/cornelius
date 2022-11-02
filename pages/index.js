@@ -1,8 +1,6 @@
 import Head from 'next/head'
 
 import getPosts from '../components/get-posts'
-import Header from '../components/header'
-import Footer from '../components/footer'
 import Hero from '../components/frontpage/hero'
 import ListProjects from '../components/frontpage/list-projects'
 import LetsWorkTogether from '../components/work-together'
@@ -90,12 +88,10 @@ export default ({ studies, projectsPersonal, dribbblePosts, instagramPosts, hero
 	]
 
 	return (
-		<div className="container">
+		<>
 			<Head>
 				<title>Corneliu Cîrlan</title>
 			</Head>
-
-			<Header />
 
 			{/* Hero section mouse scroller */}
 			<div className={`d-none d-md-block ${styles.scrolldown}`}>
@@ -133,7 +129,6 @@ export default ({ studies, projectsPersonal, dribbblePosts, instagramPosts, hero
 				<LetsWorkTogether />
 			</main>
 
-			<Footer />
-		</div>
+		</>
 	)
 }

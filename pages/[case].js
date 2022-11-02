@@ -1,8 +1,6 @@
 import Image from 'next/image'
 
 import projects from '../components/data/projects'
-import Header from '../components/header'
-import Footer from '../components/footer'
 import Button from '../components/button'
 import { getPhotoData } from '../utils/images'
 import CaseStudyDetail from '../components/case-study/study-detail'
@@ -37,73 +35,67 @@ export const getStaticProps = async ({ params }) => {
 }
 
 export default ({ project }) => 
-	<div className="container">
-		<Header />
+	<main>
+		<div className="row">
+			<section className="col-12 col-md-5">
 
-		<main>
-			<div className="row">
-				<section className="col-12 col-md-5">
+				<article className="opacity-0 fade-in fade-in-delay-1">
+					<h4 className="text-uppercase">
+						{project.type === "study"
+							? "Case study"
+							: "Project"}
+					</h4>
+					<h1>{project.title}</h1>
+				</article>
 
-					<article className="opacity-0 fade-in fade-in-delay-1">
-						<h4 className="text-uppercase">
-							{project.type === "study"
-								? "Case study"
-								: "Project"}
-						</h4>
-						<h1>{project.title}</h1>
-					</article>
+				{project.details.map((detail, key) => (
+					<CaseStudyDetail
+					key={key}
+					index={key}
+					detail={detail}
+					className={styles.subtitle}
+						listClasses={styles.ul}
+						/>
+				))}
+			</section>
 
-					{project.details.map((detail, key) => (
-						<CaseStudyDetail
-							key={key}
-							index={key}
-							detail={detail}
-							className={styles.subtitle}
-							listClasses={styles.ul}
+			<section className="col-12 col-md-7">
+				{project.description &&
+					project.description.map((paragraph, key) => (
+						<CaseStudyDescription
+						key={key}
+						index={key}
+							paragraph={paragraph}
+							className={styles.description}
+						/>
+						))}
+
+				{project.behanceURL && (
+					<Button
+						href={project.behanceURL}
+						className={[ "btn" ]}
+						hasTarget={project.target}
+						text={
+							project.type === "study"
+							? "View case study on Behance"
+							: "View project"
+						}
+						isFaded={true}
+						delay={project.description.length+1}
+						/>
+						)}
+			</section>
+
+			<section className={`col ${styles.images}`}>
+				{project.photos &&
+					project.photos.map((image, key) => (
+						<CaseStudyPhoto
+						key={key}
+						image={image}
+						delay={key}
+						containerClasses={styles.image}
 						/>
 					))}
-				</section>
-
-				<section className="col-12 col-md-7">
-					{project.description &&
-						project.description.map((paragraph, key) => (
-							<CaseStudyDescription
-								key={key}
-								index={key}
-								paragraph={paragraph}
-								className={styles.description}
-							/>
-						))}
-
-					{project.behanceURL && (
-						<Button
-							href={project.behanceURL}
-							className={[ "btn" ]}
-							hasTarget={project.target}
-							text={
-								project.type === "study"
-									? "View case study on Behance"
-									: "View project"
-							}
-							isFaded={true}
-							delay={project.description.length+1}
-						/>
-					)}
-				</section>
-
-				<section className={`col ${styles.images}`}>
-					{project.photos &&
-						project.photos.map((image, key) => (
-							<CaseStudyPhoto
-								key={key}
-								image={image}
-								delay={key}
-								containerClasses={styles.image}
-							/>
-						))}
-				</section>
-			</div>
-		</main>
-
-		<Footer />
-	</div>
+			</section>
+		</div>
+	</main>

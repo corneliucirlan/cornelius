@@ -2,8 +2,6 @@ import { useRef } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 
-import Header from '../components/header'
-import Footer from '../components/footer'
 import LetsWorkTogether from '../components/work-together'
 import { getPhotoData } from '../utils/images'
 import { useIsInViewport } from '../utils/transitions'
@@ -31,14 +29,13 @@ export default ({ aboutMePhoto }) => {
 	const experienceListRef = useRef()
 
 	return (
-		<div className={`container ${styles.about}`}>
+		<>
 			<Head>
 				<title>About Corneliu Cîrlan</title>
 			</Head>
 
-			<Header />
-
 			<main className="text-center">
+
 				{/* About me */}
 				<section
 					className={`row opacity-0 ${
@@ -47,7 +44,7 @@ export default ({ aboutMePhoto }) => {
 							: null
 					}`}
 					ref={aboutRef}
-				>
+					>
 					<div className="col-12 offset-md-2 col-md-8">
 						<h4 className="text-uppercase">{aboutCopy.kicker}</h4>
 						<h1>{aboutCopy.title}</h1>
@@ -135,14 +132,14 @@ export default ({ aboutMePhoto }) => {
 							useIsInViewport(experienceListRef)
 								? "fade-in"
 								: null
-						}`}
-						ref={experienceListRef}
-					>
+							}`}
+							ref={experienceListRef}
+							>
 						{aboutCopy.experience.list.map((item, index) => (
 							<div
-								key={index}
+							key={index}
 								className={`d-flex justify-content-between flex-column flex-md-row ${styles.item}`}
-							>
+								>
 								<span>{item.name}</span>
 								<span>{item.title}</span>
 								<span>{item.period}</span>
@@ -155,7 +152,6 @@ export default ({ aboutMePhoto }) => {
 				<LetsWorkTogether />
 			</main>
 
-			<Footer />
-		</div>
+		</>
 	)
 }
