@@ -54,16 +54,16 @@ export const getServerSideProps = async () => {
 		limit: 3
 	})
 
-	// let instagramPosts = await Promise.all(instagramResult.data.map( async igPost =>
-	// 	setPosts(igPost, [ 'col-12', 'col-md-4', 'card', 'card-instagram' ], 'instagram')
-	// ))
+	let instagramPosts = await Promise.all(instagramResult.data.map( async igPost =>
+		setPosts(igPost, [ 'col-12', 'col-md-4', 'card', 'card-instagram' ], 'instagram')
+	))
 
 	// Return posts
 	return {props: {
 		studies: studies,
 		projectsPersonal: projects,
 		dribbblePosts: dribbblePosts,
-		// instagramPosts: instagramPosts,
+		instagramPosts: instagramPosts,
 		heroImage: {
 			light: await getPhotoData('/images/cc-hero-image-closed-white.png'),
 			// dark: await getPhotoData('/images/cc-hero-image-closed.png')
@@ -86,7 +86,7 @@ export default ({ studies, projectsPersonal, dribbblePosts, instagramPosts, hero
 		{ kicker: indexCopy.sections.dribbble.kicker, heading: indexCopy.sections.dribbble.title, posts: dribbblePosts },
 
 		// Latest Instagram posts
-		// { kicker: indexCopy.sections.instagram.kicker, heading: indexCopy.sections.instagram.title, posts: instagramPosts }
+		{ kicker: indexCopy.sections.instagram.kicker, heading: indexCopy.sections.instagram.title, posts: instagramPosts }
 	]
 
 	return (
