@@ -19,6 +19,13 @@ h4,
 			weight: 900
 
 a
+	&.nav-link
+		&:focus
+			color: inherit
+
+		&:hover
+			color: var(--#{$prefix}btn-hover-color)
+
 	&.side-contact
 		background: var(--#{$prefix}side-bg)
 		display: block
