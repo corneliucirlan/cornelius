@@ -15,7 +15,7 @@ export default `
 	height: 100vh;
 	position: fixed;
 	top: 0;
-	left: 0
+	left: 0;
 	margin-top: 0;
 	z-index: 5000;
 }
