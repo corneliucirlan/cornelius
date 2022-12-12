@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import Footer from '../components/footer'
 
+import Footer from '../components/footer'
 import Header from '../components/header'
 
 // Global SASS

@@ -906,11 +906,6 @@ object-assign@^4.1.1:
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
   integrity sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==
 
-observe-element-in-viewport@0.0.15:
-  version "0.0.15"
-  resolved "https://registry.yarnpkg.com/observe-element-in-viewport/-/observe-element-in-viewport-0.0.15.tgz#06284e84da80bd43c348ac3d957ba6b99fb2bbd0"
-  integrity sha512-BaJGtCHp8XXxe8zFOnsbv93f4SRLb0W5P3okGJkLLKC9IM9aXvpKF4C8lFxivcS5eROlNkhOCnUOSk4tUnJnKQ==
-
 once@^1.3.1, once@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/once/-/once-1.4.0.tgz#583b1aa775961d4b113ac17d9c50baef9dd76bd1"
@@ -1305,13 +1300,6 @@ use-dark-mode@^2.3.1:
   dependencies:
     "@use-it/event-listener" "^0.1.2"
     use-persisted-state "^0.3.0"
-
-use-is-in-viewport@^1.0.9:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/use-is-in-viewport/-/use-is-in-viewport-1.0.9.tgz#bbc1f2f39ece752c7af0ddcd17b251ba5b4587e2"
-  integrity sha512-Dgi0z/X9eTk3ziI+b28mZVoYtCtyoUFQ+9VBq6fR5EdjqmmsSlbr8ysXAwmEl89OUNBQwVGLGdI9nqwiu3168g==
-  dependencies:
-    observe-element-in-viewport "0.0.15"
 
 use-isomorphic-layout-effect@^1.1.2:
   version "1.1.2"
