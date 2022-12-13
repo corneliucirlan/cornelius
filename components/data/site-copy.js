@@ -1,7 +1,7 @@
 export const indexCopy = {
 	kicker: `Corneliu Cîrlan`,
 	title: `Website & user experience designer`,
-	caption: `I help people reach their full potential and achieve their dreams.`,
+	caption: `I believe that everyone has the potential to achieve great things, and I am dedicated to helping them reach their goals and dreams.`,
 	buttons: {
 		work: { text: `Let's work together` },
 		about: { text: `Read about me` }
@@ -53,7 +53,7 @@ export const aboutCopy = {
 export const contactCopy = {
 	kicker: "Contact",
 	title: `Get in touch &mdash;<br />Let's work together`,
-	caption: `Have a project in mind? Drop me a line. It doesn't matter how big or small it is. Or maybe just say Hi.`,
+	caption: `If you have a project, please let me know. I'm happy to help with any project, no matter the size. And if you just want to say hi, feel free! Thank you for considering me.`,
 	mail: {
 		href: "mailto:corneliu@corneliucirlan.com",
 		text: "corneliu@corneliucirlan.com",
