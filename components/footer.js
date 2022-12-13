@@ -12,7 +12,7 @@ export default () => (
 
 		<section className='col-12 col-md-4 offset-md-1'>
 			<h2>Contact information</h2>
-			<p>Feel free to contact me for any project you have in mind, or just to say hello.</p>
+			<p>Have a project in mind? Drop me a line. It doesn't matter how big or small it is. Or maybe just say Hi.</p>
 			<Button
 				href='mailto:corneliu@corneliucirlan.com'
 				className={['btn', 'btn-footer', 'btn-email-me', 'justify-content-center', 'justify-content-md-start']}
