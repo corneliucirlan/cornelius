@@ -1,11 +1,17 @@
 module.exports = {
 	images: {
-    	domains: [
-			// Dribbble domain
-			'cdn.dribbble.com',
 
-			// Instagram domain
-			'scontent.cdninstagram.com'
+		// Dribbble CDN
+    	domains: [
+			'cdn.dribbble.com',
 		],
+
+		// Instagram CDN
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: '*.cdninstagram.com',
+			},
+    ],
 	},
 }
