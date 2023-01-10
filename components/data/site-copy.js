@@ -29,11 +29,11 @@ export const indexCopy = {
 export const aboutCopy = {
 	kicker: 'A little about me',
 	title: `Hi, I'm Corneliu Cîrlan, the designer you're looking for`,
-	caption: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam metus ipsum, malesuada sed volutpat id, dignissim vitae quam. Maecenas nibh leo, laoreet eget nisi ac, sagittis imperdiet libero.`,
+	caption: `My lifelong interest in computers and programming eventually led me to discover the fascinating world of UI design. I was drawn to the challenge of creating intuitive and visually appealing interfaces that make complex systems easy to use. I pursued a career in UI design and have continued to learn and grow as a designer, constantly pushing myself to stay up-to-date with the latest tools and techniques. Today, I am a confident and experienced UI designer with a deep understanding of user experience and a passion for creating beautiful and functional designs.`,
 	experience: {
 		kicker: 'Experience',
 		title: 'Over 10 years of experience',
-		caption: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam metus ipsum, malesuada sed volutpat id, dignissim vitae quam. Maecenas nibh leo, laoreet eget nisi ac, sagittis imperdiet libero.`,
+		caption: `As a freelance UI designer with over 10 years of experience, I have honed my skills in user interface design, ensuring that the products I create are not only visually appealing, but also user-friendly and intuitive. I have a strong understanding of design principles and a keen eye for detail, allowing me to create designs that effectively communicate the desired message and meet the needs of the target audience. My goal as a designer is to create engaging and effective user experiences that help my clients achieve their business objectives.`,
 		list: [
 			{ name: 'Corneliu Cîrlan PFA', title: 'Founder, Creative Director, Freelancer, Designer, Developer', period: 'February 2013 - Present' },
 			{ name: 'Uncover Romania Tours', title: 'Full-stack designer', period: 'February 2015 - April 2016' },
