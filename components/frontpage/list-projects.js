@@ -30,6 +30,7 @@ export default ({ kicker, heading, projects }) => {
 					cardTitle={project.title}
 					cardCaption={project.caption}
 					cardHref={project.permalink}
+					cardTarget={project.target}
 					cardClasses={project.classes}
 					cardSource={project.source}
 				/>

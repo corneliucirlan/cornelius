@@ -18,6 +18,7 @@ export const getServerSideProps = async () => {
 			title: source !== 'instagram' ? data.title : null,
 			caption: source !== 'dribbble' ? data.caption : data.description,
 			permalink: source !== 'dribbble' ? data.permalink : data.html_url,
+			target: data.type === 'study' ? '_self' : '_blank',
 			classes: classes,
 			source: source
 		}
@@ -38,11 +39,11 @@ export const getServerSideProps = async () => {
 	// Get latest Dribbble posts
 	let dribbbleResult = await getPosts('https://api.dribbble.com/v2/user/shots', {
 		access_token: process.env.DRIBBBLE_TOKEN,
-		per_page: 2
+		per_page: 3
 	})
 
 	let dribbblePosts = await Promise.all(dribbbleResult.map( async dribbbleItem =>
-		setPosts(dribbbleItem, [ 'col-12', 'col-md-6', 'card', 'card-dribbble' ], 'dribbble')
+		setPosts(dribbbleItem, [ 'col-12', 'col-md-4', 'card', 'card-dribbble' ], 'dribbble')
 	))
 
 	// Get latest IG posts
@@ -57,17 +58,19 @@ export const getServerSideProps = async () => {
 	))
 
 	// Return posts
-	return {props: {
-		studies: studies,
-		projectsPersonal: projects,
-		dribbblePosts: dribbblePosts,
-		instagramPosts: instagramPosts,
-		heroImage: {
-			light: await getPhotoData('/images/cc-hero-image-closed-white.png'),
-			// dark: await getPhotoData('/images/cc-hero-image-closed.png')
-			dark: await getPhotoData('/images/cc-hero-image-closed-darker.png')
+	return {
+		props: {
+			studies: studies,
+			projectsPersonal: projects,
+			dribbblePosts: dribbblePosts,
+			instagramPosts: instagramPosts,
+			heroImage: {
+				light: await getPhotoData('/images/cc-hero-image-closed-white.png'),
+				// dark: await getPhotoData('/images/cc-hero-image-closed.png')
+				dark: await getPhotoData('/images/cc-hero-image-closed-darker.png')
+			}
 		}
-	}}
+	}
 }
 
 export default ({ studies, projectsPersonal, dribbblePosts, instagramPosts, heroImage }) => {
