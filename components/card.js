@@ -1,6 +1,9 @@
+import { filter } from 'domutils'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useEffect } from 'react'
 import { useRef } from 'react'
+import useImageColor from "use-image-color";
 import { useIsInViewport } from '../utils/transitions'
 
 // Remove HTML tags and hashtags from strings
@@ -19,9 +22,20 @@ const cleanString = string => {
 	return string
 }
 
+const isColorLight = (color) => {
+	const hex = color.replace("#", "");
+	const c_r = parseInt(hex.substring(0, 0 + 2), 16);
+	const c_g = parseInt(hex.substring(2, 2 + 2), 16);
+	const c_b = parseInt(hex.substring(4, 4 + 2), 16);
+	const brightness = (c_r * 299 + c_g * 587 + c_b * 114) / 1000;
+	return brightness > 155;
+}
+
 export default ({ cardImage, cardTitle, cardCaption, cardHref, cardTarget, cardClasses, cardSource }) => {
 
 	const cardRef = useRef()
+
+	const { colors } = useImageColor(cardImage.src, { cors: true, colors: 2 })
 
 	return (
 		<article
@@ -39,15 +53,14 @@ export default ({ cardImage, cardTitle, cardCaption, cardHref, cardTarget, cardC
 					placeholder={cardImage.placeholder}
 					blurDataURL={cardImage.blurDataURL}
 					layout={cardImage.layout}
-				/>
+					/>
 
 				<Link href={cardHref} passHref>
-					<a
-						target={cardTarget}
-						rel="noopener nofollow noreferrer"
-					>
+					<a target={cardTarget} rel="noopener nofollow noreferrer">
 						<div className="card-data">
-							<h2 className="card-title">{cardTitle}</h2>
+							<h2 className={`card-title ${colors && isColorLight(colors[0]) ? 'card-title-dark' : 'card-title-light'}`}>
+								{cardTitle}
+							</h2>
 							{cardSource === "instagram" && (
 								<svg
 									className="card-icon-ig"
@@ -77,5 +90,5 @@ export default ({ cardImage, cardTitle, cardCaption, cardHref, cardTarget, cardC
 				</Link>
 			</div>
 		</article>
-	)
+	);
 }
