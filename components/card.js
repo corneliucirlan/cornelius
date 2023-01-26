@@ -33,8 +33,10 @@ const isColorLight = (color) => {
 
 export default ({ cardImage, cardTitle, cardCaption, cardHref, cardTarget, cardClasses, cardSource }) => {
 
+	// Card ref
 	const cardRef = useRef()
 
+	// Get image predominant colors
 	const { colors } = useImageColor(cardImage.src, { cors: true, colors: 2 })
 
 	return (
@@ -90,5 +92,5 @@ export default ({ cardImage, cardTitle, cardCaption, cardHref, cardTarget, cardC
 				</Link>
 			</div>
 		</article>
-	);
+	)
 }
