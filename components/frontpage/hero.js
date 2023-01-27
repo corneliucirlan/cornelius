@@ -9,7 +9,7 @@ export default ({ hero, cta, image, imageClass }) => {
 
 	const heroRef = useRef()
 	const darkMode = useDarkMode()
-	let [heroImage, setHeroImage] = useState()
+	let [ heroImage, setHeroImage ] = useState()
 
 	// Set hero image based on theme
 	useEffect(() => darkMode.value ? setHeroImage(image.dark) : setHeroImage(image.light), [ darkMode.value ])
