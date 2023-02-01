@@ -1,7 +1,5 @@
-import { filter } from "domutils"
 import Image from "next/image"
 import Link from "next/link"
-import { useEffect } from "react"
 import { useRef } from "react"
 import useImageColor from "use-image-color"
 import { useIsInViewport } from "../utils/transitions"
@@ -59,7 +57,7 @@ export default ({
 					alt={cardImage.alt}
 					placeholder={cardImage.placeholder}
 					blurDataURL={cardImage.blurDataURL}
-					layout={cardImage.layout}
+					style={{ backgroundColor: "red" }}
 				/>
 
 				<Link

@@ -25,10 +25,11 @@ export default ({ kicker, heading, projects }) => {
 						src: project.image.src,
 						width: project.image.width,
 						height: project.image.height,
-						alt: project.title,
+						alt: project.title
+							? project.title
+							: "Latest Instagram posts",
 						placeholder: "blur",
-						blurDataURL: project.image.base64,
-						layout: "responsive"
+						blurDataURL: project.image.base64
 					}}
 					cardTitle={project.title}
 					cardCaption={project.caption}

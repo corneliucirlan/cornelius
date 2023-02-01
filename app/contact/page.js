@@ -1,4 +1,5 @@
 "use client"
+
 import { useState, useRef, useEffect } from "react"
 import parse from "html-react-parser"
 
@@ -18,12 +19,7 @@ import { useIsInViewport } from "../../utils/transitions"
 import styles from "../../sass/modules/contact.module.sass"
 
 export default function ComtactPage() {
-	const [selectStyles, setSelectStyles] = useState()
-
-	// Set select styles
-	useEffect(() => {
-		setSelectStyles(selectStylesDark)
-	}, [])
+	const selectStyles = selectStylesDark
 
 	// Form inputs states
 	const [name, setName] = useState("")
