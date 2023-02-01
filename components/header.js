@@ -1,24 +1,22 @@
 "use client"
 
-import Link from 'next/link'
+import Link from "next/link"
 
-import { Logo } from './svg-icons'
-import NavMenu from './header/nav-menu'
+import { Logo } from "./svg-icons"
+import NavMenu from "./header/nav-menu"
 
-import { headerMenu } from './data/menus'
-import { useEffect, useState } from 'react'
+import { headerMenu } from "./data/menus"
+import { useEffect, useState } from "react"
 
 export default () => {
-
 	const [mobileMenu, setMobileMenu] = useState(false)
 
 	useEffect(() => {
-
 		// Disable scrolling when mobile menu is active
-		mobileMenu && document.body.classList.add('active-menu')
+		mobileMenu && document.body.classList.add("active-menu")
 
 		// Enable scrolling
-		return () => document.body.classList.remove('active-menu')
+		return () => document.body.classList.remove("active-menu")
 	})
 
 	return (

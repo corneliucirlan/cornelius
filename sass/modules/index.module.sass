@@ -21,30 +21,20 @@
 
 .image
 	position: relative
+	z-index: -100
 
 	img
 		z-index: -500
-		transform: scale(1.2)
+		transform: scale(2.8)
+		overflow-x: hidden
 
-
-// .image
-// 	// & > span
-// 	overflow: visible !important
-
-// 	// & > span > img
-// 	z-index: -500
-// 	transform: scale(1.2) translate(2%, 2%) !important
-
-// 	@include media-breakpoint-up(md)
-// 		& > span > img
-// 			z-index: -500
-// 			transform: scale(1.5) translate(0, 3%) !important
+		@include media-breakpoint-up(md)
+			transform: scale(1.5)
 
 .background
-	font:
-		family: $headings-font-family
-		weight: 900
-		size: 22vw
+	font-family: $headings-font-family
+	font-weight: 900
+	font-size: 22vw
 	text-shadow: 0 0 100px var(--#{$prefix}backdrop-shadow-color)
 	color: var(--#{$prefix}backdrop-color)
 	position: absolute
@@ -68,7 +58,7 @@
 	right: 0
 	bottom: $spacer * 3
 	left: 0
-	margin: auto  
+	margin: auto
 	width: 21px
 	height: 34px
 
@@ -87,4 +77,3 @@
 			border-radius: 25%
 			background-color: var(--#{$prefix}scroller-color)
 			animation: scroll 2.2s cubic-bezier(.15,.41,.69,.94) infinite
-

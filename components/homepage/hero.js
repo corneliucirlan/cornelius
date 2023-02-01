@@ -17,8 +17,8 @@ export default ({ hero, cta, image, imageClass }) => {
 						priority={true}
 						quality="100"
 						fill={true}
-						style={{ objectFit: "cover" }}
-						alt=""
+						style={{ objectFit: "contain" }}
+						alt="Corneliu Cîrlan"
 					/>
 				)}
 			</div>

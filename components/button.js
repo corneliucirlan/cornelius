@@ -1,12 +1,19 @@
 "use client"
 
-import Link from 'next/link'
-import { useRef } from 'react'
-import { useIsInViewport } from '../utils/transitions'
-import { Envelope } from './svg-icons'
+import Link from "next/link"
+import { useRef } from "react"
+import { useIsInViewport } from "../utils/transitions"
+import { Envelope } from "./svg-icons"
 
-export default ({ href, className = [], text, hasIcon = false, hasTarget = null, isFaded = false, delay }) => {
-
+export default ({
+	href,
+	className = [],
+	text,
+	hasIcon = false,
+	hasTarget = null,
+	isFaded = false,
+	delay
+}) => {
 	const linkRef = useRef()
 
 	return (
@@ -14,8 +21,8 @@ export default ({ href, className = [], text, hasIcon = false, hasTarget = null,
 			href={href}
 			className={`
 				${className.join(" ")}
-				${isFaded ? 'opacity-0' : ''}
-				${isFaded && useIsInViewport(linkRef) ? 'fade-in fade-in-delay-'+delay : ''}
+				${isFaded ? "opacity-0" : ""}
+				${isFaded && useIsInViewport(linkRef) ? "fade-in fade-in-delay-" + delay : ""}
 			`}
 			target={hasTarget && hasTarget}
 		>

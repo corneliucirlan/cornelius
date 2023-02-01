@@ -11,7 +11,7 @@ export default async function Study({ params }) {
 
 	// Get current case study
 	const project = projects.filter((project) => project.id === id)[0]
-	console.log(project)
+
 	return (
 		<main>
 			<div className="row">

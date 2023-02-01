@@ -1,5 +1,4 @@
 export default async (url, params) => {
-
 	// Build fetch URL
 	let fetchURL = new URL(url)
 	fetchURL.search = new URLSearchParams(params)
