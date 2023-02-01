@@ -1,15 +1,18 @@
-import { useRef } from 'react'
-import { useIsInViewport } from '../../utils/transitions'
-import Card from '../card'
+"use client"
+
+import { useRef } from "react"
+import { useIsInViewport } from "../../utils/transitions"
+import Card from "../card"
 
 export default ({ kicker, heading, projects }) => {
-
 	const headerRef = useRef()
 
 	return (
 		<section className="row">
 			<header
-				className={`opacity-0 ${useIsInViewport(headerRef) ? 'fade-in' : ''}`}
+				className={`opacity-0 ${
+					useIsInViewport(headerRef) ? "fade-in" : ""
+				}`}
 				ref={headerRef}
 			>
 				<h4 className="text-uppercase">{kicker}</h4>
@@ -25,7 +28,7 @@ export default ({ kicker, heading, projects }) => {
 						alt: project.title,
 						placeholder: "blur",
 						blurDataURL: project.image.base64,
-						layout: "responsive",
+						layout: "responsive"
 					}}
 					cardTitle={project.title}
 					cardCaption={project.caption}

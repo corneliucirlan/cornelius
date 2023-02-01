@@ -16,4 +16,9 @@ module.exports = {
 			},
 		],
 	},
-}
+
+	// App folder structure
+	experimental: {
+		appDir: true,
+	},
+};

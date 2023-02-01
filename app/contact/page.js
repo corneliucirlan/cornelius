@@ -1,33 +1,36 @@
-import { useState, useRef, useEffect } from 'react'
-import parse from 'html-react-parser'
-import useDarkMode from 'use-dark-mode'
+"use client"
+import { useState, useRef, useEffect } from "react"
+import parse from "html-react-parser"
 
-import Button from '../components/button'
-import { FormInput, FormSelect, FormTextare } from '../utils/form-inputs'
-import { selectStylesLight, selectStylesDark } from '../utils/select-styles'
-import { buttonIsSending, buttonSuccess, buttonError, buttonDefault } from '../utils/button-states'
-import { validateInputs } from '../utils/input-validate'
-import { contactCopy } from '../components/data/site-copy'
-import { useIsInViewport } from '../utils/transitions'
+import Button from "../../components/button"
+import { FormInput, FormSelect, FormTextare } from "../../utils/form-inputs"
+import { selectStylesLight, selectStylesDark } from "../../utils/select-styles"
+import {
+	buttonIsSending,
+	buttonSuccess,
+	buttonError,
+	buttonDefault
+} from "../../utils/button-states"
+import { validateInputs } from "../../utils/input-validate"
+import { contactCopy } from "../../components/data/site-copy"
+import { useIsInViewport } from "../../utils/transitions"
 
-import styles from '../sass/modules/Contact.module.sass'
+import styles from "../../sass/modules/contact.module.sass"
 
-export default () => {
-
-	// Dark mode
-	const darkMode = useDarkMode()
-
+export default function ComtactPage() {
 	const [selectStyles, setSelectStyles] = useState()
 
 	// Set select styles
-	useEffect(() => darkMode.value ? setSelectStyles(selectStylesDark) : setSelectStyles(selectStylesLight), [ darkMode.value ])
-	
+	useEffect(() => {
+		setSelectStyles(selectStylesDark)
+	}, [])
+
 	// Form inputs states
-	const [name, setName] = useState('')
-	const [email, setEmail] = useState('')
-	const [service, setService] = useState('')
-	const [budget, setBudget] = useState('')
-	const [message, setMessage] = useState('')
+	const [name, setName] = useState("")
+	const [email, setEmail] = useState("")
+	const [service, setService] = useState("")
+	const [budget, setBudget] = useState("")
+	const [message, setMessage] = useState("")
 
 	// Animation refs
 	const contactRef = useRef()
@@ -39,45 +42,55 @@ export default () => {
 	// Submit form button state
 	const [submitButton, setSubmitButton] = useState({
 		text: buttonDefault.text,
-		classes: buttonDefault.classes.join(' '),
+		classes: buttonDefault.classes.join(" "),
 		disabled: buttonDefault.disabled
 	})
 
 	// Update button state
-	const updateSubmitButton = button => {
-		button.classes.push('btn-animate')
+	const updateSubmitButton = (button) => {
+		button.classes.push("btn-animate")
 		setSubmitButton({
 			text: button.text,
-			classes: button.classes.join(' '),
+			classes: button.classes.join(" "),
 			disabled: button.disabled
 		})
-		
+
 		// Reset animation
 		setTimeout(() => {
 			button.classes.pop()
 			setSubmitButton({
 				text: button.text,
-				classes: button.classes.join(' '),
+				classes: button.classes.join(" "),
 				disabled: button.disabled
 			})
 		}, 200)
 	}
 
 	// Form submit
-	const handleSubmit = async event => {
-
+	const handleSubmit = async (event) => {
 		// Prevent page reload
 		event.preventDefault()
 
 		// Validate form
-		let isValid = await validateInputs(name, email, service, budget, message)
+		let isValid = await validateInputs(
+			name,
+			email,
+			service,
+			budget,
+			message
+		)
 
 		// Update validity state
 		setIsValid(isValid)
 
 		// Form valid
-		if (isValid['name'] && isValid['email'] && isValid['service'] && isValid['message'] && isValid['message']) {
-
+		if (
+			isValid["name"] &&
+			isValid["email"] &&
+			isValid["service"] &&
+			isValid["message"] &&
+			isValid["message"]
+		) {
 			// Button sending state
 			updateSubmitButton(buttonIsSending)
 
@@ -91,9 +104,9 @@ export default () => {
 					message: message
 				}),
 				headers: {
-					"Content-Type": "application/json",
+					"Content-Type": "application/json"
 				},
-				method: "POST",
+				method: "POST"
 			})
 
 			// Get server response
@@ -101,13 +114,12 @@ export default () => {
 
 			// Message was sent
 			if (code == 200) {
-				
 				// Reset inputs
-				setName('')
-				setEmail('')
-				setService('')
-				setBudget('')
-				setMessage('')
+				setName("")
+				setEmail("")
+				setService("")
+				setBudget("")
+				setMessage("")
 
 				// Button success state
 				updateSubmitButton(buttonSuccess)
@@ -117,7 +129,7 @@ export default () => {
 				// Button error state
 				updateSubmitButton(buttonError)
 			}
-	
+
 			// Reset button to default
 			setTimeout(() => {
 				updateSubmitButton(buttonDefault)

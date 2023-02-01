@@ -1,7 +1,6 @@
-import { getPlaiceholder } from 'plaiceholder'
+import { getPlaiceholder } from "plaiceholder"
 
-export const getPhotoData = async url => {
-
+export const getPhotoData = async (url) => {
 	const { base64, img } = await getPlaiceholder(url)
 
 	return {

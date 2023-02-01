@@ -20,17 +20,25 @@
 		margin-bottom: 0
 
 .image
-	& > span
-		overflow: visible !important
+	position: relative
 
-	& > span > img
+	img
 		z-index: -500
-		transform: scale(1.2) translate(2%, 2%) !important
+		transform: scale(1.2)
 
-	@include media-breakpoint-up(md)
-		& > span > img
-			z-index: -500
-			transform: scale(1.5) translate(0, 3%) !important
+
+// .image
+// 	// & > span
+// 	overflow: visible !important
+
+// 	// & > span > img
+// 	z-index: -500
+// 	transform: scale(1.2) translate(2%, 2%) !important
+
+// 	@include media-breakpoint-up(md)
+// 		& > span > img
+// 			z-index: -500
+// 			transform: scale(1.5) translate(0, 3%) !important
 
 .background
 	font:
@@ -44,7 +52,7 @@
 	left: 0
 	right: 0
 	line-height: 1.3
-	pointer: none
+	pointer-events: none
 	z-index: -100
 	margin-top: 5rem
 

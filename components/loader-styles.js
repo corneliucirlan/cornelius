@@ -52,7 +52,7 @@ export default `
 }
 
 @keyframes slideIn {
-	0& {
+	0% {
 		z-index: -10000;
 		opacity: 0;
 		margin-top: 2vh;
@@ -66,7 +66,7 @@ export default `
 }
 
 @keyframes slideOut {
-	0& {
+	0% {
 		z-index: 10000;
 		opacity: 1;
 		margin-top: 0;
@@ -95,4 +95,4 @@ export default `
 		transform: translate(-50%, -50%) scale(1);
 	}
 }
-`
+`;
