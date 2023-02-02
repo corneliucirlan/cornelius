@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react"
 import parse from "html-react-parser"
+import useDarkMode from "use-dark-mode"
 
 import Button from "../../components/button"
 import { FormInput, FormSelect, FormTextare } from "../../utils/form-inputs"
@@ -19,7 +20,20 @@ import { useIsInViewport } from "../../utils/transitions"
 import styles from "../../sass/modules/contact.module.sass"
 
 export default function ComtactPage() {
-	const selectStyles = selectStylesDark
+	// Dark mode
+	const darkMode = useDarkMode()
+
+	// Save Select styles
+	const [selectStyles, setSelectStyles] = useState()
+
+	// Set select styles
+	useEffect(
+		() =>
+			darkMode.value
+				? setSelectStyles(selectStylesDark)
+				: setSelectStyles(selectStylesLight),
+		[darkMode.value]
+	)
 
 	// Form inputs states
 	const [name, setName] = useState("")
