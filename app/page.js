@@ -28,10 +28,10 @@ const setPosts = async (data, classes, source) => {
 
 export default async function Home() {
 	// Hero Image
-	const heroImage = {
-		light: await getPhotoData("/images/cc-hero-image-closed-white.png"),
-		dark: await getPhotoData("/images/cc-hero-image-closed-darker.png")
-	}
+	// const heroImage = {
+	// 	light: await getPhotoData("/images/cc-hero-image-closed-white.png"),
+	// 	dark: await getPhotoData("/images/cc-hero-image-closed-darker.png")
+	// }
 
 	// Case Studies posts
 	let caseStudies = projectsData.filter((project) => project.type === "study")
@@ -146,7 +146,6 @@ export default async function Home() {
 			<Hero
 				hero={indexStyles.hero}
 				cta={indexStyles.cta}
-				image={heroImage}
 				imageClass={indexStyles.image}
 			/>
 

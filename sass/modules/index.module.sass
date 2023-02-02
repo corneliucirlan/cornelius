@@ -25,11 +25,13 @@
 
 	img
 		z-index: -500
-		transform: scale(2.8)
+		transform: scale(1.25)
+		max-width: 400px
+		margin: 2rem auto 0
 		overflow-x: hidden
 
 		@include media-breakpoint-up(md)
-			transform: scale(1.5)
+			transform: scale(1.25) translateY(-2rem)
 
 .background
 	font-family: $headings-font-family

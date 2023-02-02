@@ -2,9 +2,18 @@ import Image from "next/image"
 
 import Button from "../button"
 import { indexCopy } from "../data/site-copy"
+import { getPhotoData } from "../../utils/images"
 
-export default ({ hero, cta, image, imageClass }) => {
-	const heroImage = image.dark
+export default async function HeroSection({ hero, cta, imageClass }) {
+	// Hero Image
+	// const heroImage = {
+	// 	light: await getPhotoData("/images/cc-hero-image-closed-white.png"),
+	// 	dark: await getPhotoData("/images/cc-hero-image-closed-darker.png")
+	// }
+
+	const heroImage = await getPhotoData(
+		"/images/cc-hero-image-closed-darker.png"
+	)
 
 	return (
 		<section
@@ -15,9 +24,10 @@ export default ({ hero, cta, image, imageClass }) => {
 					<Image
 						src={heroImage.src}
 						priority={true}
-						quality="100"
 						fill={true}
-						style={{ objectFit: "contain" }}
+						// placeholder="blur"
+						// blurDataURL={heroImage.base64}
+						style={{ objectFit: "cover", overflow: "visible" }}
 						alt="Corneliu Cîrlan"
 					/>
 				)}
