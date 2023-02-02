@@ -1,3 +1,5 @@
+"use client"
+
 import projects from "../../components/data/projects"
 
 export default ({ params }) => {
@@ -8,8 +10,8 @@ export default ({ params }) => {
 
 	return (
 		<>
-			<title>{project.title}</title>
-			<meta name="description" content={project.caption} />
+			<title>{project && project.title}</title>
+			<meta name="description" content={project && project.caption} />
 		</>
 	)
 }

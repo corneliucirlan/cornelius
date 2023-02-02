@@ -57,7 +57,6 @@ export default ({
 					alt={cardImage.alt}
 					placeholder={cardImage.placeholder}
 					blurDataURL={cardImage.blurDataURL}
-					style={{ backgroundColor: "red" }}
 				/>
 
 				<Link
@@ -66,15 +65,17 @@ export default ({
 					target={cardTarget}
 				>
 					<div className="card-data">
-						<h2
-							className={`card-title ${
-								colors && isColorLight(colors[0])
-									? "card-title-dark"
-									: "card-title-light"
-							}`}
-						>
-							{cardTitle}
-						</h2>
+						{cardTitle && (
+							<h2
+								className={`card-title ${
+									colors && isColorLight(colors[0])
+										? "card-title-dark"
+										: "card-title-light"
+								}`}
+							>
+								{cardTitle}
+							</h2>
+						)}
 						{cardSource === "instagram" && (
 							<svg
 								className="card-icon-ig"

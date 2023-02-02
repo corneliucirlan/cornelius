@@ -14,7 +14,7 @@ export default ({ detail, index, className, listClasses }) => {
 			} ${className}`}
 			ref={detailRef}
 		>
-			<h4 className="text-uppercase">{detail.title}</h4>
+			{detail.title && <h4 className="text-uppercase">{detail.title}</h4>}
 			{Array.isArray(detail.text) ? (
 				<ul className={listClasses}>
 					{detail.text.map((role, key) => (
