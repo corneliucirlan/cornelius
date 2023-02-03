@@ -1,3 +1,4 @@
+import Header from "../components/header"
 import projectsData from "../components/data/projects"
 import { indexCopy } from "../components/data/site-copy"
 import { getPhotoData } from "../utils/images"
@@ -5,7 +6,6 @@ import getPosts from "../components/get-posts"
 import Hero from "../components/homepage/hero"
 import ListProjects from "../components/homepage/list-projects"
 import LetsWorkTogether from "../components/work-together"
-
 import indexStyles from "../sass/modules/index.module.sass"
 
 const setPosts = async (data, classes, source) => {
@@ -27,12 +27,6 @@ const setPosts = async (data, classes, source) => {
 }
 
 export default async function Home() {
-	// Hero Image
-	// const heroImage = {
-	// 	light: await getPhotoData("/images/cc-hero-image-closed-white.png"),
-	// 	dark: await getPhotoData("/images/cc-hero-image-closed-darker.png")
-	// }
-
 	// Case Studies posts
 	let caseStudies = projectsData.filter((project) => project.type === "study")
 	let studies = await Promise.all(
@@ -130,6 +124,8 @@ export default async function Home() {
 
 	return (
 		<>
+			<Header />
+
 			<span
 				className={`text-center d-none d-md-block ${indexStyles.background}`}
 			>
