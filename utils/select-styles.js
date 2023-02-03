@@ -48,6 +48,16 @@ export const selectStyles = {
 		padding: 0
 	}),
 
+	singleValue: (styles) => ({
+		...styles,
+		color: `var(--${prefix}input-color)`
+	}),
+
+	placeholder: (styles) => ({
+		...styles,
+		color: `var(--${prefix}input-placeholder-color)`
+	}),
+
 	option: (styles, state) => ({
 		...styles,
 		cursor: "pointer",
