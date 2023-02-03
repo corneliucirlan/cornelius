@@ -9,29 +9,33 @@
 .hero
 	// Subtract nav height
 	min-height: calc(100vh - ($spacer * 20))
-	margin-top: $spacer * 20
+	margin-top: $spacer * 10
 	margin-bottom: $spacer * 15
+	background-image: var(--#{$prefix}hero-image-path)
+	background-position: top right
+	background-repeat: no-repeat
+	background-size: contain
 
 	.cta
 		margin-top: $spacer * 4
 
 	@include media-breakpoint-up(md)
-		margin-top: $spacer * 25
+		margin-top: $spacer * 20
 		margin-bottom: 0
 
-.image
-	position: relative
-	z-index: -100
+// .image
+// 	position: relative
+// 	z-index: -100
 
-	img
-		z-index: -500
-		transform: scale(1.25)
-		max-width: 400px
-		margin: 2rem auto 0
-		overflow-x: hidden
+// 	img
+// 		z-index: -500
+// 		transform: scale(1.25)
+// 		max-width: 400px
+// 		margin: 2rem auto 0
+// 		overflow-x: hidden
 
-		@include media-breakpoint-up(md)
-			transform: scale(1.25) translateY(-2rem)
+// 		@include media-breakpoint-up(md)
+// 			transform: scale(1.25) translateY(-2rem)
 
 .background
 	font-family: $headings-font-family

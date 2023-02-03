@@ -20,7 +20,7 @@ export default async function HeroSection({ hero, cta, imageClass }) {
 			className={`row opacity-0 fade-in fade-in-delay-1 flex-md-row-reverse ${hero}`}
 		>
 			<div className={`col-12 col-md-6 ${imageClass}`}>
-				{heroImage && (
+				{/* {heroImage && (
 					<Image
 						src={heroImage.src}
 						priority={true}
@@ -30,7 +30,7 @@ export default async function HeroSection({ hero, cta, imageClass }) {
 						style={{ objectFit: "cover", overflow: "visible" }}
 						alt="Corneliu Cîrlan"
 					/>
-				)}
+				)} */}
 			</div>
 
 			<div className="col-12 col-md-6 d-flex flex-column justify-content-center">
