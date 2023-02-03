@@ -3,8 +3,8 @@ $fonts: (('Helvetica Now Display', normal, normal, '../../assets/fonts/Helvetica
 @each $props in $fonts
 	@font-face
 		font:
-			family: nth($props, 1)
-			weight: nth($props, 2)
-			style: nth($props, 3)
-			display: swap
+		family: nth($props, 1)
+		weight: nth($props, 2)
+		style: nth($props, 3)
+		display: swap
 		src: url(nth($props, 4)) format('truetype')
