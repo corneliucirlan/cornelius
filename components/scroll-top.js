@@ -13,7 +13,7 @@ export default () => {
 
 	useEffect(() => {
 		// Scroll to top if current path not as previous path
-		if (oldPathName !== pathname) {
+		if (oldPathName !== "undefined" && oldPathName !== pathname) {
 			console.log("OLD PATH: ", oldPathName)
 			console.log("CURRENT PATH: ", pathname)
 			setOldPathName(pathname)
