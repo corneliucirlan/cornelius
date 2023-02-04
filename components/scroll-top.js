@@ -14,11 +14,13 @@ export default () => {
 	useEffect(() => {
 		// Scroll to top if current path not as previous path
 		if (oldPathName !== pathname) {
+			console.log("OLD PATH: ", oldPathName)
+			console.log("CURRENT PATH: ", pathname)
+			setOldPathName(pathname)
 			router.push(pathname)
 			window.scrollTo(0, 0)
-			setOldPathName(pathname)
 		}
-	}, [])
+	})
 
 	return null
 }
