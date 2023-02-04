@@ -9,11 +9,11 @@ export default () => {
 	const router = useRouter()
 
 	// Previous path
-	const [oldPathName, setOldPathName] = useState()
+	const [oldPathName, setOldPathName] = useState(pathname)
 
 	useEffect(() => {
-		// Scroll to top if current path not as previous path
-		if (typeof oldPathName !== undefined && oldPathName !== pathname) {
+		// Scroll to top if current path is different from previous path
+		if (oldPathName !== pathname) {
 			// Update old path
 			setOldPathName(pathname)
 
@@ -23,7 +23,7 @@ export default () => {
 			// Scroll to top
 			window.scrollTo(0, 0)
 		}
-	})
+	}, [pathname])
 
 	return null
 }
