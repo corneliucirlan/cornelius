@@ -22,7 +22,7 @@ export default async function Study({ params }) {
 			<main>
 				<div className="row">
 					<section className="col-12 col-md-5">
-						<article className="opacity-0 fade-in fade-in-delay-1">
+						<article className="opacity-0 fade-in">
 							<h4 className="text-uppercase">Case study</h4>
 							<h1>{project.title}</h1>
 						</article>

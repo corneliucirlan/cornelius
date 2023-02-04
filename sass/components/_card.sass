@@ -22,16 +22,16 @@
 
 		&.card-title-light
 			color: $white
-	
+
 	.card-caption,
 	.card-icon-ig,
 	.card-link
 		opacity: 0
-	
+
 	.card-caption
 		margin-top: $spacer * 3
 		font-size: $font-size-base * 2
-		
+
 		&-ig
 			font-size: $font-size-base * 1.5
 			margin-left: $spacer * 3
@@ -39,7 +39,7 @@
 
 	.card-icon-ig
 		width: $font-size-base * 10
-	
+
 	.card-link
 		font-weight: 900
 		font-color: $black
@@ -49,22 +49,19 @@
 		position: absolute
 		bottom: $spacer * 3
 
-	.card-wrapper
-		overflow: hidden
+	&:hover
+		.card-title,
+		.card-data,
+		.card-link
+			color: $white
 
-		&:hover
-			.card-title,
-			.card-data,
-			.card-link
-				color: $white
+		.card-data
+			background-color: rgba($black, 0.9)
 
-			.card-data
-				background-color: rgba($black, 0.9)
-
-			.card-caption,
-			.card-icon-ig,
-			.card-link
-				animation: riseup $transition-duration $transition-timing-function $transition-delay forwards
+		.card-caption,
+		.card-icon-ig,
+		.card-link
+			animation: riseup $transition-duration $transition-timing-function $transition-delay forwards
 
 	&-instagram
 		.card-data
