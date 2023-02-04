@@ -1,6 +1,7 @@
 import Footer from "../components/footer"
 // import Header from "../components/header"
 import SideContact from "../components/side-contact"
+import ScrollTop from "../components/scroll-top"
 
 import "../sass/styles.sass"
 
@@ -45,6 +46,7 @@ export default function RootLayout({ children }) {
 			<head />
 
 			<body>
+				<ScrollTop />
 				<div className="container">{children}</div>
 				<SideContact />
 				<Footer />
