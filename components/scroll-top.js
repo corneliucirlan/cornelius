@@ -18,7 +18,7 @@ export default () => {
 			window.scrollTo(0, 0)
 			setOldPathName(pathname)
 		}
-	})
+	}, [])
 
 	return null
 }
