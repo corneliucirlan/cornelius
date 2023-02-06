@@ -11,14 +11,14 @@
 
 	.item
 		display: inline-block
-		padding-right: $spacer
+		padding-right: 2 * $spacer
 		font-weight: 900
 
 		&:after
-			padding-left: $spacer
+			padding-left: 2 * $spacer
 			content: '/'
 			font-weight: 400
-			color: $gray-500
+			color: var(--#{$prefix}h4-color)
 
 		&:last-child
 			&:after
