@@ -1,3 +1,9 @@
+// Light mode
+@import 'themes/light'
+
+// Dark mode
+@import 'themes/dark'
+
 :root
 
 	// Default font size
@@ -19,83 +25,20 @@
 	--#{$prefix}btn-disabled-bg: none
 	--#{$prefix}btn-disabled-border-color: none
 
+	// Brand padding
 	--#{$prefix}brand-text-padding: #{$spacer}
 
+	// Nav link padding
 	--#{$prefix}nav-link-padding-y: #{$spacer * 3}
 
-	// Logo
-	--#{$prefix}logo-fill-color: #{$white}
-	--#{$prefix}logo-stroke-color: #{$black}
-	--#{$prefix}logo-hover-color: #{$blue}
-	--#{$prefix}logo-brand-color: #{$black}
+	// Light mode (default)
+	@include light-mode
 
-	--#{$prefix}navbar-toggler-color: #{$black}
+	// Dark mode
+	@media (prefers-color-scheme: dark)
+		@include dark-mode
 
-	// Index backdrop
-	--#{$prefix}backdrop-color: #{$white}
-	--#{$prefix}backdrop-shadow-color: #{rgba($black, 4%)}
-
-	// Scroller
-	--#{$prefix}scroller-color: #{rgba($black, .7)}
-
-	// Heading
-	--#{$prefix}h-color: #{$black}
-	--#{$prefix}h4-color: #{$gray-500}
-
-	// Side contact
-	--#{$prefix}side-bg: #{rgba($black,.3)}
-	--#{$prefix}side-fill-color: #{$white}
-	--#{$prefix}side-hover-bg: #{$black}
-	--#{$prefix}side-color: #{$white}
-
-	// Inputs
-	--#{$prefix}input-bg-color: #{$white}
-	--#{$prefix}input-focus-bg-color: #{$white}
-	--#{$prefix}input-color: #{$black}
-	--#{$prefix}input-placeholder-color: #{rgba($black, .5)}
-	--#{$prefix}input-border-color: #{rgba($black, .1)}
-	--#{$prefix}input-focus-border-color: #{$blue}
-
-
+	// Bigger screens
 	@include media-breakpoint-up(md)
 		--#{$prefix}brand-text-padding: calc(#{$spacer} * 2)
-
 		--#{$prefix}nav-link-padding-y: #{$spacer * 5}
-
-	@media (prefers-color-scheme: dark)
-		--#{$prefix}dark-mode-white: #{$gray-300}
-
-		--#{$prefix}body-bg: #{$black}
-		--#{$prefix}body-color: var(--#{$prefix}dark-mode-white)
-
-		// Logo
-		--#{$prefix}logo-fill-color: #{$black}
-		--#{$prefix}logo-stroke-color: var(--#{$prefix}dark-mode-white)
-		--#{$prefix}logo-brand-color: var(--#{$prefix}dark-mode-white)
-		--#{$prefix}navbar-toggler-color: var(--#{$prefix}dark-mode-white)
-
-		// Index backdrop
-		--#{$prefix}backdrop-color: #{$black}
-		--#{$prefix}backdrop-shadow-color: #{rgba($white, 4%)}
-
-		// Scroller
-		// --#{$prefix}scroller-color: rgba(var(--#{$prefix}dark-mode-white), .5)
-		--#{$prefix}scroller-color: #{rgba($gray-300, .5)}
-
-		// Heading
-		--#{$prefix}h-color: var(--#{$prefix}dark-mode-white)
-		--#{$prefix}h4-color: #{$gray-700}
-
-		// Side contact
-		--#{$prefix}side-bg: #{rgba($white,.3)}
-		--#{$prefix}side-fill-color: #{$black}
-		--#{$prefix}side-hover-bg: #{$white}
-		--#{$prefix}side-color: #{$black}
-
-		// Inputs
-		--#{$prefix}input-bg-color: #{$black}
-		--#{$prefix}input-focus-bg-color: #{$black}
-		--#{$prefix}input-color: var(--#{$prefix}dark-mode-white)
-		--#{$prefix}input-placeholder-color: #{rgba($white, .5)}
-		--#{$prefix}input-border-color: #{rgba($white, .2)}
-		--#{$prefix}input-focus-border-color: #{$blue}

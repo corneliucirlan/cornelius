@@ -1,42 +1,40 @@
-import { useEffect, useRef, useState } from 'react'
-import Image from 'next/image'
-import useDarkMode from 'use-dark-mode'
+import Image from "next/image"
 
-import Button from '../button'
-import { indexCopy } from '../data/site-copy'
+import Button from "../button"
+import { indexCopy } from "../data/site-copy"
+import { getPhotoData } from "../../utils/images"
 
-export default ({ hero, cta, image, imageClass }) => {
+export default async function HeroSection({ hero, cta, imageClass }) {
+	// Hero Image
+	// const heroImage = {
+	// 	light: await getPhotoData("/images/cc-hero-image-closed-white.png"),
+	// 	dark: await getPhotoData("/images/cc-hero-image-closed-darker.png")
+	// }
 
-	const heroRef = useRef()
-	const darkMode = useDarkMode()
-	let [ heroImage, setHeroImage ] = useState()
-
-	// Set hero image based on theme
-	useEffect(() => darkMode.value ? setHeroImage(image.dark) : setHeroImage(image.light), [ darkMode.value ])
+	const heroImage = await getPhotoData(
+		"/images/cc-hero-image-closed-darker.png"
+	)
 
 	return (
 		<section
 			className={`row opacity-0 fade-in fade-in-delay-1 flex-md-row-reverse ${hero}`}
-			ref={heroRef}
 		>
 			<div className={`col-12 col-md-6 ${imageClass}`}>
-				{heroImage && (
+				{/* {heroImage && (
 					<Image
 						src={heroImage.src}
-						width={heroImage.width}
-						height={heroImage.height}
-						placeholder="blur"
-						blurDataURL={heroImage.base64}
 						priority={true}
-						quality="100"
+						fill={true}
+						// placeholder="blur"
+						// blurDataURL={heroImage.base64}
+						style={{ objectFit: "cover", overflow: "visible" }}
+						alt="Corneliu Cîrlan"
 					/>
-				)}
+				)} */}
 			</div>
 
 			<div className="col-12 col-md-6 d-flex flex-column justify-content-center">
-				<h4 className="text-uppercase">
-					{indexCopy.kicker}
-				</h4>
+				<h4 className="text-uppercase">{indexCopy.kicker}</h4>
 				<h1>{indexCopy.title}</h1>
 				<p>{indexCopy.caption}</p>
 				<div

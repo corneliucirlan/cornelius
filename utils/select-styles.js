@@ -1,118 +1,72 @@
-const lightModeBackgroundColor = 'rgba(255, 255, 255, 1)'
-const lightModeBackgroundColorHover = 'rgba(9, 29, 9, .1)'
+// CSS vars prefix
+const prefix = "cc-"
 
-const darkModeBackgroundColor = 'rgba(9, 9, 9, 1)'
-const darkModeBackgroundColorHover = 'rgba(255, 255, 255, .2)'
-const darkModeSelectedColor = '#dee2e6'
-const darkModePlaceholderColor = 'rgba(255, 255, 255, .5)'
+// Background transition
+const backgroundTransition = "background-color .2s linear"
 
-const backgroundTransition = 'background-color .2s linear'
+// Background color
+const backgroundColor = `var(--${prefix}body-bg)`
 
-export const selectStylesLight = {
-	control: styles => ({
+// Background hover color
+const backgroundColorHover = `var(--${prefix}select-bg-hover-color)`
+
+// Select styles
+export const selectStyles = {
+	control: (styles) => ({
 		...styles,
 		border: 0,
-		cursor: 'pointer',
-		boxShadow: 'none',
+		cursor: "pointer",
+		background: "none",
 		borderRadius: 0,
-		backgroundColor: lightModeBackgroundColor,
+		backgroundColor: backgroundColor,
 		transition: backgroundTransition,
-		'&:hover': {
-			backgroundColor: lightModeBackgroundColorHover
+		"&:hover": {
+			backgroundColor: backgroundColorHover
 		}
 	}),
-	
-	indicatorSeparator: styles => ({
+
+	indicatorSeparator: (styles) => ({
 		...styles,
-		display: 'none'
+		display: "none"
 	}),
-	
-	menu: styles => ({
+
+	menu: (styles) => ({
 		...styles,
 		borderRadius: 0,
-		cursor: 'pointer',
+		cursor: "pointer",
 		marginTop: 0,
 		marginBottom: 0,
-		width: '100%',
-		boxShadow: `0 4px 11px ${lightModeBackgroundColorHover}`,
+		backgroundColor: backgroundColor,
+		width: "100%",
+		boxShadow: `0 4px 11px ${backgroundColorHover}`
 	}),
-	
-	menuList: styles => ({
+
+	menuList: (styles) => ({
 		...styles,
-		cursor: 'pointer',
+		cursor: "pointer",
 		border: 0,
 		padding: 0
 	}),
-	
+
+	singleValue: (styles) => ({
+		...styles,
+		color: `var(--${prefix}input-color)`
+	}),
+
+	placeholder: (styles) => ({
+		...styles,
+		color: `var(--${prefix}input-placeholder-color)`
+	}),
+
 	option: (styles, state) => ({
 		...styles,
-		cursor: 'pointer',
-		fontSize: '1.6rem',
+		cursor: "pointer",
+		fontSize: "1.6rem",
 		transition: backgroundTransition,
-		backgroundColor:  state.isFocused ? lightModeBackgroundColorHover : null,
+		backgroundColor: state.isFocused ? backgroundColorHover : null,
 		color: null,
-		'&:active': {
-			backgroundColor: lightModeBackgroundColorHover
-		}
-	})
-}
-
-export const selectStylesDark = {
-	control: styles => ({
-		...styles,
-		border: 0,
-		cursor: 'pointer',
-		boxShadow: 'none',
-		borderRadius: 0,
-		backgroundColor: darkModeBackgroundColor,
-		transition: backgroundTransition,
-		'&:hover': {
-			backgroundColor: darkModeBackgroundColorHover
-		}
-	}),
-	
-	indicatorSeparator: styles => ({
-		...styles,
-		display: 'none'
-	}),
-	
-	menu: styles => ({
-		...styles,
-		borderRadius: 0,
-		cursor: 'pointer',
-		marginTop: 0,
-		marginBottom: 0,
-		backgroundColor: darkModeBackgroundColor,
-		width: '100%',
-		boxShadow: `0 4px 11px ${darkModeBackgroundColorHover}`,
-	}),
-	
-	menuList: styles => ({
-		...styles,
-		cursor: 'pointer',
-		border: 0,
-		padding: 0,
-		backgroundColor: darkModeBackgroundColor,
-	}),
-
-	singleValue: styles => ({
-		...styles,
-		color: darkModeSelectedColor
-	}),
-
-	placeholder: styles => ({
-		...styles,
-		color: darkModePlaceholderColor
-	}),
-	
-	option: (styles, state) => ({
-		...styles,
-		cursor: 'pointer',
-		fontSize: '1.6rem',
-		transition: backgroundTransition,
-		backgroundColor:  state.isFocused ? darkModeBackgroundColorHover : null,
-		'&:active': {
-			backgroundColor: darkModeBackgroundColorHover
+		"&:active": {
+			backgroundColor: backgroundColorHover
 		}
 	})
 }

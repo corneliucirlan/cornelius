@@ -5,15 +5,25 @@ module.exports = {
 			"cdn.dribbble.com",
 
 			// Instagram CDN
-			"scontent.cdninstagram.com",
+			"scontent.cdninstagram.com"
 		],
 
 		// Instagram CDN
 		remotePatterns: [
 			{
 				protocol: "https",
-				hostname: "*.cdninstagram.com",
-			},
-		],
+				hostname: "*.cdninstagram.com"
+			}
+		]
 	},
+
+	experimental: {
+		// App folder structure
+		appDir: true,
+
+		// Fonts
+		fontLoaders: [
+			{ loader: "@next/font/google", options: { subsets: ["latin"] } }
+		]
+	}
 }

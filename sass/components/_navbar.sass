@@ -5,6 +5,7 @@
 	left: 0
 	padding-top: var(--#{$prefix}nav-link-padding-y)
 	padding-bottom: var(--#{$prefix}nav-link-padding-y)
+	z-index: 1000
 
 	.container-fluid
 		padding-left: 0
@@ -12,12 +13,13 @@
 
 	// Navbar brand
 	.navbar-brand
-		font-weight: 900
 		transition: $navbar-brand-transition
 		z-index: 100
 		color: var(--#{$prefix}logo-brand-color)
 
 		.navbar-brand-text
+			font-family: var(--#{$prefix}heading-font-family)
+			font-weight: 900
 			padding-left: var(--#{$prefix}brand-text-padding)
 			line-height: 1
 
@@ -86,7 +88,6 @@
 		position: absolute
 		background-color: transparent
 		width: 100vw
-		height: 100vh
 		top: 0
 		left: 0
 		justify-content: center
@@ -179,6 +180,7 @@
 		.navbar-collapse
 			background-color: var(--#{$prefix}body-bg)
 			display: flex
+			height: 100vh
 			z-index: 50
 
 			// Menu container

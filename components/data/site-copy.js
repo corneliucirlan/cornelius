@@ -1,6 +1,6 @@
 export const indexCopy = {
 	kicker: `Corneliu Cîrlan`,
-	title: `Website & user experience designer`,
+	title: `Website and user interface designer`,
 	caption: `I believe that everyone has the potential to achieve great things, and I am dedicated to helping them reach their goals and dreams.`,
 	buttons: {
 		work: { text: `Let's work together` },
@@ -27,26 +27,56 @@ export const indexCopy = {
 }
 
 export const aboutCopy = {
-	kicker: 'A little about me',
-	title: `Hi, I'm Corneliu Cîrlan, the designer you're looking for`,
-	caption: `My lifelong interest in computers and programming eventually led me to discover the fascinating world of UI design. I was drawn to the challenge of creating intuitive and visually appealing interfaces that make complex systems easy to use. I pursued a career in UI design and have continued to learn and grow as a designer, constantly pushing myself to stay up-to-date with the latest tools and techniques. Today, I am a confident and experienced UI designer with a deep understanding of user experience and a passion for creating beautiful and functional designs.`,
+	kicker: "A little about me",
+	title: `Hi, I'm Corneliu, the designer you're looking for`,
+	caption: `My love for computers and programming led me to UI design where I create user-friendly interfaces. Pursuing a career in this field, I constantly upgrade my skills and bring a blend of UX understanding and design aesthetics to my work. I am now a seasoned UI designer with a passion for creating functional and visually appealing designs.`,
 	experience: {
-		kicker: 'Experience',
-		title: 'Over 10 years of experience',
-		caption: `As a freelance UI designer with over 10 years of experience, I have honed my skills in user interface design, ensuring that the products I create are not only visually appealing, but also user-friendly and intuitive. I have a strong understanding of design principles and a keen eye for detail, allowing me to create designs that effectively communicate the desired message and meet the needs of the target audience. My goal as a designer is to create engaging and effective user experiences that help my clients achieve their business objectives.`,
+		kicker: "Experience",
+		title: "Over 10 years of experience",
+		caption: `Freelance UI designer with 10+ years of experience, delivering visually appealing and user-friendly designs that communicate effectively to the target audience. Skilled in design principles and attention to detail, my goal is to create engaging user experiences that help clients achieve their business objectives.`,
 		list: [
-			{ name: 'Corneliu Cîrlan PFA', title: 'Founder, Creative Director, Freelancer, Designer, Developer', period: 'February 2013 - Present' },
-			{ name: 'Uncover Romania Tours', title: 'Full-stack designer', period: 'February 2015 - April 2016' },
-			{ name: 'Uncover Romania', title: 'Co-founder, Web, UX / UI Designer, Developer', period: 'January 2012 - April 2016' }
+			{
+				name: "Corneliu Cîrlan Design",
+				title: "Founder, Creative Director, Designer, Developer",
+				period: "February 2013 - Present"
+			},
+			{
+				name: "Uncover Romania Tours",
+				title: "Web & Mobile, UI Designer, Developer",
+				period: "February 2015 - April 2016"
+			},
+			{
+				name: "Uncover Romania",
+				title: "Web & Mobile, UI Designer, Developer",
+				period: "January 2012 - April 2016"
+			}
 		]
 	},
 	services: {
-		title: 'Services',
-		list: [ 'Art direction', 'Web & mobile', 'Brand identity', 'UX & UI', 'Iconography', 'Animation', 'Photography' ]
+		title: "Services",
+		list: [
+			"Animation",
+			"Art direction",
+			"Brand identity",
+			"UX & UI",
+			"Web & mobile design",
+			"Web development"
+		]
 	},
 	tools: {
-		title: 'Tools',
-		list: [ 'Photoshop', 'Illustrator', 'XD', 'Dimension', 'After Effects', 'Lightroom', 'Figma', 'Visual Studio Code' ]
+		title: "Tools",
+		list: [
+			"After Effects",
+			"Dimension",
+			"Figma",
+			"Illustrator",
+			"Lightroom",
+			"Photoshop",
+			"Visual Studio Code",
+			"Webflow",
+			"WordPress",
+			"XD"
+		]
 	}
 }
 
@@ -56,14 +86,14 @@ export const contactCopy = {
 	caption: `If you have a project, please let me know. I'm happy to help with any project, no matter the size. And if you just want to say hi, feel free! Thank you for considering me.`,
 	mail: {
 		href: "mailto:corneliu@corneliucirlan.com",
-		text: "corneliu@corneliucirlan.com",
+		text: "corneliu@corneliucirlan.com"
 	},
 	form: {
 		name: {
-			label: `What's your name?`,
+			label: `What's your name?`
 		},
 		email: {
-			label: `What's your e-mail address?`,
+			label: `What's your e-mail address?`
 		},
 		service: {
 			label: `How can I help?`,
@@ -71,8 +101,8 @@ export const contactCopy = {
 				{ value: "oneoff", label: "One-off project" },
 				{ value: "longterm", label: "Long-term partnership" },
 				{ value: "fulltime", label: "Hire me full-time" },
-				{ value: "sayhi", label: "Just wanted to say Hi" },
-			],
+				{ value: "sayhi", label: "Just wanted to say Hi" }
+			]
 		},
 		budget: {
 			label: `What's your budget?`,
@@ -80,11 +110,11 @@ export const contactCopy = {
 				{ value: "1000", label: "$1000 - $2500" },
 				{ value: "2500", label: "$2500 - $5000" },
 				{ value: "5000", label: "$5000 - $10000" },
-				{ value: "10000", label: "$10000 or more" },
-			],
+				{ value: "10000", label: "$10000 or more" }
+			]
 		},
 		message: {
-			label: `What's your message?`,
-		},
-	},
-};
+			label: `What's your message?`
+		}
+	}
+}
