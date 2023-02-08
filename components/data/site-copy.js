@@ -87,11 +87,11 @@ export const aboutCopy = {
 		title: "Services",
 		list: [
 			"Animation",
-			"Art direction",
-			"Brand identity",
+			"Art Direction",
+			"Brand Identity",
 			"UX & UI",
-			"Web & mobile design",
-			"Web development"
+			"Web & Mobile",
+			"Web Development"
 		]
 	},
 	tools: {

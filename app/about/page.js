@@ -26,15 +26,17 @@ export default async function AboutPage() {
 
 				{/* Photo */}
 				<section className={`row opacity-0 fade-in`}>
-					<Image
-						src={aboutImage.src}
-						width={aboutImage.width}
-						height={aboutImage.height}
-						loading="lazy"
-						placeholder="blur"
-						blurDataURL={aboutImage.base64}
-						alt="Corneliu Cîrlan"
-					/>
+					<div className="image-container">
+						<Image
+							src={aboutImage.src}
+							width={aboutImage.width}
+							height={aboutImage.height}
+							loading="lazy"
+							placeholder="blur"
+							blurDataURL={aboutImage.base64}
+							alt="Corneliu Cîrlan"
+						/>
+					</div>
 				</section>
 
 				{/* Services & tools */}
