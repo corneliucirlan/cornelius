@@ -1,5 +1,6 @@
 import { contactCopy } from "../../components/data/site-copy"
 import DefaultTags from "../../components/head/default-tags"
+import SocialMedia from "../../components/head/social-media"
 
 export default function Head() {
 	return (
@@ -11,6 +12,13 @@ export default function Head() {
 			/>
 
 			<DefaultTags />
+			<SocialMedia
+				ogUrl={contactCopy.metadata.ogUrl}
+				ogTitle={contactCopy.metadata.ogTitle}
+				ogDescription={contactCopy.metadata.ogDescription}
+				ogImage={contactCopy.metadata.ogImage}
+				ogType={contactCopy.metadata.ogType}
+			/>
 		</>
 	)
 }

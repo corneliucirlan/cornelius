@@ -1,10 +1,13 @@
-const separator = "/"
+const separator = "|"
 
 const websiteTitle = `Corneliu Cîrlan - Freelance Web & Mobile Designer`
 const indexMetaDescription = `I believe that everyone has the potential to achieve great things, and I am dedicated to helping them reach their goals and dreams.`
 
 const aboutTitle = `About ${separator} ${websiteTitle}`
 const aboutDescription = `My love for computers and programming led me to UI design where I create user-friendly interfaces.`
+
+const contactTitle = `Contact ${separator} ${websiteTitle}`
+const contactDescription = `If you have a project, please let me know. I'm happy to help with any project, no matter the size. And if you just want to say hi, feel free! Thank you for considering me.`
 
 // Homepage copy
 export const indexCopy = {
@@ -108,10 +111,16 @@ export const aboutCopy = {
 	}
 }
 
+// Contact page copy
 export const contactCopy = {
 	metadata: {
-		title: `Contact ${separator} ${websiteTitle}`,
-		description: `If you have a project, please let me know. I'm happy to help with any project, no matter the size. And if you just want to say hi, feel free! Thank you for considering me.`
+		title: contactTitle,
+		description: contactDescription,
+		ogUrl: "/contact",
+		ogTitle: contactTitle,
+		ogDescription: contactDescription,
+		ogImage: "/images/cc-about.jpg",
+		ogType: "website"
 	},
 	kicker: "Contact",
 	title: `Get in touch &mdash;<br />Let's work together`,
