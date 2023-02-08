@@ -1,13 +1,19 @@
-const metaTitle = `Corneliu Cîrlan - Freelance Web & Mobile Designer`
-const metaDescription = `I believe that everyone has the potential to achieve great things, and I am dedicated to helping them reach their goals and dreams.`
+const separator = "/"
 
+const websiteTitle = `Corneliu Cîrlan - Freelance Web & Mobile Designer`
+const indexMetaDescription = `I believe that everyone has the potential to achieve great things, and I am dedicated to helping them reach their goals and dreams.`
+
+const aboutTitle = `About ${separator} ${websiteTitle}`
+const aboutDescription = `My love for computers and programming led me to UI design where I create user-friendly interfaces.`
+
+// Homepage copy
 export const indexCopy = {
 	metadata: {
-		title: metaTitle,
-		description: metaDescription,
-		ogUrl: "https://www.corneliucirlan.com",
-		ogTitle: metaTitle,
-		ogDescription: metaDescription,
+		title: websiteTitle,
+		description: indexMetaDescription,
+		ogUrl: "/",
+		ogTitle: websiteTitle,
+		ogDescription: indexMetaDescription,
 		ogImage: "/images/cc-about.jpg",
 		ogType: "website"
 	},
@@ -38,10 +44,16 @@ export const indexCopy = {
 	}
 }
 
+// About page copy
 export const aboutCopy = {
 	metadata: {
-		title: `About / ${metaTitle}`,
-		description: `My love for computers and programming led me to UI design where I create user-friendly interfaces.`
+		title: aboutTitle,
+		description: aboutDescription,
+		ogUrl: "/about",
+		ogTitle: aboutTitle,
+		ogDescription: aboutDescription,
+		ogImage: "/images/cc-about.jpg",
+		ogType: "website"
 	},
 	kicker: "A little about me",
 	title: `Hi, I'm Corneliu, the designer you're looking for`,
@@ -98,7 +110,7 @@ export const aboutCopy = {
 
 export const contactCopy = {
 	metadata: {
-		title: `Contact / ${metaTitle}`,
+		title: `Contact ${separator} ${websiteTitle}`,
 		description: `If you have a project, please let me know. I'm happy to help with any project, no matter the size. And if you just want to say hi, feel free! Thank you for considering me.`
 	},
 	kicker: "Contact",
