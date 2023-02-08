@@ -1,5 +1,6 @@
 "use client"
 
+import Helmet from "react-helmet"
 import { useState, useRef } from "react"
 import parse from "html-react-parser"
 import Header from "../../components/header"
@@ -133,6 +134,22 @@ export default function ComtactPage() {
 
 	return (
 		<>
+			<Helmet>
+				<script type="application/ld+json">
+					{`
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "My Company",
+              "url": "https://mycompany.com",
+              "sameAs": [
+                "https://www.facebook.com/mycompany",
+                "https://twitter.com/mycompany"
+              ]
+            }
+          `}
+				</script>
+			</Helmet>
 			<Header />
 			<main className={`row align-items-center ${styles.contact}`}>
 				<section
