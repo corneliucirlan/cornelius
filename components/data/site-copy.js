@@ -1,4 +1,16 @@
+const metaTitle = `Corneliu Cîrlan - Freelance Web & Mobile Designer`
+const metaDescription = `I believe that everyone has the potential to achieve great things, and I am dedicated to helping them reach their goals and dreams.`
+
 export const indexCopy = {
+	metadata: {
+		title: metaTitle,
+		description: metaDescription,
+		ogUrl: "https://www.corneliucirlan.com",
+		ogTitle: metaTitle,
+		ogDescription: metaDescription,
+		ogImage: "/images/cc-about.jpg",
+		ogType: "website"
+	},
 	kicker: `Corneliu Cîrlan`,
 	title: `Website and user interface designer`,
 	caption: `I believe that everyone has the potential to achieve great things, and I am dedicated to helping them reach their goals and dreams.`,
@@ -27,6 +39,10 @@ export const indexCopy = {
 }
 
 export const aboutCopy = {
+	metadata: {
+		title: `About / ${metaTitle}`,
+		description: `My love for computers and programming led me to UI design where I create user-friendly interfaces.`
+	},
 	kicker: "A little about me",
 	title: `Hi, I'm Corneliu, the designer you're looking for`,
 	caption: `My love for computers and programming led me to UI design where I create user-friendly interfaces. Pursuing a career in this field, I constantly upgrade my skills and bring a blend of UX understanding and design aesthetics to my work. I am now a seasoned UI designer with a passion for creating functional and visually appealing designs.`,
@@ -81,6 +97,10 @@ export const aboutCopy = {
 }
 
 export const contactCopy = {
+	metadata: {
+		title: `Contact / ${metaTitle}`,
+		description: `If you have a project, please let me know. I'm happy to help with any project, no matter the size. And if you just want to say hi, feel free! Thank you for considering me.`
+	},
 	kicker: "Contact",
 	title: `Get in touch &mdash;<br />Let's work together`,
 	caption: `If you have a project, please let me know. I'm happy to help with any project, no matter the size. And if you just want to say hi, feel free! Thank you for considering me.`,

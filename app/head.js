@@ -1,9 +1,22 @@
+import { indexCopy } from "../components/data/site-copy"
+import DefaultTags from "../components/head/default-tags"
+import SocialMedia from "../components/head/social-media"
+
 export default function Head() {
 	return (
 		<>
-			<title></title>
-			<meta content="width=device-width, initial-scale=1" name="viewport" />
-			<link rel="icon" href="/favicon.ico" />
+			<title>{indexCopy.metadata.title}</title>
+			<meta name="description" content={indexCopy.metadata.description} />
+
+			<DefaultTags />
+
+			<SocialMedia
+				ogUrl={indexCopy.metadata.ogUrl}
+				ogTitle={indexCopy.metadata.ogTitle}
+				ogDescription={indexCopy.metadata.ogDescription}
+				ogImage={indexCopy.metadata.ogImage}
+				ogType={indexCopy.metadata.ogType}
+			/>
 		</>
 	)
 }
