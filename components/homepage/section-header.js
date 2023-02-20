@@ -13,7 +13,7 @@ export default ({ kicker, heading }) => {
 			}`}
 			ref={headerRef}
 		>
-			<h4 className="text-uppercase">{kicker}</h4>
+			<span className="h4 text-uppercase">{kicker}</span>
 			<h1>{heading}</h1>
 		</header>
 	)

@@ -10,11 +10,11 @@ export default () => {
 	return (
 		<section
 			className={`row text-center opacity-0 ${
-				useIsInViewport(workRef) ? "fade-in" : ""
+				useIsInViewport(workRef) && "fade-in"
 			}`}
 			ref={workRef}
 		>
-			<h4 className="text-uppercase">Have a project in mind?</h4>
+			<span className="h4 text-uppercase">Have a project in mind?</span>
 			<Button
 				href="/contact"
 				className={[

@@ -10,11 +10,13 @@ export default ({ detail, index, className, listClasses }) => {
 	return (
 		<article
 			className={`opacity-0 fade-in-delay-${index + 1} ${
-				useIsInViewport(detailRef) ? "fade-in" : ""
+				useIsInViewport(detailRef) && "fade-in"
 			} ${className}`}
 			ref={detailRef}
 		>
-			{detail.title && <h4 className="text-uppercase">{detail.title}</h4>}
+			{detail.title && (
+				<span className="h4 text-uppercase">{detail.title}</span>
+			)}
 			{Array.isArray(detail.text) ? (
 				<ul className={listClasses}>
 					{detail.text.map((role, key) => (

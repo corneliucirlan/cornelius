@@ -17,9 +17,9 @@ export default () => {
 				} `}
 				ref={experienceRef}
 			>
-				<h4 className="text-uppercase">
+				<span className="h4 text-uppercase">
 					{aboutCopy.experience.kicker}
-				</h4>
+				</span>
 				<h1>{aboutCopy.experience.title}</h1>
 				<p>{aboutCopy.experience.caption}</p>
 			</div>

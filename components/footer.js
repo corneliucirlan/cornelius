@@ -1,6 +1,7 @@
 import NavMenu from "./header/nav-menu"
 import Button from "./button"
 import { footerMenu, socialSites } from "./data/menus"
+import SocialLinks from "./social-links"
 
 export default () => (
 	<div className="container">
@@ -32,7 +33,8 @@ export default () => (
 
 			<section className="col-12 col-md-3 offset-md-1">
 				<h2>Connect with me on socials</h2>
-				<NavMenu menu={socialSites} />
+				<SocialLinks />
+				{/* <NavMenu menu={socialSites} /> */}
 			</section>
 		</footer>
 	</div>

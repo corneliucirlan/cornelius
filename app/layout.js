@@ -42,7 +42,10 @@ const roboto = localFonts({
 
 export default function RootLayout({ children }) {
 	return (
-		<html className={`${roboto.variable} ${helveticaNowDisplay.variable}`}>
+		<html
+			className={`${roboto.variable} ${helveticaNowDisplay.variable}`}
+			lang="en"
+		>
 			<head />
 
 			<body>

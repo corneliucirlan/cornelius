@@ -23,7 +23,9 @@ export default async function Study({ params }) {
 				<div className="row">
 					<section className="col-12 col-md-5">
 						<article className="opacity-0 fade-in">
-							<h4 className="text-uppercase">Case study</h4>
+							<span className="h4 text-uppercase">
+								Case study
+							</span>
 							<h1>{project.title}</h1>
 						</article>
 

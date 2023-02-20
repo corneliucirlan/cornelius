@@ -18,6 +18,14 @@ h4,
 		font-weight: 900
 
 a
+	svg
+		height: 2.4rem
+		fill: var(--#{$prefix}body-color)
+		transition: fill $transition-duration $transition-timing-function
+
+		&:hover
+			fill: var(--#{$prefix}btn-hover-color)
+
 	&.nav-link
 		&:focus
 			color: inherit

@@ -18,7 +18,9 @@ export default async function AboutPage() {
 				{/* About me */}
 				<section className={`row opacity-0 fade-in`}>
 					<div className="col-12 offset-md-2 col-md-8">
-						<h4 className="text-uppercase">{aboutCopy.kicker}</h4>
+						<span className="h4 text-uppercase">
+							{aboutCopy.kicker}
+						</span>
 						<h1>{aboutCopy.title}</h1>
 						<p>{aboutCopy.caption}</p>
 					</div>

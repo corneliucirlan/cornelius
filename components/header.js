@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 
-import { Logo } from "./svg-icons"
+import { Logo } from "../components/data/svg-icons"
 import NavMenu from "./header/nav-menu"
 
 import { headerMenu } from "./data/menus"
@@ -39,6 +39,7 @@ export default () => {
 				<button
 					className="navbar-toggler"
 					type="button"
+					aria-label="Mobile menu"
 					onClick={() =>
 						mobileMenu ? setMobileMenu(false) : setMobileMenu(true)
 					}

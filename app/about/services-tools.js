@@ -17,7 +17,9 @@ export default () => {
 				} ${useIsInViewport(servicesRef) && "fade-in"}`}
 				ref={servicesRef}
 			>
-				<h4 className="text-uppercase">{aboutCopy.services.title}</h4>
+				<span className="h4 text-uppercase">
+					{aboutCopy.services.title}
+				</span>
 				<ul className={styles.list}>
 					{aboutCopy.services.list.map((item, index) => (
 						<li key={index} className={styles.item}>
@@ -33,7 +35,9 @@ export default () => {
 				}`}
 				ref={toolsRef}
 			>
-				<h4 className="text-uppercase">{aboutCopy.tools.title}</h4>
+				<span className="h4 text-uppercase">
+					{aboutCopy.tools.title}
+				</span>
 				<ul className={styles.list}>
 					{aboutCopy.tools.list.map((item, index) => (
 						<li key={index} className={styles.item}>

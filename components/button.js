@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { useRef } from "react"
 import { useIsInViewport } from "../utils/transitions"
-import { Envelope } from "./svg-icons"
+import { Envelope } from "./data/svg-icons"
 
 export default ({
 	href,
@@ -18,10 +18,11 @@ export default ({
 
 	return (
 		<Link
+			ref={linkRef}
 			href={href}
 			className={`
 				${className.join(" ")}
-				${isFaded ? "opacity-0" : ""}
+				${isFaded && "opacity-0 "}
 				${isFaded && useIsInViewport(linkRef) ? "fade-in fade-in-delay-" + delay : ""}
 			`}
 			target={hasTarget && hasTarget}
