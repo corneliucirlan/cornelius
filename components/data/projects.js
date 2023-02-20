@@ -2,7 +2,7 @@ export default [
 	// Uncover Romania
 	{
 		type: "study",
-		imageURL: "/images/projects/uncover-romania/1.webp",
+		imageURL: "/images/projects/uncover-romania/1.png",
 		id: "uncover-romania",
 		title: "Uncover Romania",
 		caption: "caption text",
@@ -19,7 +19,7 @@ export default [
 			},
 			{
 				title: "Client",
-				text: "Client name"
+				text: "Uncover Romania"
 			},
 			{
 				title: "Period",
@@ -27,23 +27,23 @@ export default [
 			}
 		],
 		source: null,
-		caption: "Lorem ipsum dolor sit amed. #one #two",
+		caption: `Uncover Romania is a sustainable travel company showcasing Romania's natural and cultural attractions through responsible tourism. Their website provides an informative and engaging interface for visitors to explore the country's hidden treasures and authentic experiences.`,
 		description: [
-			"Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras pretium maximus nunc. Duis vitae tincidunt purus. Donec scelerisque tortor at lacinia sollicitudin. Etiam interdum nulla scelerisque, eleifend justo quis, hendrerit leo. Vestibulum sed justo lacinia, finibus augue at, feugiat risus. Cras sed mi elit. Maecenas pellentesque nunc nec viverra gravida. Vivamus ut efficitur enim. Nunc et ex leo. Vestibulum vel nibh scelerisque, ultricies tortor gravida, lacinia neque. In vehicula vitae lorem nec posuere.",
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam metus ipsum, malesuada sed volutpat id, dignissim vitae quam. Maecenas nibh leo, laoreet eget nisi ac, sagittis imperdiet libero. Integer a mollis augue. Curabitur tristique felis in massa ultrices interdum. Integer tristique ac metus nec molestie. Donec sed bibendum elit, vitae condimentum metus. Suspendisse consequat magna nec ullamcorper iaculis. Fusce magna velit, tempus ultricies finibus a, facilisis vel nisi. Fusce quis ultricies nibh. Nam et mauris ac massa ultricies malesuada. Aliquam congue in mauris eu lobortis.",
-			"Phasellus pellentesque metus sed felis sodales maximus. Nullam ac ex vel odio suscipit vehicula porta ut neque. In ut nunc eget augue pretium molestie. Sed interdum, ligula vel luctus elementum, elit est scelerisque ante, eu venenatis nisl arcu non ante. Nunc fringilla varius nisi. Integer congue id mi dignissim hendrerit. Curabitur non erat mauris. Integer sit amet nisi sit amet ex suscipit dictum. Proin pretium nisi vitae ex maximus, eget pulvinar mi tempus. Sed finibus, elit non elementum venenatis, metus dui pretium purus, vel euismod turpis nulla vitae massa. Vivamus in arcu tempus, dapibus felis a, vestibulum leo. Aliquam erat volutpat. Aliquam eu tempus turpis, ut efficitur orci. Phasellus vitae vulputate purus. In a diam sed tellus dignissim varius sed at metus."
+			`Uncover Romania is a travel company that is passionate about promoting Romania's natural and cultural attractions in a responsible and ethical manner. With a focus on sustainable tourism activities, Uncover Romania guides travelers to explore the country's hidden treasures and less commercial tourist destinations. From breathtaking landscapes and remote villages to colorful festivals and historical sites, Uncover Romania offers visitors an authentic experience that reflects Romania's rich cultural heritage. Our goal for the website was to provide an informative interface to visitors that would allow them to explore and discover the best of Romania in a seamless and user-friendly manner.`,
+			`To achieve this goal, we aimed to create a website that would showcase the best of what Romania has to offer. The website needed to be easy to navigate, visually appealing, and engaging to encourage visitors to explore and discover the country's hidden gems. I worked closely with Uncover Romania to understand their unique identity and mission and incorporated these values into the design of the website. We wanted to create a website that would accurately reflect the company's personality and passion for sustainable and responsible tourism while providing an excellent user experience to visitors.`
 		],
-		behanceURL: "https://www.behance.net/corneliucirlan",
+		behanceURL:
+			"https://www.behance.net/gallery/164198083/Uncover-Romania-Website",
 		target: "_blank",
 		images: [
-			"1.webp",
-			"2.webp",
-			"3.webp",
-			"4.webp",
-			"5.webp",
-			"6.webp",
-			"7.webp",
-			"8.webp"
+			"1.png",
+			"2.png",
+			"3.png",
+			"4.png",
+			"5.png",
+			"6.png",
+			"7.png",
+			"8.png"
 		]
 	},
 
