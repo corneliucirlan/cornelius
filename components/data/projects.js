@@ -2,7 +2,7 @@ export default [
 	// Uncover Romania
 	{
 		type: "study",
-		imageURL: "/images/projects/uncover-romania/1.png",
+		imageURL: "/images/projects/uncover-romania/cover.png",
 		id: "uncover-romania",
 		title: "Uncover Romania",
 		caption: "caption text",
@@ -33,17 +33,20 @@ export default [
 			`To achieve this goal, we aimed to create a website that would showcase the best of what Romania has to offer. The website needed to be easy to navigate, visually appealing, and engaging to encourage visitors to explore and discover the country's hidden gems. I worked closely with Uncover Romania to understand their unique identity and mission and incorporated these values into the design of the website. We wanted to create a website that would accurately reflect the company's personality and passion for sustainable and responsible tourism while providing an excellent user experience to visitors.`
 		],
 		behanceURL:
-			"https://www.behance.net/gallery/164198083/Uncover-Romania-Website",
+			"https://www.behance.net/gallery/167076361/Uncover-Romania?",
 		target: "_blank",
 		images: [
-			"1.png",
-			"2.png",
-			"3.png",
-			"4.png",
-			"5.png",
-			"6.png",
-			"7.png",
-			"8.png"
+			"01.png",
+			"02.png",
+			"03.png",
+			"04.png",
+			"05.png",
+			"06.png",
+			"07.png",
+			"08.png",
+			"09.png",
+			"10.png",
+			"11.png"
 		]
 	},
 

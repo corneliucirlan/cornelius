@@ -81,7 +81,7 @@ export default async function Home() {
 			limit: 3
 		}
 	)
-
+	// console.log("Instagram posts: ", instagramResult.data)
 	let instagramPosts = await Promise.all(
 		instagramResult.data.map(async (igPost) =>
 			setPosts(

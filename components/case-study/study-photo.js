@@ -19,6 +19,7 @@ export default ({ id, image, containerClasses }) => {
 				width="1920"
 				height="1080"
 				loading="lazy"
+				className="case-study"
 				alt=""
 			/>
 		</div>
