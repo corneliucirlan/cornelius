@@ -85,7 +85,7 @@ export default async function Home() {
 	]
 
 	// Add Dribbble posts if fetching worked
-	if (dribbbleResult.status === 200)
+	dribbbleResult.status === 200 &&
 		projects.push({
 			kicker: indexCopy.sections.dribbble.kicker,
 			heading: indexCopy.sections.dribbble.title,
@@ -93,7 +93,7 @@ export default async function Home() {
 		})
 
 	// Add Instagram posts if fetching worked
-	if (instagramResult.status === 200)
+	instagramResult.status === 200 &&
 		projects.push({
 			kicker: indexCopy.sections.instagram.kicker,
 			heading: indexCopy.sections.instagram.title,
