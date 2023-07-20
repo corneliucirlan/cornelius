@@ -1,26 +1,28 @@
 .opacity-0 {
-	opacity: 0
+	opacity: 0;
 }
 
 $utilities: (
 	// Justify content
-	'justify-content': (
-		responsive: true,
-		property: justify-content,
-		values: (
-			end: flex-end,
-			start: flex-start,
-			center: center,
-			between: space-between,
-			// around: space-around,
-			// evenly: space-evenly,
-		)
-	),
+	"justify-content":
+		(
+			responsive: true,
+			property: justify-content,
+			values: (
+				end: flex-end,
+				start: flex-start,
+				center: center,
+				between: space-between,
+				// around: space-around,
+				// evenly: space-evenly,
+			)
+		),
 
 	// Align items
-	'align-items': (
-		responsive: true,
-		property: align-items,
+	"align-items":
+		(
+			responsive: true,
+			property: align-items,
 			values: (
 				// start: flex-start,
 				// end: flex-end,
@@ -28,54 +30,60 @@ $utilities: (
 				// baseline: baseline,
 				// stretch: stretch,
 			)
-	),
+		),
 
 	// Text transform
-	'text-transform': (
-		property: text-transform,
-		class: text,
-		values: uppercase capitalize
-	),
+	"text-transform":
+		(
+			property: text-transform,
+			class: text,
+			values: uppercase capitalize
+		),
 
 	// Display
-	'display': (
-		responsive: true,
-		print: true,
-		property: display,
-		class: d,
-		values: flex none block
-	),
+	"display":
+		(
+			responsive: true,
+			print: true,
+			property: display,
+			class: d,
+			values: flex none block
+		),
 
 	// Flex direction
-	'flex-direction': (
-		responsive: true,
-		property: flex-direction,
-		class: flex,
-		values: column row row-reverse
-	),
+	"flex-direction":
+		(
+			responsive: true,
+			property: flex-direction,
+			class: flex,
+			values: column row row-reverse
+		),
 
 	// Text alignment
-	"text-align": (
-		responsive: true,
-		property: text-align,
-		class: text,
-		values: (
-			start: left,
-			// end: right,
-			center: center,
-		)
-	),
-	
+	"text-align":
+		(
+			responsive: true,
+			property: text-align,
+			class: text,
+			values: (
+				start: left,
+				// end: right,
+				center: center
+			)
+		),
+
 	// Align self
-	"align-self": (
-		responsive: true,
-		property: align-self,
-		values: (auto: auto,
-			// start: flex-start,
-			// end: flex-end,
-			// center: center,
-			// baseline: baseline,
-			stretch: stretch,
+	"align-self":
+		(
+			responsive: true,
+			property: align-self,
+			values: (
+				auto: auto,
+				// start: flex-start,
+				// end: flex-end,
+				// center: center,
+				// baseline: baseline,
+				stretch: stretch
+			)
 		)
-	)
-)
+);

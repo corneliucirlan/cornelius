@@ -23,11 +23,9 @@ export const FormInput = ({
 				value={value}
 				className={classes}
 				placeholder={placeholder}
-				onChange={(event) => setValue(event.target.value)}
-				onFocus={(event) =>
-					event.target.classList.remove(isInvalidClass)
-				}
-				onBlur={(event) =>
+				onChange={event => setValue(event.target.value)}
+				onFocus={event => event.target.classList.remove(isInvalidClass)}
+				onBlur={event =>
 					!event.target.value &&
 					event.target.classList.add(isInvalidClass)
 				}
@@ -56,13 +54,11 @@ export const FormTextare = ({
 				value={value}
 				className={classes}
 				placeholder={placeholder}
-				onChange={(e) => {
+				onChange={e => {
 					setValue(e.target.value)
 				}}
-				onFocus={(event) =>
-					event.target.classList.remove(isInvalidClass)
-				}
-				onBlur={(event) =>
+				onFocus={event => event.target.classList.remove(isInvalidClass)}
+				onBlur={event =>
 					!event.target.value &&
 					event.target.classList.add(isInvalidClass)
 				}
@@ -99,13 +95,13 @@ export const FormSelect = ({
 				id={id}
 				instanceId={id}
 				options={options}
-				onChange={(event) => setValue(event)}
-				onFocus={(event) =>
+				onChange={event => setValue(event)}
+				onFocus={event =>
 					event.target
 						.closest(".form-control")
 						.classList.remove(isInvalidClass)
 				}
-				onBlur={(event) =>
+				onBlur={event =>
 					!value
 						? event.target
 								.closest(".form-control")

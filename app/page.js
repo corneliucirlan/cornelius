@@ -7,18 +7,18 @@ import ListProjects from "../components/homepage/list-projects"
 import LetsWorkTogether from "../components/work-together"
 import indexStyles from "../sass/modules/index.module.sass"
 
-export default async function Home() {
+export default async () => {
 	// Function to fetch and set posts
 	async function fetchAndSetPosts(data, classNames, source) {
 		return Promise.all(
-			data.map(async (item) => {
+			data.map(async item => {
 				return setPosts(item, classNames, source)
 			})
 		)
 	}
 
 	// Fetch and set case studies posts
-	let caseStudies = projectsData.filter((project) => project.type === "study")
+	let caseStudies = projectsData.filter(project => project.type === "study")
 	let studies = await fetchAndSetPosts(
 		caseStudies,
 		["col-12", "col-md-6", "card", "card-dribbble"],
@@ -27,7 +27,7 @@ export default async function Home() {
 
 	// Fetch and set personal projects posts
 	let personalProjects = projectsData.filter(
-		(project) => project.type === "personal"
+		project => project.type === "personal"
 	)
 	let personal = await fetchAndSetPosts(
 		personalProjects,

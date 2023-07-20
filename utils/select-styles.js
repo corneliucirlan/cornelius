@@ -12,7 +12,7 @@ const backgroundColorHover = `var(--${prefix}select-bg-hover-color)`
 
 // Select styles
 export const selectStyles = {
-	control: (styles) => ({
+	control: styles => ({
 		...styles,
 		border: 0,
 		cursor: "pointer",
@@ -25,12 +25,12 @@ export const selectStyles = {
 		}
 	}),
 
-	indicatorSeparator: (styles) => ({
+	indicatorSeparator: styles => ({
 		...styles,
 		display: "none"
 	}),
 
-	menu: (styles) => ({
+	menu: styles => ({
 		...styles,
 		borderRadius: 0,
 		cursor: "pointer",
@@ -41,19 +41,19 @@ export const selectStyles = {
 		boxShadow: `0 4px 11px ${backgroundColorHover}`
 	}),
 
-	menuList: (styles) => ({
+	menuList: styles => ({
 		...styles,
 		cursor: "pointer",
 		border: 0,
 		padding: 0
 	}),
 
-	singleValue: (styles) => ({
+	singleValue: styles => ({
 		...styles,
 		color: `var(--${prefix}input-color)`
 	}),
 
-	placeholder: (styles) => ({
+	placeholder: styles => ({
 		...styles,
 		color: `var(--${prefix}input-placeholder-color)`
 	}),

@@ -11,7 +11,7 @@ export default async function Study({ params }) {
 	const { id } = params
 
 	// Get current case study
-	const project = projects.filter((project) => project.id === id)[0]
+	const project = projects.filter(project => project.id === id)[0]
 
 	// Check if case study exists
 	if (typeof project === "undefined") return "loading"

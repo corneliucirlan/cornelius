@@ -6,7 +6,7 @@ export default ({ params }) => {
 	const { id } = params
 
 	// Get current case study
-	const project = projects.filter((project) => project.id === id)[0]
+	const project = projects.filter(project => project.id === id)[0]
 
 	return (
 		<>

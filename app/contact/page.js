@@ -41,7 +41,7 @@ export default function ComtactPage() {
 	})
 
 	// Update button state
-	const updateSubmitButton = (button) => {
+	const updateSubmitButton = button => {
 		button.classes.push("btn-animate")
 		setSubmitButton({
 			text: button.text,
@@ -61,7 +61,7 @@ export default function ComtactPage() {
 	}
 
 	// Form submit
-	const handleSubmit = async (event) => {
+	const handleSubmit = async event => {
 		// Prevent page reload
 		event.preventDefault()
 

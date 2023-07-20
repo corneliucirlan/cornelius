@@ -7,7 +7,7 @@ import useImageColor from "use-image-color"
 import { useIsInViewport } from "../utils/transitions"
 
 // Remove HTML tags and hashtags from strings
-const cleanString = (string) => {
+const cleanString = string => {
 	// String is null
 	if (string === null || string === "" || string === undefined) return
 
@@ -20,7 +20,7 @@ const cleanString = (string) => {
 	return string
 }
 
-const isColorLight = (color) => {
+const isColorLight = color => {
 	const hex = color.replace("#", "")
 	const red = parseInt(hex.substring(0, 2), 16)
 	const green = parseInt(hex.substring(2, 4), 16)

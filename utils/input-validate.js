@@ -3,20 +3,20 @@ import { contactCopy } from "../components/data/site-copy"
 
 let serviceValues = []
 let serviceLabels = []
-contactCopy.form.service.options.map((item) => {
+contactCopy.form.service.options.map(item => {
 	serviceValues.push(item.value)
 	serviceLabels.push(item.label)
 })
 
 let budgetValues = []
 let budgetLabels = []
-contactCopy.form.budget.options.map((item) => {
+contactCopy.form.budget.options.map(item => {
 	budgetValues.push(item.value)
 	budgetLabels.push(item.label)
 })
 
 // Validate name
-export const validateName = async (name) => {
+export const validateName = async name => {
 	// Define Name schema
 	let nameShema = string().required()
 
@@ -25,7 +25,7 @@ export const validateName = async (name) => {
 }
 
 // Validate email address
-export const validateEmail = async (email) => {
+export const validateEmail = async email => {
 	// Define Name schema
 	let nameShema = string().required().email()
 
@@ -34,7 +34,7 @@ export const validateEmail = async (email) => {
 }
 
 // Validate service
-export const validateService = async (service) => {
+export const validateService = async service => {
 	// Define Service schema
 	let serviceSchema = object({
 		value: string().required().oneOf(serviceValues),
@@ -46,7 +46,7 @@ export const validateService = async (service) => {
 }
 
 // Validate budget
-export const validateBudget = async (budget) => {
+export const validateBudget = async budget => {
 	// Define Budget schema
 	let budgetSchema = object({
 		value: string().required().oneOf(budgetValues),
