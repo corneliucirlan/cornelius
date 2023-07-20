@@ -20,6 +20,7 @@
 		"react-dom": "^18.2.0",
 		"react-select": "^5.4.0",
 		"sharp": "^0.30.7",
+		"typescript": "^5.1.6",
 		"use-image-color": "^0.0.9",
 		"yup": "^0.32.11"
 	},
