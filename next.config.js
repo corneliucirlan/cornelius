@@ -19,11 +19,6 @@ module.exports = {
 
 	experimental: {
 		// App folder structure
-		appDir: true,
-
-		// Fonts
-		fontLoaders: [
-			{ loader: "@next/font/google", options: { subsets: ["latin"] } }
-		]
+		appDir: true
 	}
 }
