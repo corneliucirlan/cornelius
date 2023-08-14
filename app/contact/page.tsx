@@ -16,6 +16,7 @@ import {
 } from "../../utils/button-states"
 import { useFormik } from "formik"
 import { validationSchema } from "../../utils/input-validate"
+import sendMail from "./send-mail"
 
 import { FormData, FormDataSelect } from "../../utils/interface/form"
 import SubmitState from "../../utils/interface/submit-state"
@@ -70,21 +71,9 @@ export default () => {
 				// Button sending state
 				updateSubmitButton(buttonIsSending)
 
-				// Send message to server
-				fetch("/api/sendgrid", {
-					body: JSON.stringify({
-						email: values.email,
-						name: values.name,
-						service: values.service,
-						budget: values.budget,
-						message: values.message
-					}),
-					headers: {
-						"Content-Type": "application/json"
-					},
-					method: "POST"
-				})
-					.then(response => {
+				// Send the message
+				sendMail(values)
+					.then((response: any) => {
 						// Message was sent
 						if (response.status === 200) {
 							// Reset form

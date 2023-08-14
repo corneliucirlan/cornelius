@@ -1,24 +1,25 @@
-import { NextApiRequest, NextApiResponse } from "next"
+"use server"
+
 import sendgrid from "@sendgrid/mail"
 import { validationSchema } from "../../utils/input-validate"
 
-const { SENDGRID_API_KEY, SENDGRID_TO_EMAIL, SENDGRID_FROM_EMAIL } = process.env
+export default async (formData: any) => {
+	const { SENDGRID_API_KEY, SENDGRID_TO_EMAIL, SENDGRID_FROM_EMAIL } =
+		process.env
 
-// Send mail
-export default async (req: NextApiRequest, res: NextApiResponse) => {
 	// Check if all required environment variables are defined
 	if (!SENDGRID_API_KEY || !SENDGRID_TO_EMAIL || !SENDGRID_FROM_EMAIL) {
-		return res.json({
+		return {
 			status: 500,
 			statusText: "Required environment variables are not set."
-		})
+		}
 	}
 
 	// Set SendGrid API Key
 	sendgrid.setApiKey(SENDGRID_API_KEY)
 
 	// Get all values
-	const { name, email, service, budget, message } = req.body
+	const { name, email, service, budget, message } = formData
 
 	const isValid = await validationSchema.isValid({
 		name,
@@ -60,10 +61,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 			})
 
 			// Message was sent
-			return res.json({ status: 200, statuText: "Message sent." })
+			return { status: 200, statuText: "Message sent." }
 		} catch (error) {
 			console.error("Server error: ", error)
-			return res.json(error)
+			return error
 		}
-	} else return res.json(isValid)
+	} else return isValid
 }

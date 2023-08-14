@@ -19,6 +19,9 @@ module.exports = {
 
 	experimental: {
 		// App folder structure
-		appDir: true
+		appDir: true,
+
+		// Server actions
+		serverActions: true
 	}
 }
