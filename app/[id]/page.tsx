@@ -1,4 +1,4 @@
-import { caseStudyProjects } from "../../components/data/projects"
+import projects from "../../components/data/projects"
 import Button from "../../components/button"
 import Header from "../../components/header"
 import Detail from "./detail"
@@ -14,7 +14,7 @@ export default async function Study({ params }: { params: { id: string } }) {
 	const { id } = params
 
 	// Get current case study
-	const caseStudy: CaseStudy = caseStudyProjects.filter(
+	const caseStudy: CaseStudy = projects.filter(
 		project => project.id === id
 	)[0]
 	// const caseStudy: CaseStudy | undefined = undefined

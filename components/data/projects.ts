@@ -1,6 +1,6 @@
 import { CaseStudy } from "../../utils/interface/case-study"
 
-export const caseStudyProjects: Array<CaseStudy> = [
+export default <CaseStudy[]>[
 	// Uncover Romania
 	{
 		type: "study",
@@ -49,10 +49,8 @@ export const caseStudyProjects: Array<CaseStudy> = [
 			"10.png",
 			"11.png"
 		]
-	}
-]
+	},
 
-export default [
 	// MDSM
 	{
 		type: "personal",
