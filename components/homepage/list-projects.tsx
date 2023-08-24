@@ -24,7 +24,6 @@ export default ({
 						alt: project.title
 							? project.title
 							: "Latest Instagram posts",
-						placeholder: "blur",
 						blurDataURL: project.image.base64
 					}}
 					title={project.title}
