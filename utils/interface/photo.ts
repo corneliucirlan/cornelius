@@ -4,6 +4,5 @@ export default interface PhotoData {
 	height: number
 	base64?: string
 	alt: string
-	placeholder: string
 	blurDataURL: string | undefined
 }

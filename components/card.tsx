@@ -62,7 +62,6 @@ export default ({
 
 	// Get image predominant colors
 	const { colors } = useImageColor(image.src, { cors: true, colors: 2 })
-
 	return (
 		<article
 			className={`opacity-0 ${classes.join(" ")} ${
@@ -75,7 +74,7 @@ export default ({
 				width={image.width}
 				height={image.height}
 				alt={image.alt}
-				placeholder={image.placeholder}
+				placeholder="blur"
 				blurDataURL={image.blurDataURL}
 				loading="lazy"
 			/>
