@@ -3,6 +3,6 @@ export default interface PhotoData {
 	width: number
 	height: number
 	base64?: string
-	alt: string
-	blurDataURL: string | undefined
+	alt?: string
+	blurDataURL?: string | undefined
 }
