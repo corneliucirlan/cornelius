@@ -73,7 +73,7 @@ export default ({
 				src={image.src}
 				width={image.width}
 				height={image.height}
-				alt={image.alt}
+				alt={image.alt ?? ""}
 				placeholder="blur"
 				blurDataURL={image.blurDataURL}
 				loading="lazy"
