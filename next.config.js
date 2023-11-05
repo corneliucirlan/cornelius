@@ -15,13 +15,5 @@ module.exports = {
 				hostname: "*.cdninstagram.com"
 			}
 		]
-	},
-
-	experimental: {
-		// App folder structure
-		appDir: true,
-
-		// Server actions
-		serverActions: true
 	}
 }

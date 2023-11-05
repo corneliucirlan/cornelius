@@ -9,7 +9,6 @@ import { Project } from "../utils/interface/project"
 import getProjects from "./get-projects"
 
 export default async () => {
-
 	// Get all projects
 	const projects: Project[] = await getProjects()
 
