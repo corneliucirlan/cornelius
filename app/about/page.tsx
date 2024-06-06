@@ -9,7 +9,7 @@ import ServicesTools from "./services-tools"
 
 export default async () => {
 	// Photo data
-	const aboutImage = await getPhotoData("/images/cc-about.png")
+	const aboutImage = await getPhotoData("/images/cc-about.jpg")
 
 	return (
 		<>
