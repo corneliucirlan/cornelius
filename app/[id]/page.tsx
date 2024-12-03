@@ -10,8 +10,12 @@ import { CaseStudy } from "../../utils/interface/case-study"
 
 import styles from "../../sass/modules/caseStudy.module.sass"
 
-export default async function Study({ params }: { params: { id: string } }) {
-	const { id } = params
+export default async function Study({
+	params
+}: {
+	params: Promise<{ id: string }>
+}) {
+	const { id } = await params
 
 	// Get current case study
 	const caseStudy: CaseStudy = projects.filter(
