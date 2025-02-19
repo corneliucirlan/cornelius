@@ -1,8 +1,9 @@
-import projectsData from "../components/data/projects"
-import { indexCopy } from "../components/data/site-copy"
-import Card from "../utils/interface/card"
-import { Project, Source } from "../utils/interface/project"
-import { getPhotoData } from "../utils/images"
+import projectsData from "@/global/data/projects"
+import { indexCopy } from "@/global/data/site-copy"
+
+import Card from "@/utils/interface/card"
+import { Project, Source } from "@/utils/interface/project"
+import { getPhotoData } from "@/utils/images"
 
 const formatPost = async (
 	data: any,

@@ -11,7 +11,7 @@ interface Description {
 }
 
 export default ({ paragraph, index, className }: Description) => {
-	const descriptionRef: RefObject<HTMLParagraphElement> = useRef(null)
+	const descriptionRef: RefObject<HTMLParagraphElement | null> = useRef(null)
 
 	return (
 		<p

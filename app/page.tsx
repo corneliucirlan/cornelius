@@ -1,12 +1,14 @@
-import Header from "../components/header"
+import Header from "@/global/components/header"
 
-import Hero from "../components/homepage/hero"
-import ListProjects from "../components/homepage/list-projects"
-import LetsWorkTogether from "../components/work-together"
-import indexStyles from "../sass/modules/index.module.sass"
+import Hero from "@/sections/home/hero"
+import ListProjects from "@/sections/home/list-projects"
+import getProjects from "@/sections/home/get-projects"
 
-import { Project } from "../utils/interface/project"
-import getProjects from "./get-projects"
+import LetsWorkTogether from "@/global/components/work-together"
+
+import indexStyles from "@/sass/modules/index.module.sass"
+
+import { Project } from "@/utils/interface/project"
 
 export default async () => {
 	// Get all projects

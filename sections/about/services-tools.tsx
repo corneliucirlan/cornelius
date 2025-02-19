@@ -2,7 +2,7 @@
 
 import { useRef, RefObject } from "react"
 import { useIsInViewport } from "../../utils/transitions"
-import { aboutCopy } from "../../components/data/site-copy"
+import { aboutCopy } from "../../global/data/site-copy"
 import styles from "../../sass/modules/about.module.sass"
 
 export default () => {

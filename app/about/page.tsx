@@ -1,11 +1,12 @@
 import Image from "next/image"
-import Header from "../../components/header"
-import { aboutCopy } from "../../components/data/site-copy"
-import LetsWorkTogether from "../../components/work-together"
-import { getPhotoData } from "../../utils/images"
+import Header from "@/global/components/header"
+import { aboutCopy } from "@/global/data/site-copy"
+import LetsWorkTogether from "@/global/components/work-together"
 
-import Experience from "./experience"
-import ServicesTools from "./services-tools"
+import { getPhotoData } from "@/utils/images"
+
+import Experience from "@/sections/about/experience"
+import ServicesTools from "@/sections/about/services-tools"
 
 export default async () => {
 	// Photo data

@@ -1,11 +1,11 @@
 "use client"
 
 import { useRef, RefObject } from "react"
-import { useIsInViewport } from "../utils/transitions"
+import { useIsInViewport } from "@/utils/transitions"
 import Button from "./button"
 
 export default () => {
-	const workRef: RefObject<HTMLElement> = useRef(null)
+	const workRef: RefObject<HTMLElement | null> = useRef(null)
 
 	return (
 		<section

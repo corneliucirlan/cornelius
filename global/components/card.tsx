@@ -4,8 +4,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { useRef, RefObject } from "react"
 import useImageColor from "use-image-color"
-import { useIsInViewport } from "../utils/transitions"
-import Card from "../utils/interface/card"
+import { useIsInViewport } from "@/utils/transitions"
+import Card from "@/utils/interface/card"
 
 /**
  * Clean a string by removing hashtags and HTML tags.
@@ -58,7 +58,7 @@ export default ({
 	source
 }: Card) => {
 	// Card ref
-	const cardRef: RefObject<HTMLElement> = useRef(null)
+	const cardRef: RefObject<HTMLElement | null> = useRef(null)
 
 	// Get image predominant colors
 	const { colors } = useImageColor(image.src, { cors: true, colors: 2 })

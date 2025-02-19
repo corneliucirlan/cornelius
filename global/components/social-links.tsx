@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { socialLinks } from "./data/menus"
+import { socialLinks } from "@/global/data/menus"
 
 export default () => {
 	return (

@@ -1,6 +1,6 @@
 "use client"
 
-import projects from "../../components/data/projects"
+import projects from "../../global/data/projects"
 import { CaseStudy } from "../../utils/interface/case-study"
 
 export default ({ params }: { params: { id: string } }) => {

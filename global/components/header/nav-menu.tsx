@@ -1,6 +1,6 @@
-import Button from "../button"
+import Button from "@/global/components/button"
 
-import NavigationMenuItem from "../../utils/interface/menu"
+import NavigationMenuItem from "@/utils/interface/menu"
 
 export default ({ menu }: { menu: Array<NavigationMenuItem> }) => (
 	<ul className="navbar-nav text-uppercase">

@@ -1,4 +1,4 @@
-import { aboutCopy } from "../../components/data/site-copy"
+import { aboutCopy } from "../../global/data/site-copy"
 import DefaultTags from "../../components/head/default-tags"
 import SocialMedia from "../../components/head/social-media"
 

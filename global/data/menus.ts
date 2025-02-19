@@ -1,5 +1,5 @@
-import { socialMediaIcons } from "./svg-icons"
 import parse from "html-react-parser"
+import { socialMediaIcons } from "./svg-icons"
 
 // Header menu
 export const headerMenu = [

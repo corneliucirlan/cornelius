@@ -1,5 +1,5 @@
-import Button from "../button"
-import { indexCopy } from "../data/site-copy"
+import Button from "@/global/components/button"
+import { indexCopy } from "@/global/data/site-copy"
 
 interface HeroSection {
 	hero: string

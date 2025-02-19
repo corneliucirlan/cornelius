@@ -1,4 +1,4 @@
-import { contactCopy } from "../components/data/site-copy"
+import { contactCopy } from "../global/data/site-copy"
 import * as Yup from "yup"
 
 export const getValidSelectValues = () => {

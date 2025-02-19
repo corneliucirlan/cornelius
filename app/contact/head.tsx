@@ -1,4 +1,4 @@
-import { contactCopy } from "../../components/data/site-copy"
+import { contactCopy } from "../../global/data/site-copy"
 import DefaultTags from "../../components/head/default-tags"
 import SocialMedia from "../../components/head/social-media"
 

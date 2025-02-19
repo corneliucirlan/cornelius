@@ -1,4 +1,4 @@
-import { CaseStudy } from "../../utils/interface/case-study"
+import { CaseStudy } from "@/utils/interface/case-study"
 
 export default <CaseStudy[]>[
 	// Uncover Romania

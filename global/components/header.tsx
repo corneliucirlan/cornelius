@@ -1,12 +1,12 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import Link from "next/link"
 
-import { Logo } from "./data/svg-icons"
-import NavMenu from "./header/nav-menu"
+import { Logo } from "@/global/data/svg-icons"
 
-import { headerMenu } from "./data/menus"
-import { useEffect, useState } from "react"
+import NavMenu from "@/global/components/header/nav-menu"
+import { headerMenu } from "@/global/data/menus"
 
 export default () => {
 	const [mobileMenu, setMobileMenu] = useState(false)

@@ -1,5 +1,5 @@
-import Card from "../../utils/interface/card"
-import CardComponent from "../card"
+import Card from "@/utils/interface/card"
+import CardComponent from "@/global/components/card"
 import SectionHeader from "./section-header"
 
 export default ({

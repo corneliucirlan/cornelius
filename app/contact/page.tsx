@@ -3,29 +3,31 @@
 import { useState, useRef, RefObject } from "react"
 import parse from "html-react-parser"
 import Select, { ActionMeta, MultiValue, SingleValue } from "react-select"
-import Header from "../../components/header"
-import Button from "../../components/button"
-import { useIsInViewport } from "../../utils/transitions"
-import { contactCopy } from "../../components/data/site-copy"
-import { selectStyles } from "../../utils/select-styles"
+import { useFormik } from "formik"
+
+import Header from "@/global/components/header"
+import Button from "@/global/components/button"
+import { contactCopy } from "@/global/data/site-copy"
+
+import { validationSchema } from "@/utils/input-validate"
+import { FormData, FormDataSelect } from "@/utils/interface/form"
+import SubmitState from "@/utils/interface/submit-state"
+import { useIsInViewport } from "@/utils/transitions"
+import { selectStyles } from "@/utils/select-styles"
 import {
 	buttonIsSending,
 	buttonSuccess,
 	buttonError,
 	buttonDefault
-} from "../../utils/button-states"
-import { useFormik } from "formik"
-import { validationSchema } from "../../utils/input-validate"
-import sendMail from "./send-mail"
+} from "@/utils/button-states"
 
-import { FormData, FormDataSelect } from "../../utils/interface/form"
-import SubmitState from "../../utils/interface/submit-state"
+import sendMail from "@/sections/contact/send-mail"
 
-import styles from "../../sass/modules/contact.module.sass"
+import styles from "@/sass/modules/contact.module.sass"
 
 export default () => {
-	const contactRef: RefObject<HTMLElement> = useRef(null)
-	const contactFormRef: RefObject<HTMLElement> = useRef(null)
+	const contactRef: RefObject<HTMLElement | null> = useRef(null)
+	const contactFormRef: RefObject<HTMLElement | null> = useRef(null)
 
 	// Submit form button state
 	const [submitButton, setSubmitButton] = useState({

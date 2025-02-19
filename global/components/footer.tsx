@@ -1,6 +1,6 @@
 import NavMenu from "./header/nav-menu"
 import Button from "./button"
-import { footerMenu } from "./data/menus"
+import { footerMenu } from "@/global/data/menus"
 import SocialLinks from "./social-links"
 
 export default () => (
@@ -32,7 +32,7 @@ export default () => (
 			</section>
 
 			<section className="col-12 col-md-3 offset-md-1">
-				<h2>Connect with me on socials</h2>
+				<h2>Connect with me</h2>
 				<SocialLinks />
 			</section>
 		</footer>

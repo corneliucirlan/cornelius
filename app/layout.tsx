@@ -1,9 +1,9 @@
-import Footer from "../components/footer"
-// import Header from "../components/header"
-import SideContact from "../components/side-contact"
-import ScrollTop from "../components/scroll-top"
+import Header from "@/global/components/header"
+import Footer from "@/global/components/footer"
+import SideContact from "@/global/components/side-contact"
+import ScrollTop from "@/global//components/scroll-top"
 
-import "../sass/styles.sass"
+import "@/sass/styles.sass"
 
 // Import local fonts
 import localFonts from "next/font/local"

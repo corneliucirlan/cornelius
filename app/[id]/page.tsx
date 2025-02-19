@@ -1,23 +1,28 @@
-import projects from "../../components/data/projects"
-import Button from "../../components/button"
-import Header from "../../components/header"
-import Detail from "./detail"
-import Description from "./description"
-import Photo from "./photo"
 import Loading from "./loading"
 
-import { CaseStudy } from "../../utils/interface/case-study"
+import projects from "@/global/data/projects"
+import Button from "@/global/components/button"
+import Header from "@/global/components/header"
 
-import styles from "../../sass/modules/caseStudy.module.sass"
+import Detail from "@/sections/study/detail"
+import Description from "@/sections/study/description"
+import Photo from "@/sections/study/photo"
 
-export default async function Study({ params }: { params: { id: string } }) {
-	const { id } = params
+import { CaseStudy } from "@/utils/interface/case-study"
+
+import styles from "@/sass/modules/caseStudy.module.sass"
+
+export default async function Study({
+	params
+}: {
+	params: Promise<{ id: string }>
+}) {
+	const { id } = await params
 
 	// Get current case study
 	const caseStudy: CaseStudy = projects.filter(
 		project => project.id === id
 	)[0]
-	// const caseStudy: CaseStudy | undefined = undefined
 
 	// Check if case study exists
 	if (typeof caseStudy === "undefined") return <Loading />

@@ -1,11 +1,12 @@
 "use client"
 
-import Link from "next/link"
 import { useRef, RefObject } from "react"
-import { useIsInViewport } from "../utils/transitions"
-import { Envelope } from "./data/svg-icons"
+import Link from "next/link"
 
-import ButtonProps from "../utils/interface/button"
+import { Envelope } from "@/global/data/svg-icons"
+
+import { useIsInViewport } from "@/utils/transitions"
+import ButtonProps from "@/utils/interface/button"
 
 export default ({
 	href,
@@ -16,7 +17,7 @@ export default ({
 	isFaded = false,
 	delay
 }: ButtonProps) => {
-	const linkRef: RefObject<HTMLAnchorElement> = useRef(null)
+	const linkRef: RefObject<HTMLAnchorElement | null> = useRef(null)
 
 	return (
 		<Link
