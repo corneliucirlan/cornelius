@@ -1,6 +1,6 @@
-import { indexCopy } from "../global/data/site-copy"
-import DefaultTags from "../components/head/default-tags"
-import SocialMedia from "../components/head/social-media"
+import { indexCopy } from "@/global/data/site-copy"
+import DefaultTags from "@/global/components/head/default-tags"
+import SocialMedia from "@/global/components/head/social-media"
 
 export default function Head() {
 	return (

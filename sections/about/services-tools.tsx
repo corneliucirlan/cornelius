@@ -1,13 +1,13 @@
 "use client"
 
 import { useRef, RefObject } from "react"
-import { useIsInViewport } from "../../utils/transitions"
-import { aboutCopy } from "../../global/data/site-copy"
-import styles from "../../sass/modules/about.module.sass"
+import { useIsInViewport } from "@/utils/transitions"
+import { aboutCopy } from "@/global/data/site-copy"
+import styles from "@/sass/modules/about.module.sass"
 
 export default () => {
-	const servicesRef: RefObject<HTMLDivElement> = useRef(null)
-	const toolsRef: RefObject<HTMLDivElement> = useRef(null)
+	const servicesRef: RefObject<HTMLDivElement | null> = useRef(null)
+	const toolsRef: RefObject<HTMLDivElement | null> = useRef(null)
 
 	return (
 		<section className="row">

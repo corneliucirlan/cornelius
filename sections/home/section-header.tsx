@@ -1,10 +1,10 @@
 "use client"
 
 import { useRef, RefObject } from "react"
-import { useIsInViewport } from "../../utils/transitions"
+import { useIsInViewport } from "@/utils/transitions"
 
 export default ({ kicker, heading }: { kicker: string; heading: string }) => {
-	const headerRef: RefObject<HTMLElement> = useRef(null)
+	const headerRef: RefObject<HTMLElement | null> = useRef(null)
 
 	return (
 		<header

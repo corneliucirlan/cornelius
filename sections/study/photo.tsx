@@ -3,7 +3,7 @@
 import { useRef, RefObject } from "react"
 import Image from "next/image"
 
-import { useIsInViewport } from "../../utils/transitions"
+import { useIsInViewport } from "@/utils/transitions"
 
 interface Image {
 	id: string
@@ -13,7 +13,7 @@ interface Image {
 }
 
 export default ({ id, image, containerClasses }: Image) => {
-	const photoRef: RefObject<HTMLDivElement> = useRef(null)
+	const photoRef: RefObject<HTMLDivElement | null> = useRef(null)
 	return (
 		<div
 			className={`opacity-0 ${containerClasses} ${

@@ -1,4 +1,4 @@
-import Metadata from "../../utils/interface/metadata"
+import Metadata from "@/utils/interface/metadata"
 
 export default ({
 	ogUrl,

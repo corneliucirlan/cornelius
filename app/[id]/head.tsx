@@ -1,7 +1,7 @@
 "use client"
 
-import projects from "../../global/data/projects"
-import { CaseStudy } from "../../utils/interface/case-study"
+import projects from "@/global/data/projects"
+import { CaseStudy } from "@/utils/interface/case-study"
 
 export default ({ params }: { params: { id: string } }) => {
 	const { id } = params

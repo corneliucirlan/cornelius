@@ -2,7 +2,7 @@
 
 import { useRef, RefObject } from "react"
 
-import { useIsInViewport } from "../../utils/transitions"
+import { useIsInViewport } from "@/utils/transitions"
 
 interface Description {
 	paragraph: string

@@ -1,9 +1,9 @@
 "use client"
 
 import { useRef, RefObject } from "react"
-import { useIsInViewport } from "../../utils/transitions"
-import { aboutCopy } from "../../global/data/site-copy"
-import styles from "../../sass/modules/about.module.sass"
+import { useIsInViewport } from "@/utils/transitions"
+import { aboutCopy } from "@/global/data/site-copy"
+import styles from "@/sass/modules/about.module.sass"
 
 export default () => {
 	const experienceRef: RefObject<HTMLDivElement | null> = useRef(null)
